@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008C44</color>
+    <color name="colorPrimaryDark">#008C44</color>
+    <color name="colorAccent">#282828</color>
+
+    <color name="colorColonialWhite">#FFFFEDBD</color>
+    <color name="colorGray">#AAAAAA</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlue">#04A6B8</color>
+    <color name="colorRed">#E74450</color>
+    <color name="colorDarkGrey">#7386A2</color>
+    <color name="colorDarkBlue">#2C4999</color>
+    <color name="colorViolet">#7A69B5</color>
+    <color name="colorDarkYellow">#FFB100</color>
+    <color name="colorDarkBrown">#CA6818</color>
+    <color name="colorBackGroundHome">#121212</color>
+
+    <color name="colorGreyText">#A5A5A5</color>
+    <color name="colorUnselectedDot">#4DFFFFFF</color>
+    <color name="colorJobInterviewerBorder">#CACACA</color>
+
+    <color name="colorTextPrimary">#FFFFFF</color>
+    <color name="colorTextHint">#A5A5A5</color>
+    <color name="colorWhiteNight">#111112</color>
+</resources>

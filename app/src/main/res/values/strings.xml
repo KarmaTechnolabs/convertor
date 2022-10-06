@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Convertor</string>
+
+
+    <string name="str_no">No</string>
+    <string name="str_yes">Yes</string>
+    <string name="no_network_available">No network available</string>
+    <string name="push_notification_channel_title">Push Notification about Jeewan Jyoti</string>
+
+    <string name="need_permission">Need permission</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">Ok</string>
+    <string name="this_app_requires_camera_permission_to_continue">This app requires Camera permission to access some features</string>
+    <string name="go_to_settings">Go to Settings</string>
+    <string name="allow_permission_to_use_this_feature">Allow permission to use this feature</string>
+    <string name="get_started">Get Started!</string>
+    <string name="view_indicator">View Indicator</string>
+</resources>

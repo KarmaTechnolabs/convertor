@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "347009259867",
+    "firebase_url": "https://jeewan-jyoti.firebaseio.com",
+    "project_id": "jeewan-jyoti",
+    "storage_bucket": "jeewan-jyoti.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:347009259867:android:b46f29fbb0a89da2b3627e",
+        "android_client_info": {
+          "package_name": "karma.convertor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "347009259867-cef7hpb0sd4uipu7ghonnlhvh67ui3sq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHRqHqfk8MoF7CpqRleYQYndMP7grDGSI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "347009259867-cef7hpb0sd4uipu7ghonnlhvh67ui3sq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

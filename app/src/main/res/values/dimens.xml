@@ -1,0 +1,45 @@
+<resources>
+
+    <integer name="max_name_length">30</integer>
+    <integer name="max_email_length">50</integer>
+    <integer name="max_password">16</integer>
+    <integer name="max_number">15</integer>
+    <integer name="max_name">30</integer>
+    <integer name="max_zip">8</integer>
+
+    <dimen name="activity_horizontal_padding">@dimen/_16sdp</dimen>
+    <dimen name="fragment_horizontal_padding">@dimen/_16sdp</dimen>
+    <dimen name="corner_border_radius_normal">@dimen/normal_size</dimen>
+    <dimen name="detail_image_height">@dimen/_250sdp</dimen>
+    <dimen name="back_margin_for_full_screen">24dp</dimen>
+
+    <!-- Common padding or margin size -->
+    <dimen name="tiny_size">@dimen/_2sdp</dimen>
+    <dimen name="mini_size">@dimen/_4sdp</dimen>
+    <dimen name="small_size">@dimen/_6sdp</dimen>
+    <dimen name="normal_size">@dimen/_8sdp</dimen>
+    <dimen name="medium_size">@dimen/_12sdp</dimen>
+    <dimen name="mediator_size">@dimen/_14sdp</dimen>
+    <dimen name="regular_size">@dimen/_16sdp</dimen>
+    <dimen name="large_size">@dimen/_18sdp</dimen>
+    <dimen name="huge_size">@dimen/_22sdp</dimen>
+
+    <!-- Common Text Size -->
+    <dimen name="text_size_tiny">@dimen/_6ssp</dimen>
+    <dimen name="text_size_mini">@dimen/_8ssp</dimen>
+    <dimen name="text_size_small">@dimen/_10ssp</dimen>
+    <dimen name="text_size_normal">@dimen/_12ssp</dimen>
+    <dimen name="text_size_medium">@dimen/_14ssp</dimen>
+    <dimen name="text_size_large">@dimen/_16ssp</dimen>
+    <dimen name="text_size_huge">@dimen/_18ssp</dimen>
+    <dimen name="text_size_extra_huge">@dimen/_20ssp</dimen>
+
+    <!--Common Margins-->
+    <dimen name="margin_size_small">@dimen/_8sdp</dimen>
+    <dimen name="margin_size_normal">@dimen/_16sdp</dimen>
+    <dimen name="margin_size_medium">@dimen/_24sdp</dimen>
+    <dimen name="margin_size_big">@dimen/_32sdp</dimen>
+    <dimen name="margin_size_large">@dimen/_40sdp</dimen>
+    <dimen name="fast_scroll_overlay_text_size">100dp</dimen>
+
+</resources>

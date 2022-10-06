@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- START xml_defaults -->
+<defaultsMap>
+    <entry>
+        <key>cameraX_enabled</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>carwash_search_variant_value</key>
+        <value>0</value>
+    </entry>
+    <entry>
+        <key>show_slide_checkout_button</key>
+        <value>false</value>
+    </entry>
+</defaultsMap>
+    <!-- END xml_defaults -->

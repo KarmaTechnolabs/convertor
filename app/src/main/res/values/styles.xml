@@ -1,0 +1,133 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="BaseAppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:autofilledHighlight">@android:color/transparent</item>
+    </style>
+
+    <style name="AppTheme" parent="BaseAppTheme" />
+
+    <style name="TextViewPrimaryStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorTextPrimary</item>
+        <item name="android:textSize">@dimen/text_size_normal</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="fontFamily">@font/gotham_medium</item>
+        <item name="android:fontFamily">@font/gotham_medium</item>
+    </style>
+
+    <style name="TextViewPrimaryMediumStyle" parent="TextViewPrimaryStyle">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+    </style>
+
+    <style name="TextViewPrimarySmallStyle" parent="TextViewPrimaryStyle">
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+
+    <style name="TextViewPrimaryLargeStyle" parent="TextViewPrimaryStyle">
+        <item name="android:textSize">@dimen/text_size_large</item>
+    </style>
+
+    <style name="TextViewPrimaryHugeStyle" parent="TextViewPrimaryStyle">
+        <item name="android:textSize">@dimen/text_size_huge</item>
+    </style>
+
+    <style name="TextViewPrimaryHugeStyleHeader">
+        <item name="android:textSize">@dimen/text_size_extra_huge</item>
+        <item name="fontFamily">@font/gotham_bold</item>
+        <item name="android:fontFamily">@font/gotham_bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorTextPrimary</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="TextViewPrimaryMediumStyleHeader" parent="TextViewPrimaryHugeStyleHeader">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:gravity">start</item>
+        <item name="android:layout_marginTop">@dimen/medium_size</item>
+        <item name="android:layout_marginBottom">@dimen/medium_size</item>
+    </style>
+
+    <style name="MoreTextViewStyle" parent="TextViewPrimaryHugeStyleHeader">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:gravity">start</item>
+        <item name="fontFamily">@font/gotham_book</item>
+        <item name="android:fontFamily">@font/gotham_book</item>
+        <item name="android:paddingTop">@dimen/medium_size</item>
+        <item name="android:paddingBottom">@dimen/medium_size</item>
+    </style>
+
+    <style name="InputTextLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="boxStrokeWidth">2dp</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/corner_border_radius_normal</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/corner_border_radius_normal</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/corner_border_radius_normal</item>
+        <item name="boxCornerRadiusTopStart">@dimen/corner_border_radius_normal</item>
+        <item name="hintTextAppearance">@style/HintTextAppearance</item>
+    </style>
+
+    <style name="HintTextAppearance">
+        <item name="android:textSize">@dimen/text_size_mini</item>
+        <item name="fontFamily">@font/gotham_medium</item>
+        <item name="android:fontFamily">@font/gotham_medium</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="TextInputEditBoxStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/_40sdp</item>
+        <item name="fontFamily">@font/gotham_medium</item>
+        <item name="android:fontFamily">@font/gotham_medium</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">@color/colorTextPrimary</item>
+        <item name="android:paddingTop">@dimen/mini_size</item>
+        <item name="android:paddingBottom">@dimen/mini_size</item>
+    </style>
+
+    <style name="LoginButtonStyle" parent="TextViewPrimaryMediumStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/_45sdp</item>
+        <item name="android:layout_marginTop">@dimen/large_size</item>
+        <item name="android:layout_marginBottom">@dimen/tiny_size</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="backgroundTint">@color/colorGreen</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="cornerRadius">@dimen/large_size</item>
+        <item name="fontFamily">@font/gotham_bold</item>
+        <item name="android:fontFamily">@font/gotham_bold</item>
+    </style>
+
+    <style name="PrimaryColorButton" parent="LoginButtonStyle">
+        <item name="backgroundTint">@color/colorPrimary</item>
+    </style>
+
+    <style name="BottomNavigationSelectedText">
+        <item name="fontFamily">@font/gotham_bold</item>
+        <item name="android:fontFamily">@font/gotham_bold</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="BottomNavigationUnSelectedText">
+        <item name="fontFamily">@font/gotham_medium</item>
+        <item name="android:fontFamily">@font/gotham_medium</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="dialog_animation_fade">
+        <item name="android:windowEnterAnimation">@anim/anim_in</item>
+        <item name="android:windowExitAnimation">@anim/anim_out</item>
+    </style>
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+    </style>
+</resources>
