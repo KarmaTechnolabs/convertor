@@ -15,4 +15,15 @@
     <string name="allow_permission_to_use_this_feature">Allow permission to use this feature</string>
     <string name="get_started">Get Started!</string>
     <string name="view_indicator">View Indicator</string>
+
+    <string name="selected_item">Selected item:</string>
+
+    <string-array name="Languages">
+        <item>KiloGram</item>
+        <item>Gram</item>
+        <item>MiliGram</item>
+        <item>MicroGram</item>
+        <item>NanoGram</item>
+        <item>PicoGram</item>
+    </string-array>
 </resources>
