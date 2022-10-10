@@ -17,6 +17,8 @@
         android:background="@color/colorWhite"
         tools:context=".ui.fragments.GridView">
 
+
+
         <GridView
             android:id="@+id/gridview"
             android:layout_width="match_parent"

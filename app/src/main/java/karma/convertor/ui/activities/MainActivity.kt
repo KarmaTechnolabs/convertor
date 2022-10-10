@@ -18,9 +18,10 @@ import karma.convertor.api.requestmodel.UnititemModel
 import karma.convertor.base.BaseActivity
 import karma.convertor.databinding.ActivityMainBinding
 import karma.convertor.listeners.ItemClickListener
+import kotlinx.android.synthetic.main.activity_main.view.*
 
 
- class MainActivity : BaseActivity(), View.OnClickListener,
+class MainActivity : BaseActivity(), View.OnClickListener,
     ItemClickListener<UnititemModel> {
     private lateinit var analytics: FirebaseAnalytics
     private lateinit var binding: ActivityMainBinding
@@ -29,6 +30,8 @@ import karma.convertor.listeners.ItemClickListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
 
         val manager = FlexboxLayoutManager(this, FlexDirection.ROW)
         manager.justifyContent = JustifyContent.CENTER
@@ -45,6 +48,7 @@ import karma.convertor.listeners.ItemClickListener
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         binding.clickListener = this
 

@@ -41,7 +41,7 @@
             android:name=".ui.activities.MainActivity"
             android:exported="false"
             android:label="main"
-            android:theme="@style/Theme.AppCompat.DayNight" />
+           />
         <activity
             android:name=".ui.activities.WebActivity"
             android:screenOrientation="portrait"
