@@ -42,6 +42,7 @@
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/input_value"
         android:hint="0"
+        android:layout_marginStart="@dimen/_5sdp"
         android:inputType="numberDecimal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,176 +51,190 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/pound"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_15sdp"
-        android:background="@drawable/round"
-        android:padding="@dimen/_10sdp"
-        android:drawableStart="@drawable/lbs"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:textAlignment="textStart"
         android:text="Pound:"
         android:textSize = "20dp"
+        app:layout_constraintEnd_toStartOf="@id/tv_unit_pound"
         app:layout_constraintTop_toBottomOf="@id/from"
         app:layout_constraintStart_toStartOf="parent"/>
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:id="@+id/tv_unit_pound"
-        android:padding="@dimen/_10sdp"
         android:hint="@string/app_name"
-        android:background="@drawable/round"
+
         app:layout_constraintStart_toEndOf="@id/pound"
         app:layout_constraintTop_toTopOf="@id/pound"
-
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/pound"/>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/kilo"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:drawableStart="@drawable/kg"
-        android:padding="@dimen/_10sdp"
         android:text="KiloGram:"
-        android:background="@drawable/round"
         android:textSize = "20dp"
+        android:layout_marginStart="@dimen/_5sdp"
         android:layout_marginTop="@dimen/_15sdp"
+        app:layout_constraintEnd_toStartOf="@id/tv_unit_kilo"
         app:layout_constraintTop_toBottomOf="@id/pound"
         app:layout_constraintStart_toStartOf="parent"/>
 
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:id="@+id/tv_unit_kilo"
-        android:padding="@dimen/_10sdp"
-
-        android:background="@drawable/round"
         android:hint="@string/app_name"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/kilo"
         app:layout_constraintTop_toTopOf="@id/kilo"
         app:layout_constraintBottom_toBottomOf="@id/kilo"/>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/Gram"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Gram:"
         android:textSize = "20dp"
         android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginStart="@dimen/_5sdp"
+        app:layout_constraintEnd_toStartOf="@id/tv_unit_gram"
         app:layout_constraintTop_toBottomOf="@id/kilo"
         app:layout_constraintStart_toStartOf="parent"/>
 
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:id="@+id/tv_unit_gram"
         android:hint="@string/app_name"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/Gram"
-        app:layout_constraintTop_toTopOf="@id/Gram"
         app:layout_constraintBottom_toBottomOf="@id/Gram"/>
 
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/miligram"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="MIliGram:"
         android:textSize = "20dp"
+
         android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginStart="@dimen/_5sdp"
+        app:layout_constraintEnd_toStartOf="@id/tv_unit_miligram"
         app:layout_constraintTop_toBottomOf="@id/Gram"
         app:layout_constraintStart_toStartOf="parent"/>
 
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:id="@+id/tv_unit_miligram"
         android:hint="@string/app_name"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/miligram"
-        app:layout_constraintTop_toTopOf="@id/miligram"
+
         app:layout_constraintBottom_toBottomOf="@id/miligram"/>
 
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/microgram"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="MicroGram:"
         android:textSize = "20dp"
+        android:layout_marginStart="@dimen/_5sdp"
         android:layout_marginTop="@dimen/_15sdp"
+        app:layout_constraintEnd_toStartOf="@id/tv_unit_microgram"
         app:layout_constraintTop_toBottomOf="@id/miligram"
         app:layout_constraintStart_toStartOf="parent"/>
 
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:id="@+id/tv_unit_microgram"
         android:hint="@string/app_name"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/microgram"
-        app:layout_constraintTop_toTopOf="@id/microgram"
+
         app:layout_constraintBottom_toBottomOf="@id/microgram"/>
 
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/nanogram"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="NanoGram:"
         android:textSize = "20dp"
         android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginStart="@dimen/_5sdp"
+        app:layout_constraintEnd_toStartOf="@id/tv_unit_nanogram"
         app:layout_constraintTop_toBottomOf="@id/microgram"
         app:layout_constraintStart_toStartOf="parent"/>
 
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:id="@+id/tv_unit_nanogram"
         android:hint="@string/app_name"
+
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/nanogram"
-        app:layout_constraintTop_toTopOf="@id/nanogram"
+
         app:layout_constraintBottom_toBottomOf="@id/nanogram"/>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/picogram"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="PicoGram:"
         android:textSize = "20dp"
+        android:layout_marginStart="@dimen/_5sdp"
         android:layout_marginTop="@dimen/_15sdp"
+        app:layout_constraintEnd_toStartOf="@id/tv_unit_picogram"
         app:layout_constraintTop_toBottomOf="@id/nanogram"
         app:layout_constraintStart_toStartOf="parent"/>
 
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:id="@+id/tv_unit_picogram"
         android:hint="@string/app_name"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/picogram"
-        app:layout_constraintTop_toTopOf="@id/picogram"
+
         app:layout_constraintBottom_toBottomOf="@id/picogram"/>
 
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/Tola"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Tola:"
         android:textSize = "20dp"
+        android:layout_marginStart="@dimen/_5sdp"
         android:layout_marginTop="@dimen/_15sdp"
+        app:layout_constraintEnd_toStartOf="@id/tv_unit_tola"
         app:layout_constraintTop_toBottomOf="@id/picogram"
         app:layout_constraintStart_toStartOf="parent"/>
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
         android:id="@+id/tv_unit_tola"
         android:hint="@string/app_name"
         app:layout_constraintStart_toEndOf="@id/Tola"
-        app:layout_constraintTop_toTopOf="@id/Tola"
         app:layout_constraintBottom_toBottomOf="@id/Tola"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -116,18 +116,18 @@ if(id==0L) {
     })
 
 
-}else if(id==5L){
+}else if(id==1L){
     val num1 = binding.inputValue.text.toString()
     if (num1.isNotBlank()) {
         val num2 = binding.inputValue.text.toString().trim().toDouble()
-        binding.tvUnitPound.text = (num2 / .45).toString()
+        binding.tvUnitPound.text = (num2 / .453).toString()
         binding.tvUnitKilo.text = (num2 * 1).toString()
         binding.tvUnitGram.text = (num2 * 1000).toString()
         binding.tvUnitMiligram.text = (num2 * 10000).toString()
-        binding.tvUnitMicrogram.text = (num2 * 1).toString()
-        binding.tvUnitNanogram.text = (num2 * 1000).toString()
-        binding.tvUnitPicogram.text = (num2 * 10000).toString()
-        binding.tvUnitTola.text = (num2 * 10000).toString()
+        binding.tvUnitMicrogram.text = (num2 * 100000).toString()
+        binding.tvUnitNanogram.text = (num2 * 1000000).toString()
+        binding.tvUnitPicogram.text = (num2 * 10000000).toString()
+        binding.tvUnitTola.text = (num2 * 85.735).toString()
     } else {
         binding.tvUnitPound.text = ""
         binding.tvUnitKilo.text = ""
@@ -157,14 +157,14 @@ if(id==0L) {
         val num1 = binding.inputValue.text.toString()
         if (num1.isNotBlank()) {
             val num2 = binding.inputValue.text.toString().trim().toDouble()
-            binding.tvUnitPound.text = (num2 / 10).toString()
+            binding.tvUnitPound.text = (num2 / .453).toString()
             binding.tvUnitKilo.text = (num2 * 1).toString()
             binding.tvUnitGram.text = (num2 * 1000).toString()
             binding.tvUnitMiligram.text = (num2 * 10000).toString()
-            binding.tvUnitMicrogram.text = (num2 * 1).toString()
-            binding.tvUnitNanogram.text = (num2 * 1000).toString()
-            binding.tvUnitPicogram.text = (num2 * 10000).toString()
-            binding.tvUnitTola.text = (num2 * 10000).toString()
+            binding.tvUnitMicrogram.text = (num2 * 100000).toString()
+            binding.tvUnitNanogram.text = (num2 * 1000000).toString()
+            binding.tvUnitPicogram.text = (num2 * 10000000).toString()
+            binding.tvUnitTola.text = (num2 * 85.735).toString()
         } else {
             binding.tvUnitPound.text = ""
             binding.tvUnitKilo.text = ""
@@ -181,8 +181,416 @@ if(id==0L) {
     }
 
 })
-}
+}else if(id==2L) {
 
+
+    val num1 = binding.inputValue.text.toString()
+    if (num1.isNotBlank()) {
+        val num2 = binding.inputValue.text.toString().trim().toDouble()
+        binding.tvUnitPound.text = (num2 * 0.00220462).toString()
+        binding.tvUnitKilo.text = (num2 * 0.001).toString()
+        binding.tvUnitGram.text = (num2 * 1).toString()
+        binding.tvUnitMiligram.text = (num2 * 1000).toString()
+        binding.tvUnitMicrogram.text = (num2 * 10000).toString()
+        binding.tvUnitNanogram.text = (num2 * 100000).toString()
+        binding.tvUnitPicogram.text = (num2 * 1000000).toString()
+        binding.tvUnitTola.text = (num2 / 11.6638038).toString()
+    } else {
+        binding.tvUnitPound.text = ""
+        binding.tvUnitKilo.text = ""
+        binding.tvUnitGram.text = ""
+        binding.tvUnitMiligram.text = ""
+        binding.tvUnitMicrogram.text = ""
+        binding.tvUnitNanogram.text = ""
+        binding.tvUnitPicogram.text = ""
+        binding.tvUnitTola.text = ""
+
+    }
+    binding.inputValue.addTextChangedListener(object : TextWatcher {
+
+        override fun afterTextChanged(s: Editable) {}
+
+        override fun beforeTextChanged(
+            s: CharSequence, start: Int,
+            count: Int, after: Int
+        ) {
+        }
+
+        override fun onTextChanged(
+            s: CharSequence, start: Int,
+            before: Int, count: Int
+        ) {
+
+            val num1 = binding.inputValue.text.toString()
+            if (num1.isNotBlank()) {
+                val num2 = binding.inputValue.text.toString().trim().toDouble()
+                binding.tvUnitPound.text = (num2 * 0.00220462).toString()
+                binding.tvUnitKilo.text = (num2 * 0.001).toString()
+                binding.tvUnitGram.text = (num2 * 1).toString()
+                binding.tvUnitMiligram.text = (num2 * 1000).toString()
+                binding.tvUnitMicrogram.text = (num2 * 10000).toString()
+                binding.tvUnitNanogram.text = (num2 * 100000).toString()
+                binding.tvUnitPicogram.text = (num2 * 1000000).toString()
+                binding.tvUnitTola.text = (num2 / 11.6638038).toString()
+            } else {
+                binding.tvUnitPound.text = ""
+                binding.tvUnitKilo.text = ""
+                binding.tvUnitGram.text = ""
+                binding.tvUnitMiligram.text = ""
+                binding.tvUnitMicrogram.text = ""
+                binding.tvUnitNanogram.text = ""
+                binding.tvUnitPicogram.text = ""
+                binding.tvUnitTola.text = ""
+
+            }
+
+
+        }
+
+    })
+
+}else if(id==3L){
+    val num1 = binding.inputValue.text.toString()
+    if (num1.isNotBlank()) {
+        val num2 = binding.inputValue.text.toString().trim().toDouble()
+        binding.tvUnitPound.text = (num2 /453592).toString()
+        binding.tvUnitKilo.text = (num2 /1000000).toString()
+        binding.tvUnitGram.text = (num2 / 1000).toString()
+        binding.tvUnitMiligram.text = (num2 * 1).toString()
+        binding.tvUnitMicrogram.text = (num2 * 10000).toString()
+        binding.tvUnitNanogram.text = (num2 * 100000).toString()
+        binding.tvUnitPicogram.text = (num2 * 1000000).toString()
+        binding.tvUnitTola.text = (num2 / 11.6638038).toString()
+    } else {
+        binding.tvUnitPound.text = ""
+        binding.tvUnitKilo.text = ""
+        binding.tvUnitGram.text = ""
+        binding.tvUnitMiligram.text = ""
+        binding.tvUnitMicrogram.text = ""
+        binding.tvUnitNanogram.text = ""
+        binding.tvUnitPicogram.text = ""
+        binding.tvUnitTola.text = ""
+
+    }
+    binding.inputValue.addTextChangedListener(object : TextWatcher {
+
+        override fun afterTextChanged(s: Editable) {}
+
+        override fun beforeTextChanged(
+            s: CharSequence, start: Int,
+            count: Int, after: Int
+        ) {
+        }
+
+        override fun onTextChanged(
+            s: CharSequence, start: Int,
+            before: Int, count: Int
+        ) {
+
+            val num1 = binding.inputValue.text.toString()
+            if (num1.isNotBlank()) {
+                val num2 = binding.inputValue.text.toString().trim().toDouble()
+                binding.tvUnitPound.text = (num2 / 453592).toString()
+                binding.tvUnitKilo.text = (num2 * 0.001).toString()
+                binding.tvUnitGram.text = (num2 * 1).toString()
+                binding.tvUnitMiligram.text = (num2 * 1000).toString()
+                binding.tvUnitMicrogram.text = (num2 * 10000).toString()
+                binding.tvUnitNanogram.text = (num2 * 100000).toString()
+                binding.tvUnitPicogram.text = (num2 * 1000000).toString()
+                binding.tvUnitTola.text = (num2 / 11.6638038).toString()
+            } else {
+                binding.tvUnitPound.text = ""
+                binding.tvUnitKilo.text = ""
+                binding.tvUnitGram.text = ""
+                binding.tvUnitMiligram.text = ""
+                binding.tvUnitMicrogram.text = ""
+                binding.tvUnitNanogram.text = ""
+                binding.tvUnitPicogram.text = ""
+                binding.tvUnitTola.text = ""
+
+            }
+
+
+        }
+
+    })
+
+
+
+
+
+
+
+
+} else if(id==4L){
+
+    val num1 = binding.inputValue.text.toString()
+    if (num1.isNotBlank()) {
+        val num2 = binding.inputValue.text.toString().trim().toDouble()
+        binding.tvUnitPound.text = (num2 * 0.00220462).toString()
+        binding.tvUnitKilo.text = (num2 * 0.001).toString()
+        binding.tvUnitGram.text = (num2 * 1).toString()
+        binding.tvUnitMiligram.text = (num2 * 1000).toString()
+        binding.tvUnitMicrogram.text = (num2 * 10000).toString()
+        binding.tvUnitNanogram.text = (num2 * 100000).toString()
+        binding.tvUnitPicogram.text = (num2 * 1000000).toString()
+        binding.tvUnitTola.text = (num2 / 11.6638038).toString()
+    } else {
+        binding.tvUnitPound.text = ""
+        binding.tvUnitKilo.text = ""
+        binding.tvUnitGram.text = ""
+        binding.tvUnitMiligram.text = ""
+        binding.tvUnitMicrogram.text = ""
+        binding.tvUnitNanogram.text = ""
+        binding.tvUnitPicogram.text = ""
+        binding.tvUnitTola.text = ""
+
+    }
+    binding.inputValue.addTextChangedListener(object : TextWatcher {
+
+        override fun afterTextChanged(s: Editable) {}
+
+        override fun beforeTextChanged(
+            s: CharSequence, start: Int,
+            count: Int, after: Int
+        ) {
+        }
+
+        override fun onTextChanged(
+            s: CharSequence, start: Int,
+            before: Int, count: Int
+        ) {
+
+            val num1 = binding.inputValue.text.toString()
+            if (num1.isNotBlank()) {
+                val num2 = binding.inputValue.text.toString().trim().toDouble()
+                binding.tvUnitPound.text = (num2 * 0.00220462).toString()
+                binding.tvUnitKilo.text = (num2 * 0.001).toString()
+                binding.tvUnitGram.text = (num2 * 1).toString()
+                binding.tvUnitMiligram.text = (num2 * 1000).toString()
+                binding.tvUnitMicrogram.text = (num2 * 10000).toString()
+                binding.tvUnitNanogram.text = (num2 * 100000).toString()
+                binding.tvUnitPicogram.text = (num2 * 1000000).toString()
+                binding.tvUnitTola.text = (num2 / 11.6638038).toString()
+            } else {
+                binding.tvUnitPound.text = ""
+                binding.tvUnitKilo.text = ""
+                binding.tvUnitGram.text = ""
+                binding.tvUnitMiligram.text = ""
+                binding.tvUnitMicrogram.text = ""
+                binding.tvUnitNanogram.text = ""
+                binding.tvUnitPicogram.text = ""
+                binding.tvUnitTola.text = ""
+
+            }
+
+
+        }
+
+    })
+
+}else if(id==5L){
+
+    val num1 = binding.inputValue.text.toString()
+    if (num1.isNotBlank()) {
+        val num2 = binding.inputValue.text.toString().trim().toDouble()
+        binding.tvUnitPound.text = (num2 * 0.00220462).toString()
+        binding.tvUnitKilo.text = (num2 * 0.001).toString()
+        binding.tvUnitGram.text = (num2 * 1).toString()
+        binding.tvUnitMiligram.text = (num2 * 1000).toString()
+        binding.tvUnitMicrogram.text = (num2 * 10000).toString()
+        binding.tvUnitNanogram.text = (num2 * 100000).toString()
+        binding.tvUnitPicogram.text = (num2 * 1000000).toString()
+        binding.tvUnitTola.text = (num2 / 11.6638038).toString()
+    } else {
+        binding.tvUnitPound.text = ""
+        binding.tvUnitKilo.text = ""
+        binding.tvUnitGram.text = ""
+        binding.tvUnitMiligram.text = ""
+        binding.tvUnitMicrogram.text = ""
+        binding.tvUnitNanogram.text = ""
+        binding.tvUnitPicogram.text = ""
+        binding.tvUnitTola.text = ""
+
+    }
+    binding.inputValue.addTextChangedListener(object : TextWatcher {
+
+        override fun afterTextChanged(s: Editable) {}
+
+        override fun beforeTextChanged(
+            s: CharSequence, start: Int,
+            count: Int, after: Int
+        ) {
+        }
+
+        override fun onTextChanged(
+            s: CharSequence, start: Int,
+            before: Int, count: Int
+        ) {
+
+            val num1 = binding.inputValue.text.toString()
+            if (num1.isNotBlank()) {
+                val num2 = binding.inputValue.text.toString().trim().toDouble()
+                binding.tvUnitPound.text = (num2 * 0.00220462).toString()
+                binding.tvUnitKilo.text = (num2 * 0.001).toString()
+                binding.tvUnitGram.text = (num2 * 1).toString()
+                binding.tvUnitMiligram.text = (num2 * 1000).toString()
+                binding.tvUnitMicrogram.text = (num2 * 10000).toString()
+                binding.tvUnitNanogram.text = (num2 * 100000).toString()
+                binding.tvUnitPicogram.text = (num2 * 1000000).toString()
+                binding.tvUnitTola.text = (num2 / 11.6638038).toString()
+            } else {
+                binding.tvUnitPound.text = ""
+                binding.tvUnitKilo.text = ""
+                binding.tvUnitGram.text = ""
+                binding.tvUnitMiligram.text = ""
+                binding.tvUnitMicrogram.text = ""
+                binding.tvUnitNanogram.text = ""
+                binding.tvUnitPicogram.text = ""
+                binding.tvUnitTola.text = ""
+
+            }
+
+
+        }
+
+    })
+}else if (id==6L){
+    val num1 = binding.inputValue.text.toString()
+    if (num1.isNotBlank()) {
+        val num2 = binding.inputValue.text.toString().trim().toDouble()
+        binding.tvUnitPound.text = (num2 * 0.00220462).toString()
+        binding.tvUnitKilo.text = (num2 * 0.001).toString()
+        binding.tvUnitGram.text = (num2 * 1).toString()
+        binding.tvUnitMiligram.text = (num2 * 1000).toString()
+        binding.tvUnitMicrogram.text = (num2 * 10000).toString()
+        binding.tvUnitNanogram.text = (num2 * 100000).toString()
+        binding.tvUnitPicogram.text = (num2 * 1000000).toString()
+        binding.tvUnitTola.text = (num2 / 11.6638038).toString()
+    } else {
+        binding.tvUnitPound.text = ""
+        binding.tvUnitKilo.text = ""
+        binding.tvUnitGram.text = ""
+        binding.tvUnitMiligram.text = ""
+        binding.tvUnitMicrogram.text = ""
+        binding.tvUnitNanogram.text = ""
+        binding.tvUnitPicogram.text = ""
+        binding.tvUnitTola.text = ""
+
+    }
+    binding.inputValue.addTextChangedListener(object : TextWatcher {
+
+        override fun afterTextChanged(s: Editable) {}
+
+        override fun beforeTextChanged(
+            s: CharSequence, start: Int,
+            count: Int, after: Int
+        ) {
+        }
+
+        override fun onTextChanged(
+            s: CharSequence, start: Int,
+            before: Int, count: Int
+        ) {
+
+            val num1 = binding.inputValue.text.toString()
+            if (num1.isNotBlank()) {
+                val num2 = binding.inputValue.text.toString().trim().toDouble()
+                binding.tvUnitPound.text = (num2 * 0.00220462).toString()
+                binding.tvUnitKilo.text = (num2 * 0.001).toString()
+                binding.tvUnitGram.text = (num2 * 1).toString()
+                binding.tvUnitMiligram.text = (num2 * 1000).toString()
+                binding.tvUnitMicrogram.text = (num2 * 10000).toString()
+                binding.tvUnitNanogram.text = (num2 * 100000).toString()
+                binding.tvUnitPicogram.text = (num2 * 1000000).toString()
+                binding.tvUnitTola.text = (num2 / 11.6638038).toString()
+            } else {
+                binding.tvUnitPound.text = ""
+                binding.tvUnitKilo.text = ""
+                binding.tvUnitGram.text = ""
+                binding.tvUnitMiligram.text = ""
+                binding.tvUnitMicrogram.text = ""
+                binding.tvUnitNanogram.text = ""
+                binding.tvUnitPicogram.text = ""
+                binding.tvUnitTola.text = ""
+
+            }
+        }
+
+    })
+}else if (id==7L){
+    val num1 = binding.inputValue.text.toString()
+    if (num1.isNotBlank()) {
+        val num2 = binding.inputValue.text.toString().trim().toDouble()
+        binding.tvUnitPound.text = (num2 * 0.00220462).toString()
+        binding.tvUnitKilo.text = (num2 * 0.001).toString()
+        binding.tvUnitGram.text = (num2 * 1).toString()
+        binding.tvUnitMiligram.text = (num2 * 1000).toString()
+        binding.tvUnitMicrogram.text = (num2 * 10000).toString()
+        binding.tvUnitNanogram.text = (num2 * 100000).toString()
+        binding.tvUnitPicogram.text = (num2 * 1000000).toString()
+        binding.tvUnitTola.text = (num2 / 11.6638038).toString()
+    } else {
+        binding.tvUnitPound.text = ""
+        binding.tvUnitKilo.text = ""
+        binding.tvUnitGram.text = ""
+        binding.tvUnitMiligram.text = ""
+        binding.tvUnitMicrogram.text = ""
+        binding.tvUnitNanogram.text = ""
+        binding.tvUnitPicogram.text = ""
+        binding.tvUnitTola.text = ""
+
+    }
+    binding.inputValue.addTextChangedListener(object : TextWatcher {
+
+        override fun afterTextChanged(s: Editable) {}
+
+        override fun beforeTextChanged(
+            s: CharSequence, start: Int,
+            count: Int, after: Int
+        ) {
+        }
+
+        override fun onTextChanged(
+            s: CharSequence, start: Int,
+            before: Int, count: Int
+        ) {
+
+            val num1 = binding.inputValue.text.toString()
+            if (num1.isNotBlank()) {
+                val num2 = binding.inputValue.text.toString().trim().toDouble()
+                binding.tvUnitPound.text = (num2 * 0.00220462).toString()
+                binding.tvUnitKilo.text = (num2 * 0.001).toString()
+                binding.tvUnitGram.text = (num2 * 1).toString()
+                binding.tvUnitMiligram.text = (num2 * 1000).toString()
+                binding.tvUnitMicrogram.text = (num2 * 10000).toString()
+                binding.tvUnitNanogram.text = (num2 * 100000).toString()
+                binding.tvUnitPicogram.text = (num2 * 1000000).toString()
+                binding.tvUnitTola.text = (num2 / 11.6638038).toString()
+            } else {
+                binding.tvUnitPound.text = ""
+                binding.tvUnitKilo.text = ""
+                binding.tvUnitGram.text = ""
+                binding.tvUnitMiligram.text = ""
+                binding.tvUnitMicrogram.text = ""
+                binding.tvUnitNanogram.text = ""
+                binding.tvUnitPicogram.text = ""
+                binding.tvUnitTola.text = ""
+
+            }
+
+
+        }
+
+    })
+
+
+
+
+
+
+
+}
                     Toast.makeText(this@WeightActivity,
                         getString(R.string.selected_item) + id .toString() +
                                 "" + languages[position], Toast.LENGTH_SHORT).show()
