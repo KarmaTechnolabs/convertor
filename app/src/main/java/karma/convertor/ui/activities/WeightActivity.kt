@@ -32,6 +32,9 @@ class WeightActivity : BaseActivity(),View.OnClickListener
         setContentView(binding.root)
         binding.clickListener = this
         binding.appBarDashboard.back_to_home.setOnClickListener(this)
+
+        setupNumberPickerForStringValues()
+
         // access the items of the list
         val languages = resources.getStringArray(R.array.Languages)
 
@@ -602,6 +605,92 @@ if(id==0L) {
             }
         }
     }
+        private fun setupNumberPickerForStringValues() {
+            val numberPicker = binding.numberPicker
+            val values = arrayOf("Pound", "KiloGram", "Gram", "MiliGram", "MicroGram", "NanoGram", "Picogram", "Tola")
+            numberPicker.minValue = 0
+            numberPicker.maxValue = values.size - 1
+            numberPicker.displayedValues = values
+            numberPicker.wrapSelectorWheel = true
+            numberPicker.setOnValueChangedListener { picker, oldVal, newVal ->
+
+                val text = "Changed from " + values[oldVal] + " to " + values[newVal]
+                Toast.makeText(this@WeightActivity, text, Toast.LENGTH_SHORT).show()
+
+                if(values[newVal]=="Pound"){
+
+                    val num1 = binding.inputValue.text.toString()
+                    if (num1.isNotBlank()) {
+                        val num2 = binding.inputValue.text.toString().trim().toDouble()
+                        binding.tvUnitPound.text = (num2 /1).toString()
+                        binding.tvUnitKilo.text = (num2 * 0.45359237).toString()
+                        binding.tvUnitGram.text = (num2 *453.59237).toString()
+                        binding.tvUnitMiligram.text = (num2 *453592.37).toString()
+                        binding.tvUnitMicrogram.text = (num2 * 	453592370 ).toString()
+                        binding.tvUnitNanogram.text = (num2 * 453592370000).toString()
+                        binding.tvUnitPicogram.text = (num2 *453592370000000).toString()
+                        binding.tvUnitTola.text = (num2 * 38.89).toString()
+                    } else {
+                        binding.tvUnitPound.text = ""
+                        binding.tvUnitKilo.text = ""
+                        binding.tvUnitGram.text = ""
+                        binding.tvUnitMiligram.text = ""
+                        binding.tvUnitMicrogram.text = ""
+                        binding.tvUnitNanogram.text = ""
+                        binding.tvUnitPicogram.text = ""
+                        binding.tvUnitTola.text = ""
+
+                    }
+                    binding.inputValue.addTextChangedListener(object : TextWatcher {
+
+                        override fun afterTextChanged(s: Editable) {}
+
+                        override fun beforeTextChanged(
+                            s: CharSequence, start: Int,
+                            count: Int, after: Int
+                        ) {
+                        }
+
+                        override fun onTextChanged(
+                            s: CharSequence, start: Int,
+                            before: Int, count: Int
+                        ) {
+
+                            val num1 = binding.inputValue.text.toString()
+                            if (num1.isNotBlank()) {
+                                val num2 = binding.inputValue.text.toString().trim().toDouble()
+                                binding.tvUnitPound.text = (num2 /1).toString()
+                                binding.tvUnitKilo.text = (num2 * 0.45359237).toString()
+                                binding.tvUnitGram.text = (num2 *453.59237).toString()
+                                binding.tvUnitMiligram.text = (num2 *453592.37).toString()
+                                binding.tvUnitMicrogram.text = (num2 * 	453592370 ).toString()
+                                binding.tvUnitNanogram.text = (num2 * 453592370000).toString()
+                                binding.tvUnitPicogram.text = (num2 *453592370000000).toString()
+                                binding.tvUnitTola.text = (num2 * 38.89).toString()
+                            } else {
+                                binding.tvUnitPound.text = ""
+                                binding.tvUnitKilo.text = ""
+                                binding.tvUnitGram.text = ""
+                                binding.tvUnitMiligram.text = ""
+                                binding.tvUnitMicrogram.text = ""
+                                binding.tvUnitNanogram.text = ""
+                                binding.tvUnitPicogram.text = ""
+                                binding.tvUnitTola.text = ""
+
+                            }
+
+
+                        }
+
+                    })
+
+
+                }
+            }
+        }
+
+
+
 
         override fun onClick(view: View?) {
             when (view) {
