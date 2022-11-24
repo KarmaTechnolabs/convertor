@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="karma.convertor.api.requestmodel.UnitActivityModelResponse" />
+
+        <variable
+            name="position"
+            type="int" />
+
+        <variable
+            name="clickListener"
+            type="karma.convertor.listeners.ItemClickListener" />
+
+        <import type="android.text.TextUtils" />
+
+        <import type="android.view.View" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_passenger_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gotham_bold"
+            android:text="@{``+model.unit}"
+            android:padding="@dimen/_10sdp"
+            android:textSize="@dimen/medium_size"
+            android:background="@drawable/unit_background"
+            app:layout_constraintEnd_toStartOf="@id/tv_booking_status"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="UNIT" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_booking_status"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:padding="@dimen/_10sdp"
+            android:fontFamily="@font/gotham_bold"
+            android:text="@{model.conversionValue}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/tv_passenger_name"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="CONVERION VALUE" />
+
+
+
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@color/colorGray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_booking_status" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

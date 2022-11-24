@@ -14,10 +14,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorWhite"
         tools:context=".ui.fragments.GridView">
-
-
 
         <GridView
             android:id="@+id/gridview"
@@ -29,17 +26,18 @@
             android:numColumns="auto_fit"
             android:padding="@dimen/_10sdp"
             android:verticalSpacing="@dimen/_10sdp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            ads:layout_constraintStart_toStartOf="parent"
+            ads:layout_constraintEnd_toEndOf="parent"
+            ads:layout_constraintBottom_toTopOf="@id/ad_view"
             ads:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/ad_view"/>
+           />
 
         <com.google.android.gms.ads.AdView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/ad_view"
             ads:adSize="BANNER"
-            ads:adUnitId="@string/app_name"
+            ads:adUnitId="ca-app-pub-3940256099942544/6300978111"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

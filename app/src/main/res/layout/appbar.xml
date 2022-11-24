@@ -55,7 +55,7 @@
 
             <!-- ImageView beside title of ToolBar -->
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/imageView"
+                android:id="@+id/share_imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/iconshare"

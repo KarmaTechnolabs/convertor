@@ -13,6 +13,8 @@ package karma.convertor.utils
  */
 object Constants {
     const val PUSH_NOTIFICATION_CHANNEL_ID = "PUSH_NOTIFICATION_JEEWAN_JYOTI"
+    const val ADD_MOB_ADD_ID = "ca-app-pub-1829431093631944~1902403058"
+
 
     const val IMAGE_TYPE_CAMERA = 0
     const val IMAGE_TYPE_GALLERY = 1

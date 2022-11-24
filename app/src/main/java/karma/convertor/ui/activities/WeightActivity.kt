@@ -1,29 +1,57 @@
 package karma.convertor.ui.activities
 
+import android.app.PendingIntent.getActivity
+import android.content.ContentValues
+import android.content.Context
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.RequestConfiguration
 import com.google.firebase.analytics.FirebaseAnalytics
+import karma.convertor.BuildConfig
 import karma.convertor.R
+import karma.convertor.adapter.PickerAdapter
+import karma.convertor.adapter.PickerLayoutManager
+import karma.convertor.adapter.ScreenUtils
+import karma.convertor.adapter.UnitActivityAdpater
+import karma.convertor.api.requestmodel.UnitActivityModelResponse
 import karma.convertor.api.requestmodel.UnititemModel
 import karma.convertor.base.BaseActivity
 import karma.convertor.custom.gotoActivity
 import karma.convertor.databinding.ActivityWeightBinding
+import karma.convertor.listeners.ItemClickListener
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_weight.*
 import kotlinx.android.synthetic.main.appbar.view.*
+import java.io.ByteArrayOutputStream
+import java.io.OutputStream
 
-class WeightActivity : BaseActivity(),View.OnClickListener
+class WeightActivity : BaseActivity(),View.OnClickListener,
+    ItemClickListener<UnitActivityModelResponse>
     {
     private lateinit var analytics: FirebaseAnalytics
     private lateinit var binding: ActivityWeightBinding
     var adRequest: AdRequest? = null
     var itemList = ArrayList<UnititemModel>()
+        var unitActivityList = java.util.ArrayList<UnitActivityModelResponse>()
+        private val data = ArrayList<String>()
+        private lateinit var rvHorizontalPicker: RecyclerView
+        private lateinit var sliderAdapter: PickerAdapter
+        private var unitActivityAdapter: UnitActivityAdpater? = UnitActivityAdpater(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,16 +59,30 @@ class WeightActivity : BaseActivity(),View.OnClickListener
         binding = ActivityWeightBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.clickListener = this
-        binding.appBarDashboard.back_to_home.setOnClickListener(this)
+      //  binding.appBarDashboard.back_to_home.setOnClickListener(this)
 
-        setupNumberPickerForStringValues()
+        setPicker()
+        unitActivityList.add(UnitActivityModelResponse("KILOGRAM","0.000"))
+        unitActivityList.add(UnitActivityModelResponse("KILOGRAM","0.000"))
+        unitActivityList.add(UnitActivityModelResponse("KILOGRAM","0.000"))
+        unitActivityList.add(UnitActivityModelResponse("KILOGRAM","0.000"))
+
+
+        unitActivityAdapter?.clear()
+       unitActivityAdapter?.setClickListener(this)
+        binding.unitRecycler.adapter = unitActivityAdapter
+
+        unitActivityAdapter?.setItems(unitActivityList)
+
+
+
 
         // access the items of the list
         val languages = resources.getStringArray(R.array.Languages)
 
         // access the spinner
 
-        if (binding.spinner != null) {
+    /*    if (binding.spinner != null) {
             val adapter = ArrayAdapter(this,
                 android.R.layout.simple_spinner_item, languages)
             spinner.adapter = adapter
@@ -603,9 +645,9 @@ if(id==0L) {
                     // write code to perform some action
                 }
             }
-        }
+        }*/
     }
-        private fun setupNumberPickerForStringValues() {
+     /*   private fun setupNumberPickerForStringValues() {
             val numberPicker = binding.numberPicker
             val values = arrayOf("Pound", "KiloGram", "Gram", "MiliGram", "MicroGram", "NanoGram", "Picogram", "Tola")
             numberPicker.minValue = 0
@@ -687,19 +729,92 @@ if(id==0L) {
 
                 }
             }
+        }*/
+
+
+        private fun setPicker() {
+            data.add("KG")
+            data.add("Pound")
+            data.add("Gram")
+            data.add("MG")
+            data.add("µGram")
+            data.add("nGram")
+            data.add("pGram")
+            data.add("Tola")
+
+
+
+            rvHorizontalPicker = findViewById(R.id.rv_horizontal_picker)
+
+            // Setting the padding such that the items will appear in the middle of the screen
+            val padding: Int = ScreenUtils.getScreenWidth(this) / 2 - ScreenUtils.dpToPx(this, 40)
+            rvHorizontalPicker.setPadding(padding, 0, padding, 0)
+
+            // Setting layout manager
+            rvHorizontalPicker.layoutManager = PickerLayoutManager(this).apply {
+                callback = object : PickerLayoutManager.OnItemSelectedListener {
+                    override fun onItemSelected(layoutPosition: Int) {
+                        sliderAdapter.setSelectedItem(layoutPosition)
+                        Log.d("selected text", data[layoutPosition])
+                        Toast.makeText(this@WeightActivity, data[layoutPosition], Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+
+            // Setting Adapter
+            sliderAdapter = PickerAdapter()
+            rvHorizontalPicker.adapter = sliderAdapter.apply {
+                setData(data)
+                callback = object : PickerAdapter.Callback {
+                    override fun onItemClicked(view: View) {
+                        rvHorizontalPicker.smoothScrollToPosition(
+                            rvHorizontalPicker.getChildLayoutPosition(
+                                view
+                            )
+                        )
+                    }
+                }
+            }
         }
 
 
 
-
         override fun onClick(view: View?) {
-            when (view) {
+         /*   when (view) {
                 binding.appBarDashboard.back_to_home ->{
 
                     gotoActivity(MainActivity::class.java)
 
 
                 }
+
+                binding.appBarDashboard.share_imageView ->{
+
+
+                    val shareIntent = Intent(Intent.ACTION_SEND)
+                    shareIntent.type = "text/plain"
+                    val app_url = "convertor app"+ BuildConfig.APPLICATION_ID
+                    shareIntent.putExtra(Intent.EXTRA_TEXT, app_url)
+                    startActivity(Intent.createChooser(shareIntent, "Share via"))
+
+                }
+            }*/
+        }
+
+
+        override fun onItemClick(
+            viewIdRes: Int,
+            model: UnitActivityModelResponse,
+            position: Int
+        ) {
+            when (viewIdRes) {
+                /*  R.id.pdfview -> {
+                      startDownloadingFile(
+                          model.pdf_url,
+                          BuildConfig.PDF_BASE_URL + model.pdf_url
+                      )
+
+                  }*/
             }
         }
       }

@@ -24,23 +24,27 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
+        tools:replace="android:allowBackup"
         tools:ignore="LockedOrientationActivity">
         <activity
             android:name=".ui.activities.WeightActivity"
-            android:exported="false">
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
 
+
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713" />
+            android:value="ca-app-pub-1829431093631944~1902403058" />
 
         <activity
             android:name=".ui.activities.MainActivity"
             android:exported="false"
             android:label="main"
+            android:windowSoftInputMode="adjustPan"
            />
         <activity
             android:name=".ui.activities.WebActivity"

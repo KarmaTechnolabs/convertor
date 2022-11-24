@@ -1,8 +1,10 @@
 package karma.convertor.ui.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+
 import android.os.Bundle
+
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.Toast
@@ -11,13 +13,17 @@ import com.google.android.flexbox.FlexboxLayoutManager
 import com.google.android.flexbox.JustifyContent
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.RequestConfiguration
 import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.crashlytics.internal.common.CrashlyticsCore.getVersion
 import karma.convertor.R
 import karma.convertor.adapter.UnitListAdapter
 import karma.convertor.api.requestmodel.UnititemModel
 import karma.convertor.base.BaseActivity
 import karma.convertor.databinding.ActivityMainBinding
 import karma.convertor.listeners.ItemClickListener
+import karma.convertor.utils.Constants.ADD_MOB_ADD_ID
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.view.*
 
 
@@ -30,8 +36,6 @@ class MainActivity : BaseActivity(), View.OnClickListener,
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
 
         val manager = FlexboxLayoutManager(this, FlexDirection.ROW)
         manager.justifyContent = JustifyContent.CENTER
@@ -53,23 +57,10 @@ class MainActivity : BaseActivity(), View.OnClickListener,
         binding.clickListener = this
 
         MobileAds.initialize(this) {}
-        // Set your test devices. Check your logcat output for the hashed device ID to
-        // get test ads on a physical device. e.g.
-        // "Use RequestConfiguration.Builder().setTestDeviceIds(Arrays.asList("ABCDEF012345"))
-        // to get test ads on this device."
-//        MobileAds.setRequestConfiguration(
-//            RequestConfiguration.Builder()
-//                .setTestDeviceIds(listOf(ADD_MOB_ADD_ID)).build()
-//        )
-        MobileAds.initialize(
-            this
-        ) { }
 
-        // Create an ad request.
-        adRequest = AdRequest.Builder().build()
 
-        // Start loading the ad in the background.
-        binding.adView.loadAd(adRequest!!)
+        val adRequest = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequest)
 
         setupGridView()
 

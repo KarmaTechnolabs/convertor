@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008C44</color>
-    <color name="colorPrimaryDark">#008C44</color>
+    <color name="colorPrimary">#D84313</color>
+    <color name="colorPrimaryDark">#FB3232</color>
     <color name="colorAccent">#282828</color>
 
     <color name="colorColonialWhite">#FFFFEDBD</color>
@@ -9,7 +9,7 @@
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorGreen">#008C44</color>
-
+    <color name="convertor_head">#FB3232</color>
     <color name="gray100">#D8D8D8</color>
     <color name="colorBlue">#04A6B8</color>
     <color name="colorRed">#E74450</color>
@@ -33,4 +33,5 @@
     <color name="shimmer_color">#dddddd</color>
     <color name="greyText_color">#808080</color>
     <color name="colorWhiteNight">#ffffff</color>
+    <color name="text_color">#959AA6</color>
 </resources>
