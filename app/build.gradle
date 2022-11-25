@@ -127,5 +127,8 @@ dependencies {
 
     //horizontalnumber picker
     implementation 'com.wefika:horizontal-picker:1.1.1'
+
+    //calculator dependency
+    implementation 'net.objecthunter:exp4j:0.4.8'
 }
 apply plugin: 'com.google.gms.google-services'

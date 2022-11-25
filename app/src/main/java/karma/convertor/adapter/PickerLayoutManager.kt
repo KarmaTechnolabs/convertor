@@ -56,7 +56,7 @@ class PickerLayoutManager(context: Context?) : LinearLayoutManager(context) {
             val distanceFromCenter = abs(mid - childMid)
 
             // The scaling formula
-            val scale = 1 - sqrt((distanceFromCenter / width).toDouble()).toFloat() * 0.66f
+            val scale = 1 - sqrt((distanceFromCenter / width).toDouble()).toFloat() * .4f
 
             // Set scale to view
             child.scaleX = scale

@@ -15,7 +15,6 @@
        android:id="@+id/tv_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:maxLines="1"
         android:gravity="center"
         android:background="@drawable/rounded_textview"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -23,7 +22,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="KG"
-        android:textSize="@dimen/_20sdp"
+        android:textSize="@dimen/_15sdp"
         />
 
 

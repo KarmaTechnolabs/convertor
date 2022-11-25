@@ -4,12 +4,13 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 
 import karma.convertor.R
 
-class PickerAdapter : RecyclerView.Adapter<PickerItemViewHolder>() {
+class PickerAdapter : RecyclerView.Adapter<PickerAdapter.PickerItemViewHolder>() {
 
     private val data: ArrayList<String> = ArrayList()
     var callback: Callback? = null
@@ -63,6 +64,11 @@ class PickerAdapter : RecyclerView.Adapter<PickerItemViewHolder>() {
 
     interface Callback {
         fun onItemClicked(view: View)
+    }
+
+    class PickerItemViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
+
+        val tvItem: TextView? = itemView?.findViewById(R.id.tv_item)
     }
 
 }
