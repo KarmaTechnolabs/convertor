@@ -25,44 +25,43 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+     >
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_passenger_name"
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_weight_unit"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/gotham_bold"
-            android:text="@{``+model.unit}"
+            android:paddingStart="@dimen/_10sdp"
             android:paddingTop="@dimen/_10sdp"
-            android:paddingStart="@dimen/_20sdp"
-            android:layout_marginStart="@dimen/_20sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:text="@{``+model.unit}"
             android:textSize="@dimen/medium_size"
             android:background="@drawable/unit_background"
-
             app:layout_constraintHorizontal_weight="1"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_weight_value"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="UNIT" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_booking_status"
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_weight_value"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_5sdp"
-     android:layout_marginEnd="@dimen/_15sdp"
-            android:padding="@dimen/_10sdp"
-            android:background="@drawable/conversion_value"
             android:fontFamily="@font/gotham_bold"
+            android:padding="@dimen/_10sdp"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:background="@drawable/conversion_value_background"
             android:text="@{model.conversionValue}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_weight="1"
-
+            app:layout_constraintStart_toEndOf="@id/tv_weight_unit"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="CONVERION VALUE" />
-
-
-
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

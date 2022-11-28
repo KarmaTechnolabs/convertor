@@ -18,19 +18,19 @@
         android:gravity="center"
         android:orientation="vertical">
 
+
         <include
             android:id="@+id/header"
             layout="@layout/appbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="15dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
-
-            <com.google.android.material.card.MaterialCardView
+        <com.google.android.material.card.MaterialCardView
                 android:id="@+id/convertor_cardview"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -87,8 +87,6 @@
                         tools:listitem="@layout/row_view_picker_item"
 
                         />
-
-
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/input_value"
                         android:layout_width="wrap_content"
@@ -97,6 +95,8 @@
                         android:layout_marginTop="@dimen/_11sdp"
                         android:background="@drawable/round_edit_text"
                         android:hint="0.000000"
+                        android:inputType="numberDecimal"
+                        android:clickable="false"
                         android:textColor="@color/colorBlack"
                         android:paddingTop="@dimen/_5sdp"
                         android:paddingBottom="@dimen/_5sdp"
@@ -136,7 +136,6 @@
                             android:id="@+id/table_calculator"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
-                            android:background="@drawable/tablelayout_round"
                             android:layout_marginTop="@dimen/_2sdp"
                             android:layout_marginLeft="@dimen/_10sdp"
                             android:layout_marginRight="@dimen/_10sdp"
