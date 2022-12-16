@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:ads= "http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ads= "http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -11,26 +11,66 @@
             type="android.view.View.OnClickListener" />
     </data>
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.fragments.GridView">
+        android:background="@drawable/convertor_new_background"
+        android:gravity="center"
+        android:orientation="vertical">
 
-        <GridView
-            android:id="@+id/gridview"
+
+        <include
+            android:id="@+id/header"
+            layout="@layout/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/convertor_cardview"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:gravity="center"
-            android:layout_margin="@dimen/_10sdp"
-            android:horizontalSpacing="@dimen/_10sdp"
-            android:numColumns="auto_fit"
-            android:padding="@dimen/_10sdp"
-            android:verticalSpacing="@dimen/_10sdp"
-            ads:layout_constraintStart_toStartOf="parent"
-            ads:layout_constraintEnd_toEndOf="parent"
-            ads:layout_constraintBottom_toTopOf="@id/ad_view"
-            ads:layout_constraintTop_toTopOf="parent"
-           />
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_60sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_50sdp"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="@dimen/_10sdp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rect">
+                <GridView
+                    android:id="@+id/gridview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:horizontalSpacing="@dimen/_10sdp"
+                    android:numColumns="auto_fit"
+                    android:padding="@dimen/_10sdp"
+                    android:verticalSpacing="@dimen/_10sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                  app:layout_constraintBottom_toBottomOf="parent"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
 
         <com.google.android.gms.ads.AdView
             android:layout_width="match_parent"
@@ -40,5 +80,43 @@
             ads:adUnitId="ca-app-pub-3940256099942544/6300978111"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </layout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

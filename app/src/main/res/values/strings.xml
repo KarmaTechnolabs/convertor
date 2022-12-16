@@ -14,9 +14,14 @@
     <string name="go_to_settings">Go to Settings</string>
     <string name="allow_permission_to_use_this_feature">Allow permission to use this feature</string>
     <string name="get_started">Get Started!</string>
-    <string name="view_indicator">View Indicator</string>
+    <string name="app_title">UNIT CONVERTOR</string>
+    <string name="weight">WEIGHT</string>
+    <string name="area">AREA</string>
+    <string name="lenght">LENGTH</string>
+    <string name="speed">SPEED</string>
+    <string name="volume">VOLUME</string>
 
-    <string name="selected_item">Selected item:</string>
+
 
     <string-array name="Languages">
         <item>Pound</item>

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.ads.AdRequest
 import com.google.firebase.analytics.FirebaseAnalytics
 import karma.convertor.BuildConfig
+import karma.convertor.R
 import karma.convertor.adapter.PickerAdapter
 import karma.convertor.adapter.PickerLayoutManager
 import karma.convertor.adapter.ScreenUtils
@@ -57,10 +58,12 @@ class WeightActivity : BaseActivity(), View.OnClickListener,
         binding = ActivityWeightBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.clickListener = this
+
+
         binding.header.back_to_home.setOnClickListener(this)
         binding.header.share_imageView.setOnClickListener(this)
 
-
+        binding.header.toolbar.setText(resources.getString(R.string.weight))
         binding.inputValue.addTextChangedListener(object : TextWatcher {
 
             override fun afterTextChanged(s: Editable) {}
@@ -372,6 +375,103 @@ class WeightActivity : BaseActivity(), View.OnClickListener,
 
                      }
 
+
+
+
+                 }else if(layoutPosition == 2){
+
+
+                     binding.inputValue.addTextChangedListener(object : TextWatcher {
+
+                         override fun afterTextChanged(s: Editable) {}
+
+                         override fun beforeTextChanged(
+                             s: CharSequence, start: Int,
+                             count: Int, after: Int
+                         ) {
+                         }
+
+                         override fun onTextChanged(
+                             s: CharSequence, start: Int,
+                             before: Int, count: Int
+                         ) {
+                             val num1 = binding.inputValue.text.toString()
+                             if (num1.isNotBlank()) {
+                                 val num2 = binding.inputValue.text.toString().trim().toDouble()
+                                 val num3 = (num2).toString()
+
+
+                                 viewModel.callweightAPI(num3)
+                             } else {
+                                 viewModel.callweightAPI("")
+                             }
+                         }
+                     })
+
+
+                     viewModel.weightResponse.observe(this@WeightActivity) {
+
+                         unitActivityList.clear()
+                         if (it.conversionValue != "") {
+                             unitActivityList.add(
+                                 UnitActivityModelResponse(
+                                     "KG",
+                                     (it.conversionValue.trim().toDouble() * 0.45359237).toString()
+                                 )
+                             )
+                             unitActivityList.add(
+                                 UnitActivityModelResponse(
+                                     "POUND",
+                                     (it.conversionValue.trim().toDouble() *453.59237).toString()
+                                 )
+                             )
+                             unitActivityList.add(
+                                 UnitActivityModelResponse(
+                                     "MILIGRAM",
+                                     (it.conversionValue.trim().toDouble() * 453592).toString()
+                                 )
+                             )
+                             unitActivityList.add(
+                                 UnitActivityModelResponse(
+                                     "MICROGRAM",
+                                     (it.conversionValue.trim().toDouble() * 453592370).toString()
+                                 )
+                             )
+
+                         } else {
+                             unitActivityList.add(
+                                 UnitActivityModelResponse(
+                                     "KG",
+                                     ""
+                                 )
+                             )
+                             unitActivityList.add(
+                                 UnitActivityModelResponse(
+                                     "GRAM",
+                                     ""
+                                 )
+                             )
+                             unitActivityList.add(
+                                 UnitActivityModelResponse(
+                                     "MILIGRAM",
+                                     ""
+                                 )
+                             )
+                             unitActivityList.add(
+                                 UnitActivityModelResponse(
+                                     "MICROGRAM",
+                                     ""
+                                 )
+                             )
+                         }
+
+                         unitActivityAdapter?.clear()
+                         unitActivityAdapter?.setClickListener(this@WeightActivity)
+                         binding.unitRecycler.adapter = unitActivityAdapter
+                         unitActivityAdapter?.setItems(unitActivityList)
+
+
+                     }
 
 
 
