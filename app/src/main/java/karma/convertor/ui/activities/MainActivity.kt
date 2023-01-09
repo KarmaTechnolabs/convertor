@@ -39,8 +39,8 @@ class MainActivity : BaseActivity(), View.OnClickListener,
         itemList.add(UnititemModel(R.drawable.sound, "Sound"))
         itemList.add(UnititemModel(R.drawable.speed, "Speed"))
         itemList.add(UnititemModel(R.drawable.length, "Length"))
-        itemList.add(UnititemModel(R.drawable.currency_svgrepo_com, "Currency"))
-        itemList.add(UnititemModel(R.drawable.cube_svgrepo_com, "Volume"))
+        itemList.add(UnititemModel(R.drawable.mobile_data, "Data"))
+        itemList.add(UnititemModel(R.drawable.electric_tower_power, "Power"))
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -96,18 +96,26 @@ class MainActivity : BaseActivity(), View.OnClickListener,
                 if (model.img_id == R.drawable.weight) {
                     val intent = Intent(this, WeightActivity::class.java)
                     startActivity(intent)
-                } /*else if (model.img_id == R.drawable.ic_telegram_logo) {
-                    val intent = Intent(this, TelegramActivity::class.java)
+                } else if (model.img_id == R.drawable.mobile_data) {
+                    val intent = Intent(this, DataActivity::class.java)
                     startActivity(intent)
-                } else if (model.img_id == R.drawable.ic_viber_logo) {
+                } else if (model.img_id == R.drawable.temperature) {
 
-                    val intent = Intent(this, ViberActivity::class.java)
+                    val intent = Intent(this, TemperatureActivity::class.java)
                     startActivity(intent)
-                } else if ((model.img_id == R.drawable.ic_whatsappbusiness_icon)) {
+                } else if ((model.img_id == R.drawable.sound)) {
 
-                    val intent = Intent(this, WhatsappbusinessActivity::class.java)
+                    val intent = Intent(this,SoundActivity::class.java)
                     startActivity(intent)
-                } else if (model.img_id == R.drawable.ic_comingsoon_logo) {
+                }else if ((model.img_id == R.drawable.length)) {
+
+                    val intent = Intent(this,LengthActivity::class.java)
+                    startActivity(intent)
+                }else if ((model.img_id == R.drawable.area)) {
+
+                    val intent = Intent(this,AreaActivity::class.java)
+                    startActivity(intent)
+                }/* else if (model.img_id == R.drawable.ic_comingsoon_logo) {
 
                     Toast.makeText(
                         this,

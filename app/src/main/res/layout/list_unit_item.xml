@@ -26,6 +26,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/list_weight_background"
         android:layout_marginStart="@dimen/_15sdp"
         android:layout_marginEnd="@dimen/_15sdp"
      >
@@ -40,7 +41,6 @@
             android:paddingBottom="@dimen/_8sdp"
             android:text="@{``+model.unit}"
             android:textSize="@dimen/medium_size"
-            android:background="@drawable/unit_background"
             app:layout_constraintHorizontal_weight="1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/tv_weight_value"
@@ -55,7 +55,6 @@
             android:padding="@dimen/_10sdp"
             android:maxLines="1"
             android:singleLine="true"
-            android:background="@drawable/conversion_value_background"
             android:text="@{model.conversionValue}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_weight="1"

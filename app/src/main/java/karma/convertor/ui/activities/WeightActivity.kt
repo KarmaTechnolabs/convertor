@@ -25,9 +25,13 @@ import karma.convertor.databinding.ActivityWeightBinding
 import karma.convertor.listeners.ItemClickListener
 import karma.convertor.viewmodel.WeightViewModel
 import kotlinx.android.synthetic.main.appbar.view.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 class WeightActivity : BaseActivity(), View.OnClickListener,
     ItemClickListener<UnitActivityModelResponse> {
+
+
     private lateinit var analytics: FirebaseAnalytics
     private lateinit var binding: ActivityWeightBinding
     var adRequest: AdRequest? = null
@@ -64,6 +68,7 @@ class WeightActivity : BaseActivity(), View.OnClickListener,
         binding.header.share_imageView.setOnClickListener(this)
 
         binding.header.toolbar.setText(resources.getString(R.string.weight))
+
         binding.inputValue.addTextChangedListener(object : TextWatcher {
 
             override fun afterTextChanged(s: Editable) {}
@@ -93,60 +98,20 @@ class WeightActivity : BaseActivity(), View.OnClickListener,
 
 
         viewModel.weightResponse.observe(this) {
-
             unitActivityList.clear()
             if (it.conversionValue != "") {
-                unitActivityList.add(
-                    UnitActivityModelResponse(
-                        "POUND",
-                        (it.conversionValue.trim().toDouble() * 2.20462).toString()
-                    )
-                )
-                unitActivityList.add(
-                    UnitActivityModelResponse(
-                        "GRAM",
-                        (it.conversionValue.trim().toDouble() * 1000).toString()
-                    )
-                )
-                unitActivityList.add(
-                    UnitActivityModelResponse(
-                        "MILIGRAM",
-
-                        (it.conversionValue.trim().toDouble() * 1000000).toString()
-                    )
-                )
-                unitActivityList.add(
-                    UnitActivityModelResponse(
-                        "MICROGRAM",
-                        (it.conversionValue.trim().toDouble() * 1000000000).toString()
-                    )
-                )
+                unitActivityList.add(UnitActivityModelResponse("GRAM", (it.conversionValue.trim().toDouble() * 1000).toString()))
+                unitActivityList.add(UnitActivityModelResponse("MILIGRAM", (it.conversionValue.trim().toDouble() * 1000000).toString()))
+                unitActivityList.add(UnitActivityModelResponse("POUND", (it.conversionValue.trim().toDouble() * 2.20462).toString()))
+                unitActivityList.add(UnitActivityModelResponse("OUNCE", (it.conversionValue.trim().toDouble() * 35.274).toString()))
+                unitActivityList.add(UnitActivityModelResponse("TON", (it.conversionValue.trim().toDouble() * 0.00110231).toString()))
 
             } else {
-                unitActivityList.add(
-                    UnitActivityModelResponse(
-                        "POUND",
-                        ""
-                    )
-                )
-                unitActivityList.add(
-                    UnitActivityModelResponse(
-                        "GRAM",
-                        ""
-                    )
-                )
-                unitActivityList.add(
-                    UnitActivityModelResponse(
-                        "MILIGRAM",
-                        ""
-                    )
-                )
-                unitActivityList.add(
-                    UnitActivityModelResponse(
-                        "MICROGRAM",
-                        ""
-                    )
-                )
+                unitActivityList.add(UnitActivityModelResponse("GRAM", ""))
+                unitActivityList.add(UnitActivityModelResponse("MILIGRAM", ""))
+                unitActivityList.add(UnitActivityModelResponse("POUND", ""))
+                unitActivityList.add(UnitActivityModelResponse("OUNCE", ""))
+                unitActivityList.add(UnitActivityModelResponse("TON", ""))
             }
 
             unitActivityAdapter?.clear()
@@ -164,13 +129,12 @@ class WeightActivity : BaseActivity(), View.OnClickListener,
 
     private fun setPicker() {
         data.add("KG")
-        data.add("Pound")
         data.add("Gram")
         data.add("MG")
-        data.add("µGram")
-        data.add("nGram")
-        data.add("pGram")
-        data.add("Tola")
+        data.add("Pound")
+        data.add("Ounce")
+        data.add("Ton")
+
 
 
 
@@ -184,8 +148,8 @@ class WeightActivity : BaseActivity(), View.OnClickListener,
         rvHorizontalPicker.layoutManager = PickerLayoutManager(this).apply {
             callback = object : PickerLayoutManager.OnItemSelectedListener {
                 override fun onItemSelected(layoutPosition: Int) {
-
                     sliderAdapter.setSelectedItem(layoutPosition)
+
                  if(layoutPosition == 0) {
 
                      sliderAdapter.setSelectedItem(0)
@@ -221,56 +185,19 @@ class WeightActivity : BaseActivity(), View.OnClickListener,
 
                          unitActivityList.clear()
                          if (it.conversionValue != "") {
-                             unitActivityList.add(
-                                 UnitActivityModelResponse(
-                                     "POUND",
-                                     (it.conversionValue.trim().toDouble() * 2.20462).toString()
-                                 )
-                             )
-                             unitActivityList.add(
-                                 UnitActivityModelResponse(
-                                     "GRAM",
-                                     (it.conversionValue.trim().toDouble() * 1000).toString()
-                                 )
-                             )
-                             unitActivityList.add(
-                                 UnitActivityModelResponse(
-                                     "MILIGRAM",
-                                     (it.conversionValue.trim().toDouble() * 1000000).toString()
-                                 )
-                             )
-                             unitActivityList.add(
-                                 UnitActivityModelResponse(
-                                     "MICROGRAM",
-                                     (it.conversionValue.trim().toDouble() * 1000000000 ).toString()
-                                 )
-                             )
+                             unitActivityList.add(UnitActivityModelResponse("GRAM", (it.conversionValue.trim().toDouble() * 1000).toString()))
+                             unitActivityList.add(UnitActivityModelResponse("MILIGRAM", (it.conversionValue.trim().toDouble() * 1000000).toString()))
+                             unitActivityList.add(UnitActivityModelResponse("POUND", (it.conversionValue.trim().toDouble() * 2.20462).toString()))
+                             unitActivityList.add(UnitActivityModelResponse("OUNCE", (it.conversionValue.trim().toDouble() * 35.274).toString()))
+                             unitActivityList.add(UnitActivityModelResponse("TON", (it.conversionValue.trim().toDouble() * 0.00110231).toString()))
+
 
                          } else {
-                             unitActivityList.add(
-                                 UnitActivityModelResponse(
-                                     "POUND",
-                                     ""
-                                 )
-                             )
-                             unitActivityList.add(
-                                 UnitActivityModelResponse(
-                                     "GRAM",
-                                     ""
-                                 )
-                             )
-                             unitActivityList.add(
-                                 UnitActivityModelResponse(
-                                     "MILIGRAM",
-                                     ""
-                                 )
-                             )
-                             unitActivityList.add(
-                                 UnitActivityModelResponse(
-                                     "MICROGRAM",
-                                     ""
-                                 )
-                             )
+                             unitActivityList.add(UnitActivityModelResponse("GRAM", ""))
+                             unitActivityList.add(UnitActivityModelResponse("MILIGRAM", ""))
+                             unitActivityList.add(UnitActivityModelResponse("POUND", ""))
+                             unitActivityList.add(UnitActivityModelResponse("OUNCE", ""))
+                             unitActivityList.add(UnitActivityModelResponse("TON", ""))
                          }
 
                          unitActivityAdapter?.clear()
@@ -315,82 +242,36 @@ class WeightActivity : BaseActivity(), View.OnClickListener,
 
                          unitActivityList.clear()
                          if (it.conversionValue != "") {
-                             unitActivityList.add(
-                                 UnitActivityModelResponse(
-                                     "KG",
-                                     (it.conversionValue.trim().toDouble() * 0.45359237).toString()
-                                 )
-                             )
-                             unitActivityList.add(
-                                 UnitActivityModelResponse(
-                                     "GRAM",
-                                     (it.conversionValue.trim().toDouble() *453.59237).toString()
-                                 )
-                             )
-                             unitActivityList.add(
-                                 UnitActivityModelResponse(
-                                     "MILIGRAM",
-                                     (it.conversionValue.trim().toDouble() * 453592).toString()
-                                 )
-                             )
-                             unitActivityList.add(
-                                 UnitActivityModelResponse(
-                                     "MICROGRAM",
-                                     (it.conversionValue.trim().toDouble() * 453592370).toString()
-                                 )
-                             )
+                             unitActivityList.add(UnitActivityModelResponse("KG", (it.conversionValue.trim().toDouble() * 0.001).toString()))
+                             unitActivityList.add(UnitActivityModelResponse("MILIGRAM", (it.conversionValue.trim().toDouble() * 1000).toString()))
+                             unitActivityList.add(UnitActivityModelResponse("POUND", (it.conversionValue.trim().toDouble() * 0.00220462).toString()))
+                             unitActivityList.add(UnitActivityModelResponse("OUNCE", (it.conversionValue.trim().toDouble() * 0.035274).toString()))
+                             unitActivityList.add(UnitActivityModelResponse("TON", (it.conversionValue.trim().toDouble() * 0.000001).toString()))
 
                          } else {
-                             unitActivityList.add(
-                                 UnitActivityModelResponse(
-                                     "KG",
-                                     ""
-                                 )
-                             )
-                             unitActivityList.add(
-                                 UnitActivityModelResponse(
-                                     "GRAM",
-                                     ""
-                                 )
-                             )
-                             unitActivityList.add(
-                                 UnitActivityModelResponse(
-                                     "MILIGRAM",
-                                     ""
-                                 )
-                             )
-                             unitActivityList.add(
-                                 UnitActivityModelResponse(
-                                     "MICROGRAM",
-                                     ""
-                                 )
-                             )
+                             unitActivityList.add(UnitActivityModelResponse("KG", ""))
+                             unitActivityList.add(UnitActivityModelResponse("MILIGRAM", ""))
+                             unitActivityList.add(UnitActivityModelResponse("POUND", ""))
+                             unitActivityList.add(UnitActivityModelResponse("OUNCE", ""))
+                             unitActivityList.add(UnitActivityModelResponse("TON", ""))
+
                          }
 
                          unitActivityAdapter?.clear()
                          unitActivityAdapter?.setClickListener(this@WeightActivity)
                          binding.unitRecycler.adapter = unitActivityAdapter
                          unitActivityAdapter?.setItems(unitActivityList)
-
-
                      }
 
-
-
-
                  }else if(layoutPosition == 2){
-
-
                      binding.inputValue.addTextChangedListener(object : TextWatcher {
 
                          override fun afterTextChanged(s: Editable) {}
-
                          override fun beforeTextChanged(
                              s: CharSequence, start: Int,
                              count: Int, after: Int
                          ) {
                          }
-
                          override fun onTextChanged(
                              s: CharSequence, start: Int,
                              before: Int, count: Int
@@ -399,8 +280,6 @@ class WeightActivity : BaseActivity(), View.OnClickListener,
                              if (num1.isNotBlank()) {
                                  val num2 = binding.inputValue.text.toString().trim().toDouble()
                                  val num3 = (num2).toString()
-
-
                                  viewModel.callweightAPI(num3)
                              } else {
                                  viewModel.callweightAPI("")
@@ -413,56 +292,19 @@ class WeightActivity : BaseActivity(), View.OnClickListener,
 
                          unitActivityList.clear()
                          if (it.conversionValue != "") {
-                             unitActivityList.add(
-                                 UnitActivityModelResponse(
-                                     "KG",
-                                     (it.conversionValue.trim().toDouble() * 0.45359237).toString()
-                                 )
-                             )
-                             unitActivityList.add(
-                                 UnitActivityModelResponse(
-                                     "POUND",
-                                     (it.conversionValue.trim().toDouble() *453.59237).toString()
-                                 )
-                             )
-                             unitActivityList.add(
-                                 UnitActivityModelResponse(
-                                     "MILIGRAM",
-                                     (it.conversionValue.trim().toDouble() * 453592).toString()
-                                 )
-                             )
-                             unitActivityList.add(
-                                 UnitActivityModelResponse(
-                                     "MICROGRAM",
-                                     (it.conversionValue.trim().toDouble() * 453592370).toString()
-                                 )
-                             )
+                             unitActivityList.add(UnitActivityModelResponse("KG", (it.conversionValue.trim().toDouble() * 0.000001 ).toString()))
+                             unitActivityList.add(UnitActivityModelResponse("GRAM", (it.conversionValue.trim().toDouble() * 0.001).toString()))
+                             unitActivityList.add(UnitActivityModelResponse("POUND", (it.conversionValue.trim().toDouble() *  0.0000022046).toString()))
+                             unitActivityList.add(UnitActivityModelResponse("OUNCE", (it.conversionValue.trim().toDouble() * 0.000035274).toString()))
+                             unitActivityList.add(UnitActivityModelResponse("TON", (it.conversionValue.trim().toDouble() *  0.000000001).toString()))
 
                          } else {
-                             unitActivityList.add(
-                                 UnitActivityModelResponse(
-                                     "KG",
-                                     ""
-                                 )
-                             )
-                             unitActivityList.add(
-                                 UnitActivityModelResponse(
-                                     "GRAM",
-                                     ""
-                                 )
-                             )
-                             unitActivityList.add(
-                                 UnitActivityModelResponse(
-                                     "MILIGRAM",
-                                     ""
-                                 )
-                             )
-                             unitActivityList.add(
-                                 UnitActivityModelResponse(
-                                     "MICROGRAM",
-                                     ""
-                                 )
-                             )
+
+                             unitActivityList.add(UnitActivityModelResponse("KG", ""))
+                             unitActivityList.add(UnitActivityModelResponse("GRAM", ""))
+                             unitActivityList.add(UnitActivityModelResponse("POUND", ""))
+                             unitActivityList.add(UnitActivityModelResponse("OUNCE", ""))
+                             unitActivityList.add(UnitActivityModelResponse("TON", ""))
                          }
 
                          unitActivityAdapter?.clear()
@@ -472,6 +314,173 @@ class WeightActivity : BaseActivity(), View.OnClickListener,
 
 
                      }
+
+
+
+                 }else if (layoutPosition == 3){
+
+                     binding.inputValue.addTextChangedListener(object : TextWatcher {
+
+                         override fun afterTextChanged(s: Editable) {}
+                         override fun beforeTextChanged(
+                             s: CharSequence, start: Int,
+                             count: Int, after: Int
+                         ) {
+                         }
+                         override fun onTextChanged(
+                             s: CharSequence, start: Int,
+                             before: Int, count: Int
+                         ) {
+                             val num1 = binding.inputValue.text.toString()
+                             if (num1.isNotBlank()) {
+                                 val num2 = binding.inputValue.text.toString().trim().toDouble()
+                                 val num3 = (num2).toString()
+                                 viewModel.callweightAPI(num3)
+                             } else {
+                                 viewModel.callweightAPI("")
+                             }
+                         }
+                     })
+
+
+                     viewModel.weightResponse.observe(this@WeightActivity) {
+
+                         unitActivityList.clear()
+                         if (it.conversionValue != "") {
+                             unitActivityList.add(UnitActivityModelResponse("KG", (it.conversionValue.trim().toDouble() * 0.453592 ).toString()))
+                             unitActivityList.add(UnitActivityModelResponse("GRAM", (it.conversionValue.trim().toDouble() * 453.592).toString()))
+                             unitActivityList.add(UnitActivityModelResponse("MILIGRAM", (it.conversionValue.trim().toDouble() *  453592).toString()))
+                             unitActivityList.add(UnitActivityModelResponse("OUNCE", (it.conversionValue.trim().toDouble() * 16).toString()))
+                             unitActivityList.add(UnitActivityModelResponse("TON", (it.conversionValue.trim().toDouble() *  0.0005).toString()))
+
+                         } else {
+
+                             unitActivityList.add(UnitActivityModelResponse("KG", ""))
+                             unitActivityList.add(UnitActivityModelResponse("GRAM", ""))
+                             unitActivityList.add(UnitActivityModelResponse("MILIGRAM", ""))
+                             unitActivityList.add(UnitActivityModelResponse("OUNCE", ""))
+                             unitActivityList.add(UnitActivityModelResponse("TON", ""))
+                         }
+
+                         unitActivityAdapter?.clear()
+                         unitActivityAdapter?.setClickListener(this@WeightActivity)
+                         binding.unitRecycler.adapter = unitActivityAdapter
+                         unitActivityAdapter?.setItems(unitActivityList)
+
+
+                     }
+
+                 }else if(layoutPosition == 4){
+
+                     binding.inputValue.addTextChangedListener(object : TextWatcher {
+
+                         override fun afterTextChanged(s: Editable) {}
+                         override fun beforeTextChanged(
+                             s: CharSequence, start: Int,
+                             count: Int, after: Int
+                         ) {
+                         }
+                         override fun onTextChanged(
+                             s: CharSequence, start: Int,
+                             before: Int, count: Int
+                         ) {
+                             val num1 = binding.inputValue.text.toString()
+                             if (num1.isNotBlank()) {
+                                 val num2 = binding.inputValue.text.toString().trim().toDouble()
+                                 val num3 = (num2).toString()
+                                 viewModel.callweightAPI(num3)
+                             } else {
+                                 viewModel.callweightAPI("")
+                             }
+                         }
+                     })
+
+
+                     viewModel.weightResponse.observe(this@WeightActivity) {
+
+                         unitActivityList.clear()
+                         if (it.conversionValue != "") {
+                             unitActivityList.add(UnitActivityModelResponse("KG", (it.conversionValue.trim().toDouble() * 0.0283495 ).toString()))
+                             unitActivityList.add(UnitActivityModelResponse("GRAM", (it.conversionValue.trim().toDouble() * 28.3495).toString()))
+                             unitActivityList.add(UnitActivityModelResponse("MILIGRAM", (it.conversionValue.trim().toDouble() *  28349.5).toString()))
+                             unitActivityList.add(UnitActivityModelResponse("POUND", (it.conversionValue.trim().toDouble() * 0.0625).toString()))
+                             unitActivityList.add(UnitActivityModelResponse("TON", (it.conversionValue.trim().toDouble() *  0.000028349523).toString()))
+
+                         } else {
+
+                             unitActivityList.add(UnitActivityModelResponse("KG", ""))
+                             unitActivityList.add(UnitActivityModelResponse("GRAM", ""))
+                             unitActivityList.add(UnitActivityModelResponse("MILIGRAM", ""))
+                             unitActivityList.add(UnitActivityModelResponse("POUND", ""))
+                             unitActivityList.add(UnitActivityModelResponse("TON", ""))
+                         }
+
+                         unitActivityAdapter?.clear()
+                         unitActivityAdapter?.setClickListener(this@WeightActivity)
+                         binding.unitRecycler.adapter = unitActivityAdapter
+                         unitActivityAdapter?.setItems(unitActivityList)
+
+
+                     }
+
+                 }else if(layoutPosition == 5){
+
+
+                     binding.inputValue.addTextChangedListener(object : TextWatcher {
+
+                         override fun afterTextChanged(s: Editable) {}
+                         override fun beforeTextChanged(
+                             s: CharSequence, start: Int,
+                             count: Int, after: Int
+                         ) {
+                         }
+                         override fun onTextChanged(
+                             s: CharSequence, start: Int,
+                             before: Int, count: Int
+                         ) {
+                             val num1 = binding.inputValue.text.toString()
+                             if (num1.isNotBlank()) {
+                                 val num2 = binding.inputValue.text.toString().trim().toDouble()
+                                 val num3 = (num2).toString()
+                                 viewModel.callweightAPI(num3)
+                             } else {
+                                 viewModel.callweightAPI("")
+                             }
+                         }
+                     })
+
+
+                     viewModel.weightResponse.observe(this@WeightActivity) {
+
+                         unitActivityList.clear()
+                         if (it.conversionValue != "") {
+                             unitActivityList.add(UnitActivityModelResponse("KG", (it.conversionValue.trim().toDouble() * 1000 ).toString()))
+                             unitActivityList.add(UnitActivityModelResponse("GRAM", (it.conversionValue.trim().toDouble() *1000000).toString()))
+                             unitActivityList.add(UnitActivityModelResponse("MILIGRAM", (it.conversionValue.trim().toDouble() *  1000000000).toString()))
+                             unitActivityList.add(UnitActivityModelResponse("POUND", (it.conversionValue.trim().toDouble() * 2000).toString()))
+                             unitActivityList.add(UnitActivityModelResponse("OUNCE", (it.conversionValue.trim().toDouble() * 32000).toString()))
+
+                         } else {
+
+                             unitActivityList.add(UnitActivityModelResponse("KG", ""))
+                             unitActivityList.add(UnitActivityModelResponse("GRAM", ""))
+                             unitActivityList.add(UnitActivityModelResponse("MILIGRAM", ""))
+                             unitActivityList.add(UnitActivityModelResponse("POUND", ""))
+                             unitActivityList.add(UnitActivityModelResponse("OUNCE", ""))
+                         }
+
+                         unitActivityAdapter?.clear()
+                         unitActivityAdapter?.setClickListener(this@WeightActivity)
+                         binding.unitRecycler.adapter = unitActivityAdapter
+                         unitActivityAdapter?.setItems(unitActivityList)
+
+
+                     }
+
+
+
+
+
 
 
 

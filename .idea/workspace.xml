@@ -20,10 +20,11 @@
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/convertor/ui/activities/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/convertor/ui/activities/MainActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/convertor/ui/activities/WeightActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/convertor/ui/activities/WeightActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/appbar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/appbar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/splash_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/splash_background.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/list_unit_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/list_unit_item.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -104,21 +105,30 @@
     <property name="android-custom-view/home/karma/Android/Sdk/sources/android-33/android/widget/AdapterView.java_SELECTED" value="AdapterView" />
     <property name="android-custom-view/home/karma/Android/Sdk/sources/android-33/android/widget/GridView.java_SELECTED" value="GridView" />
     <property name="android-custom-view/home/karma/AndroidStudioProjects/practice1/RailWake/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.2.1/f0f93e67af3f7417bdd560d5142f6dec4fe629c3/recyclerview-1.2.1-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_SELECTED" value="RecyclerView" />
+    <property name="android-custom-view/home/karma/AndroidStudioProjects/practice1/convertor/app/src/main/java/karma/convertor/utils/NonScrollExpandableListView.java_SELECTED" value="NonScrollExpandableListView" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TransferData/practice/GoogleLoginProject" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/debug/res/drawable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/debug/res/drawable" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/debug/res/drawable" />
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
     </key>
     <key name="android.template.1734998679">
       <recent name="karma.convertor.ui.activities" />
       <recent name="karma.convertor" />
     </key>
+    <key name="android.template.1014073074">
+      <recent name="karma.convertor.ui.activities" />
+    </key>
     <key name="android.template.426373936">
+      <recent name="karma.convertor.ui.activities" />
+    </key>
+    <key name="android.template.-607125679">
       <recent name="karma.convertor.ui.activities" />
     </key>
   </component>
@@ -300,7 +310,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/karma/convertor/ui/activities/WeightActivity.kt</url>
-          <line>524</line>
+          <line>533</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
