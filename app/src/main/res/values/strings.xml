@@ -23,6 +23,8 @@
     <string name="data">DATA</string>
     <string name="temperature">TEMPERATURE</string>
     <string name="sound">SOUND</string>
+    <string name="power">POWER</string>
+    <string name="whatsapp_sharemessages">Hi , I just invited you to use the Shortcut App.Using this app , you can send messages to any number without saving in contact . https://play.google.com/store/apps/details?id=</string>
 
 
     <string-array name="Languages">

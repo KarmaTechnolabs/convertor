@@ -523,10 +523,9 @@ class WeightActivity : BaseActivity(), View.OnClickListener,
 
                 val shareIntent = Intent(Intent.ACTION_SEND)
                 shareIntent.type = "text/plain"
-                val app_url = "convertor app" + BuildConfig.APPLICATION_ID
+                val app_url = resources.getString(R.string.whatsapp_sharemessages) + BuildConfig.APPLICATION_ID
                 shareIntent.putExtra(Intent.EXTRA_TEXT, app_url)
                 startActivity(Intent.createChooser(shareIntent, "Share via"))
-
             }
 
             binding.btnClear -> {

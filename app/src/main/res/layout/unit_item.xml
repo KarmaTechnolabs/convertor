@@ -2,12 +2,15 @@
 <layout xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="model"
             type="karma.convertor.api.requestmodel.UnititemModel" />
+
         <variable
             name="position"
             type="int" />
+
         <variable
             name="clickListener"
             type="karma.convertor.listeners.ItemClickListener" />
@@ -16,33 +19,37 @@
 
         <import type="android.view.View" />
     </data>
-    <com.google.android.material.card.MaterialCardView
-        xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:theme="@style/Theme.MaterialComponents.Light"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:padding="@dimen/_10sdp"
+        android:layout_height="wrap_content"
         android:layout_margin="@dimen/_10sdp"
+        android:padding="@dimen/_10sdp"
+        android:theme="@style/Theme.MaterialComponents.Light"
         app:cardCornerRadius="5dp"
         app:cardElevation="5dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-          android:padding="@dimen/_10sdp">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="@dimen/_10sdp">
+
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/icon"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:onClick="@{v -> clickListener.onItemClick(v.id,model,position)}"
                 android:src="@{model.img_id}"
+                app:layout_constraintBottom_toTopOf="@id/textView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/textView"/>
+                tools:src="@drawable/temperature" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textView"
@@ -51,10 +58,11 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginBottom="@dimen/_5sdp"
                 android:text="@{model.appname}"
-                android:visibility="@{TextUtils.isEmpty(model.appname)?View.GONE:View.VISIBLE,default=gone}"
                 android:textAlignment="center"
-                app:layout_constraintTop_toBottomOf="@id/icon"/>
-
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/icon"
+                tools:text="uittype" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
