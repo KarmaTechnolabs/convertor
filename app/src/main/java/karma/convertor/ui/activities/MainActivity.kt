@@ -168,10 +168,12 @@ class MainActivity : BaseActivity(), View.OnClickListener,
         when (position) {
 
             0 -> {
-                gotoActivity(WeightActivity::class.java, needToFinish = false)
+
+                gotoActivity(AreaActivity::class.java, needToFinish = false)
+
             }
             1 -> {
-                gotoActivity(DataActivity::class.java, needToFinish = false)
+                gotoActivity(WeightActivity::class.java, needToFinish = false)
             }
             2 -> {
                 gotoActivity(TemperatureActivity::class.java, needToFinish = false)
@@ -180,16 +182,18 @@ class MainActivity : BaseActivity(), View.OnClickListener,
                 gotoActivity(SoundActivity::class.java, needToFinish = false)
             }
             4 -> {
-                gotoActivity(LengthActivity::class.java, needToFinish = false)
+                gotoActivity(SpeedActivity::class.java, needToFinish = false)
             }
             5 -> {
-                gotoActivity(AreaActivity::class.java, needToFinish = false)
+                gotoActivity(LengthActivity::class.java, needToFinish = false)
             }
             6 -> {
-                gotoActivity(PowerActivity::class.java, needToFinish = false)
+                gotoActivity(DataActivity::class.java, needToFinish = false)
             }
             7 -> {
-                gotoActivity(SpeedActivity::class.java, needToFinish = false)
+
+                gotoActivity(PowerActivity::class.java, needToFinish = false)
+
             }
 
         }

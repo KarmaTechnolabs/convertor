@@ -634,12 +634,6 @@ class SpeedActivity: BaseActivity(), View.OnClickListener,
                 startActivity(Intent.createChooser(shareIntent, "Share via"))
 
             }
-
-            binding.btnClear -> {
-
-                gotoActivity(MainActivity::class.java)
-
-            }
         }
     }
 

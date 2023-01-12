@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="170ac04e-8734-4c80-9fa8-492815dc1d8c" name="Changes" comment="recycler gridview">
+    <list default="true" id="170ac04e-8734-4c80-9fa8-492815dc1d8c" name="Changes" comment="add missing files">
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
@@ -18,20 +18,46 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/convertor/ui/activities/AreaActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/convertor/ui/activities/AreaActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/convertor/ui/activities/DataActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/convertor/ui/activities/DataActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/convertor/ui/activities/LengthActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/convertor/ui/activities/LengthActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/convertor/ui/activities/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/convertor/ui/activities/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/convertor/ui/activities/PowerActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/convertor/ui/activities/PowerActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/convertor/ui/activities/SoundActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/convertor/ui/activities/SoundActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/convertor/ui/activities/SpeedActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/convertor/ui/activities/SpeedActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/convertor/ui/activities/TemperatureActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/convertor/ui/activities/TemperatureActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/convertor/ui/activities/WeightActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/convertor/ui/activities/WeightActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/area.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/area.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/electric_tower_power.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/electric_tower_power.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/length.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/length.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/mobile_data.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/mobile_data.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/sound.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/sound.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/speed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/speed.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/temperature.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/temperature.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/weight.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/weight.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_area.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_area.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_data.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_data.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_length.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_length.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_power.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_power.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_sound.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_sound.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_temperature.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_temperature.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_weight.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_weight.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/unit_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/unit_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-night/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-night/colors.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[adb-68236d66-W8C19C._adb-tls-connect._tcp]" />
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="module" />
+    </option>
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[68236d66]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -282,7 +308,21 @@
       <option name="project" value="LOCAL" />
       <updated>1673274158978</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="recycler gridview">
+      <created>1673446126895</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1673446126896</updated>
+    </task>
+    <task id="LOCAL-00013" summary="add missing files">
+      <created>1673503156274</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1673503156274</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -313,17 +353,8 @@
     <MESSAGE value="ui updated , basic calculations added" />
     <MESSAGE value="number picker updated ..." />
     <MESSAGE value="data actvity , sound, temperature, area , length activity created" />
-    <option name="LAST_COMMIT_MESSAGE" value="data actvity , sound, temperature, area , length activity created" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/karma/convertor/ui/activities/WeightActivity.kt</url>
-          <line>533</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="recycler gridview" />
+    <MESSAGE value="add missing files" />
+    <option name="LAST_COMMIT_MESSAGE" value="add missing files" />
   </component>
 </project>

@@ -476,7 +476,6 @@ class WeightActivity : BaseActivity(), View.OnClickListener,
             setData(data)
             callback = object : PickerAdapter.Callback {
                 override fun onItemClicked(view: View) {
-
                     rvHorizontalPicker.smoothScrollToPosition(
                         rvHorizontalPicker.getChildLayoutPosition(
                             view
@@ -493,10 +492,7 @@ class WeightActivity : BaseActivity(), View.OnClickListener,
             binding.header.backToHome -> {
                 onBackPressedDispatcher.onBackPressed()
             }
-
             binding.header.shareImageView -> {
-
-
                 val shareIntent = Intent(Intent.ACTION_SEND)
                 shareIntent.type = "text/plain"
                 val app_url = resources.getString(R.string.whatsapp_sharemessages) + BuildConfig.APPLICATION_ID
@@ -504,11 +500,6 @@ class WeightActivity : BaseActivity(), View.OnClickListener,
                 startActivity(Intent.createChooser(shareIntent, "Share via"))
             }
 
-            binding.btnClear -> {
-
-                gotoActivity(MainActivity::class.java)
-
-            }
         }
     }
 

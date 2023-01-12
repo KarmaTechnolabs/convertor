@@ -328,11 +328,6 @@ class TemperatureActivity : BaseActivity(), View.OnClickListener,
 
             }
 
-            binding.btnClear -> {
-
-                gotoActivity(MainActivity::class.java)
-
-            }
         }
     }
 

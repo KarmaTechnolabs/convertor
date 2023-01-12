@@ -132,6 +132,7 @@
                         tools:listitem="@layout/list_unit_item" />
 
 
+
                     <TableLayout
                         android:id="@+id/table_calculator"
                         android:layout_width="match_parent"
@@ -160,6 +161,7 @@
                                 android:background="@drawable/button_background_calculator"
                                 android:onClick="onDigit"
                                 android:text="7"
+                                android:textColor="@color/colorBlack"
                                 android:translationZ="2dp"
                                 app:elevation="5dp" />
 
@@ -168,6 +170,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
+                                android:textColor="@color/colorBlack"
                                 android:background="@drawable/button_background_calculator"
                                 android:onClick="onDigit"
                                 android:text="8" />
@@ -177,6 +180,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
+                                android:textColor="@color/colorBlack"
                                 android:background="@drawable/button_background_calculator"
                                 android:onClick="onDigit"
                                 android:text="9" />
@@ -186,6 +190,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
+                                android:textColor="@color/colorBlack"
                                 android:background="@drawable/cross_button_background"
                                 android:onClick="Clear"
                                 android:src="@drawable/crossbutton"
@@ -204,6 +209,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
+                                android:textColor="@color/colorBlack"
                                 android:background="@drawable/button_background_calculator"
                                 android:onClick="onDigit"
                                 android:text="4" />
@@ -213,6 +219,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
+                                android:textColor="@color/colorBlack"
                                 android:background="@drawable/button_background_calculator"
                                 android:onClick="onDigit"
                                 android:text="5" />
@@ -222,6 +229,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
+                                android:textColor="@color/colorBlack"
                                 android:background="@drawable/button_background_calculator"
                                 android:onClick="onDigit"
                                 android:text="6" />
@@ -231,6 +239,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
+                                android:textColor="@color/colorBlack"
                                 android:background="@drawable/button_background_calculator"
                                 android:onClick="@{clickListener::onClick}"
                                 android:text="*" />
@@ -247,6 +256,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
+                                android:textColor="@color/colorBlack"
                                 android:background="@drawable/button_background_calculator"
                                 android:onClick="onDigit"
                                 android:text="1" />
@@ -256,6 +266,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
+                                android:textColor="@color/colorBlack"
                                 android:background="@drawable/button_background_calculator"
                                 android:onClick="onDigit"
                                 android:text="2" />
@@ -265,6 +276,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
+                                android:textColor="@color/colorBlack"
                                 android:background="@drawable/button_background_calculator"
                                 android:onClick="onDigit"
                                 android:text="3" />
@@ -274,6 +286,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
+                                android:textColor="@color/colorBlack"
                                 android:background="@drawable/button_background_calculator"
                                 android:onClick="@{clickListener::onClick}"
                                 android:text="-" />
@@ -290,6 +303,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
+                                android:textColor="@color/colorBlack"
                                 android:background="@drawable/button_background_calculator"
                                 android:onClick="onDecimalPoint"
                                 android:text="." />
@@ -299,6 +313,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
+                                android:textColor="@color/colorBlack"
                                 android:background="@drawable/button_background_calculator"
                                 android:onClick="onDigit"
                                 android:text="0" />
@@ -309,6 +324,7 @@
                                 android:fontFamily="@font/gotham_bold"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
+                                android:textColor="@color/colorBlack"
                                 android:background="@drawable/button_background_calculator"
                                 android:onClick="onClear"
                                 android:text="AC" />
@@ -318,6 +334,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
+                                android:textColor="@color/colorBlack"
                                 android:background="@drawable/button_background_calculator"
                                 android:onClick="@{clickListener::onClick}"
                                 android:text="+" />

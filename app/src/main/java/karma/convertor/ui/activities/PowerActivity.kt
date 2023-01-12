@@ -321,18 +321,11 @@ class PowerActivity: BaseActivity(), View.OnClickListener,
             }
 
             binding.header.shareImageView -> {
-
                 val shareIntent = Intent(Intent.ACTION_SEND)
                 shareIntent.type = "text/plain"
                 val app_url = resources.getString(R.string.whatsapp_sharemessages) + BuildConfig.APPLICATION_ID
                 shareIntent.putExtra(Intent.EXTRA_TEXT, app_url)
                 startActivity(Intent.createChooser(shareIntent, "Share via"))
-
-            }
-
-            binding.btnClear -> {
-
-                gotoActivity(MainActivity::class.java)
 
             }
         }
