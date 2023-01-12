@@ -3,8 +3,6 @@ package karma.convertor.ui.activities
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
-import androidx.core.view.marginStart
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexboxLayoutManager
 import com.google.android.flexbox.JustifyContent
@@ -20,7 +18,6 @@ import karma.convertor.base.BaseActivity
 import karma.convertor.custom.gotoActivity
 import karma.convertor.databinding.ActivityMainBinding
 import karma.convertor.listeners.ItemClickListener
-import kotlinx.android.synthetic.main.appbar.view.*
 
 
 class MainActivity : BaseActivity(), View.OnClickListener,
@@ -47,12 +44,11 @@ class MainActivity : BaseActivity(), View.OnClickListener,
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        binding.header.toolbar.setText(resources.getString(R.string.app_title))
-        binding.header.back_to_home.setImageResource(android.R.color.transparent)
-        binding.header.share_imageView.visibility = View.VISIBLE
+        binding.header.toolbar.text = resources.getString(R.string.app_title)
+        binding.header.backToHome.setImageResource(android.R.color.transparent)
+        binding.header.shareImageView.visibility = View.VISIBLE
         binding.clickListener = this
-        binding.header.share_imageView.setOnClickListener(this)
+        binding.header.shareImageView.setOnClickListener(this)
 
 
 
@@ -169,62 +165,39 @@ class MainActivity : BaseActivity(), View.OnClickListener,
     }
 
     override fun onItemClick(viewIdRes: Int, model: UnititemModel, position: Int) {
-        when (viewIdRes) {
-            R.id.icon -> {
-                if (model.img_id == R.drawable.weight) {
-                    val intent = Intent(this, WeightActivity::class.java)
-                    startActivity(intent)
-                } else if (model.img_id == R.drawable.mobile_data) {
-                    val intent = Intent(this, DataActivity::class.java)
-                    startActivity(intent)
-                } else if (model.img_id == R.drawable.temperature) {
+        when (position) {
 
-                    val intent = Intent(this, TemperatureActivity::class.java)
-                    startActivity(intent)
-                } else if ((model.img_id == R.drawable.sound)) {
-
-                    val intent = Intent(this, SoundActivity::class.java)
-                    startActivity(intent)
-                } else if ((model.img_id == R.drawable.length)) {
-
-                    val intent = Intent(this, LengthActivity::class.java)
-                    startActivity(intent)
-                } else if ((model.img_id == R.drawable.area)) {
-
-                    val intent = Intent(this, AreaActivity::class.java)
-                    startActivity(intent)
-                } else if ((model.img_id == R.drawable.electric_tower_power)) {
-
-                    val intent = Intent(this, PowerActivity::class.java)
-                    startActivity(intent)
-                } else if ((model.img_id == R.drawable.speed)) {
-
-                    val intent = Intent(this, SpeedActivity::class.java)
-                    startActivity(intent)
-                }/* else if (model.img_id == R.drawable.ic_comingsoon_logo) {
-
-                    Toast.makeText(
-                        this,
-                        "Your suggestions are welcomed, contact to karmatechnolabs.com",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            }*/
+            0 -> {
+                gotoActivity(WeightActivity::class.java, needToFinish = false)
             }
+            1 -> {
+                gotoActivity(DataActivity::class.java, needToFinish = false)
+            }
+            2 -> {
+                gotoActivity(TemperatureActivity::class.java, needToFinish = false)
+            }
+            3 -> {
+                gotoActivity(SoundActivity::class.java, needToFinish = false)
+            }
+            4 -> {
+                gotoActivity(LengthActivity::class.java, needToFinish = false)
+            }
+            5 -> {
+                gotoActivity(AreaActivity::class.java, needToFinish = false)
+            }
+            6 -> {
+                gotoActivity(PowerActivity::class.java, needToFinish = false)
+            }
+            7 -> {
+                gotoActivity(SpeedActivity::class.java, needToFinish = false)
+            }
+
         }
     }
 
-    override fun onClick(v: View?) {
-        when (v) {
-           /* binding.header.back_to_home -> {
-
-                gotoActivity(MainActivity::class.java)
-
-            }*/
-
-            binding.header.share_imageView -> {
-
-
+    override fun onClick(view: View?) {
+        when (view) {
+            binding.header.shareImageView -> {
                 val shareIntent = Intent(Intent.ACTION_SEND)
                 shareIntent.type = "text/plain"
                 val app_url =

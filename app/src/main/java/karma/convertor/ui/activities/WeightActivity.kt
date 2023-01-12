@@ -24,7 +24,6 @@ import karma.convertor.custom.gotoActivity
 import karma.convertor.databinding.ActivityWeightBinding
 import karma.convertor.listeners.ItemClickListener
 import karma.convertor.viewmodel.WeightViewModel
-import kotlinx.android.synthetic.main.appbar.view.*
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -42,9 +41,6 @@ class WeightActivity : BaseActivity(), View.OnClickListener,
     private lateinit var rvHorizontalPicker: RecyclerView
     private lateinit var sliderAdapter: PickerAdapter
     private var unitActivityAdapter: UnitActivityAdpater? = UnitActivityAdpater(this)
-
-    // TextView used to display the input and output
-
 
     // Represent whether the lastly pressed key is numeric or not
     var lastNumeric: Boolean = false
@@ -64,10 +60,10 @@ class WeightActivity : BaseActivity(), View.OnClickListener,
         binding.clickListener = this
 
 
-        binding.header.back_to_home.setOnClickListener(this)
-        binding.header.share_imageView.setOnClickListener(this)
+        binding.header.backToHome.setOnClickListener(this)
+        binding.header.shareImageView.setOnClickListener(this)
 
-        binding.header.toolbar.setText(resources.getString(R.string.weight))
+        binding.header.toolbar.text = resources.getString(R.string.weight)
 
         binding.inputValue.addTextChangedListener(object : TextWatcher {
 
@@ -134,9 +130,6 @@ class WeightActivity : BaseActivity(), View.OnClickListener,
         data.add("Pound")
         data.add("Ounce")
         data.add("Ton")
-
-
-
 
         rvHorizontalPicker = binding.rvHorizontalPicker
 
@@ -306,16 +299,12 @@ class WeightActivity : BaseActivity(), View.OnClickListener,
                              unitActivityList.add(UnitActivityModelResponse("OUNCE", ""))
                              unitActivityList.add(UnitActivityModelResponse("TON", ""))
                          }
-
                          unitActivityAdapter?.clear()
                          unitActivityAdapter?.setClickListener(this@WeightActivity)
                          binding.unitRecycler.adapter = unitActivityAdapter
                          unitActivityAdapter?.setItems(unitActivityList)
 
-
                      }
-
-
 
                  }else if (layoutPosition == 3){
 
@@ -425,7 +414,6 @@ class WeightActivity : BaseActivity(), View.OnClickListener,
 
                  }else if(layoutPosition == 5){
 
-
                      binding.inputValue.addTextChangedListener(object : TextWatcher {
 
                          override fun afterTextChanged(s: Editable) {}
@@ -448,7 +436,6 @@ class WeightActivity : BaseActivity(), View.OnClickListener,
                              }
                          }
                      })
-
 
                      viewModel.weightResponse.observe(this@WeightActivity) {
 
@@ -477,16 +464,7 @@ class WeightActivity : BaseActivity(), View.OnClickListener,
 
                      }
 
-
-
-
-
-
-
-
                  }
-
-
 
                 }
             }
@@ -512,13 +490,11 @@ class WeightActivity : BaseActivity(), View.OnClickListener,
 
     override fun onClick(view: View?) {
         when (view) {
-            binding.header.back_to_home -> {
-
-                gotoActivity(MainActivity::class.java)
-
+            binding.header.backToHome -> {
+                onBackPressedDispatcher.onBackPressed()
             }
 
-            binding.header.share_imageView -> {
+            binding.header.shareImageView -> {
 
 
                 val shareIntent = Intent(Intent.ACTION_SEND)

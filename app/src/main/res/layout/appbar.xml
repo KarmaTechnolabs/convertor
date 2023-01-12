@@ -1,63 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context=".ui.activities.MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/toolbar"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/gotham_bold"
-        android:gravity="center"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:minHeight="?attr/actionBarSize"
-        android:textColor="@color/colorBlack"
-        android:textSize="@dimen/_20sdp"
-        app:layout_constraintHorizontal_weight="1"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/back_to_home"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/share_imageView"
-        tools:text="@string/app_title"
+        tools:context=".ui.activities.MainActivity">
 
-       />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:fontFamily="@font/gotham_bold"
+            android:gravity="center"
+            android:minHeight="?attr/actionBarSize"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_20sdp"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/share_imageView"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/back_to_home"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/app_title"
 
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/back_to_home"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:background="@android:color/transparent"
-        android:src="@drawable/convertor_backbutton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:tint="@color/colorBlack" />
+            />
 
-    <!-- Right most TextView -->
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/back_to_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/convertor_backbutton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:tint="@color/colorBlack" />
 
-
-    <!-- Right most ImageView -->
-
-
-    <!-- ImageView beside title of ToolBar -->
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/share_imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_20sdp"
-        app:layout_constraintHorizontal_weight=".05"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/iconshare"
-        tools:tint="@color/colorBlack" />
+        <!-- Right most TextView -->
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Right most ImageView -->
+
+
+        <!-- ImageView beside title of ToolBar -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/share_imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_20sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight=".05"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/iconshare"
+            tools:tint="@color/colorBlack" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
