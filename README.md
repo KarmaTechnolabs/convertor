@@ -7,7 +7,7 @@
 ### Step 1. Setup Package Name
 - Clone this project to a preferred directory.
 - Open it in Android Studio.
-- From the project, select the top level package name (karma.convertor) and hit Shift+F6. 
+- From the project, select the top level package name (karma.converter) and hit Shift+F6. 
 This will open a rename package window. Change the package name to actual app package name.
 - Go to app module gradle file and rename applicationId to the package name you set in previous step.
 

@@ -7,7 +7,7 @@
 
         <variable
             name="model"
-            type="karma.convertor.api.requestmodel.UnitActivityModelResponse" />
+            type="karma.converter.api.requestmodel.UnitActivityModelResponse" />
 
         <variable
             name="position"
@@ -15,7 +15,7 @@
 
         <variable
             name="clickListener"
-            type="karma.convertor.listeners.ItemClickListener" />
+            type="karma.converter.listeners.ItemClickListener" />
 
         <import type="android.text.TextUtils" />
 

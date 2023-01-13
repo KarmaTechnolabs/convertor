@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="karma.convertor">
+    package="karma.converter">
 
     <queries>
 
-        <!-- Camera -->
-        <intent>
-            <action android:name="android.media.action.IMAGE_CAPTURE" />
-        </intent>
     </queries>
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -16,7 +12,7 @@
     <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
 
     <application
-        android:name=".base.BaseApplication"
+        android:name="karma.converter.base.BaseApplication"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -27,56 +23,56 @@
         tools:ignore="LockedOrientationActivity"
         tools:replace="android:allowBackup">
         <activity
-            android:name=".ui.activities.SpeedActivity"
+            android:name="karma.converter.ui.activities.SpeedActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.activities.PowerActivity"
+            android:name="karma.converter.ui.activities.PowerActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.activities.AreaActivity"
+            android:name="karma.converter.ui.activities.AreaActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.activities.LengthActivity"
+            android:name="karma.converter.ui.activities.LengthActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.activities.SoundActivity"
+            android:name="karma.converter.ui.activities.SoundActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.activities.TemperatureActivity"
+            android:name="karma.converter.ui.activities.TemperatureActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.activities.DataActivity"
+            android:name="karma.converter.ui.activities.DataActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.activities.WeightActivity"
+            android:name="karma.converter.ui.activities.WeightActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustPan">
             <meta-data
@@ -86,19 +82,19 @@
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-1829431093631944~1902403058" />
+            android:value="ca-app-pub-1829431093631944~9605428672" />
 
         <activity
-            android:name=".ui.activities.MainActivity"
+            android:name="karma.converter.ui.activities.MainActivity"
             android:exported="false"
             android:label="main"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".ui.activities.WebActivity"
+            android:name="karma.converter.ui.activities.WebActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
         <activity
-            android:name=".ui.activities.SplashActivity"
+            android:name="karma.converter.ui.activities.SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
@@ -110,7 +106,7 @@
         </activity>
 
         <service
-            android:name=".fcm.MyFirebaseMessagingService"
+            android:name="karma.converter.fcm.MyFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

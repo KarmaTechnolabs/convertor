@@ -59,6 +59,7 @@
                     android:clipToPadding="false"
                     android:orientation="vertical"
                     app:spanCount="2"
+                    android:layout_margin="@dimen/_6sdp"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -78,7 +79,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/ad_view"
             ads:adSize="BANNER"
-            ads:adUnitId="ca-app-pub-3940256099942544/6300978111"
+            ads:adUnitId="ca-app-pub-1829431093631944/3966390500"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
 
