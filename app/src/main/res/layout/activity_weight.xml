@@ -31,120 +31,132 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.card.MaterialCardView
-                android:id="@+id/convertor_cardview"
+            android:id="@+id/convertor_cardview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_60sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="@dimen/_10sdp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_60sdp"
-                android:layout_marginEnd="@dimen/_20sdp"
-                android:layout_marginBottom="@dimen/_20sdp"
-                app:cardBackgroundColor="@android:color/transparent"
-                app:cardCornerRadius="@dimen/_10sdp"
-                app:cardElevation="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_height="match_parent"
+                android:background="@drawable/rect">
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_horizontal_picker"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintVertical_weight="1"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/row_view_picker_item"
+
+                    />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/rv_horizontal_picker_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintVertical_weight="1"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal"
+                    android:src="@drawable/recycler_image"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintBottom_toTopOf="@id/input_value"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:itemCount="8"
+
+                    tools:listitem="@layout/row_view_picker_item" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/input_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    app:layout_constraintVertical_weight="1"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_11sdp"
+                    android:background="@drawable/round_edit_text"
+                    android:clickable="false"
+                    android:hint="0.000000"
+                    android:inputType="numberDecimal"
+                    android:paddingStart="@dimen/_40sdp"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingEnd="@dimen/_40sdp"
+                    android:paddingBottom="@dimen/_5sdp"
+                    android:textColor="@color/colorBlack"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rv_horizontal_picker" />
 
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/calculator"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/rect">
-
+                    android:layout_height="0dp"
+                    app:layout_constraintVertical_weight="1"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/input_value"
+                    tools:context=".MainActivity">
 
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rv_horizontal_picker"
+                        android:id="@+id/unit_recycler"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:clipToPadding="false"
-                        android:orientation="horizontal"
+                        android:layout_height="0dp"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintBottom_toTopOf="@id/table_constraint"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        tools:itemCount="2"
-                        tools:listitem="@layout/row_view_picker_item"
-
-                        />
-
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/rv_horizontal_picker_image"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:clipToPadding="false"
-                        android:orientation="horizontal"
-                        android:src="@drawable/recycler_image"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_weight="1"
                         tools:itemCount="8"
-                        tools:listitem="@layout/row_view_picker_item"
-
-                        />
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/input_value"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_11sdp"
-                        android:background="@drawable/round_edit_text"
-                        android:hint="0.000000"
-                        android:inputType="numberDecimal"
-                        android:clickable="false"
-                        android:textColor="@color/colorBlack"
-                        android:paddingTop="@dimen/_5sdp"
-                        android:paddingBottom="@dimen/_5sdp"
-                        android:paddingStart="@dimen/_40sdp"
-                        android:paddingEnd="@dimen/_40sdp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/rv_horizontal_picker" />
-
+                        tools:listitem="@layout/list_unit_item" />
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/calculator"
+                        android:id="@+id/table_constraint"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_15sdp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/input_value"
-                        tools:context=".MainActivity">
-
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/unit_recycler"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            app:layout_constraintVertical_weight="1"
-                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                            app:layout_constraintBottom_toTopOf="@id/table_calculator"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            tools:itemCount="8"
-                            tools:listitem="@layout/list_unit_item" />
-
-
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/unit_recycler">
 
                         <TableLayout
                             android:id="@+id/table_calculator"
                             android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_marginTop="@dimen/_2sdp"
+                            android:layout_height="match_parent"
                             android:layout_marginLeft="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_2sdp"
                             android:layout_marginRight="@dimen/_10sdp"
                             android:layout_marginBottom="@dimen/_20sdp"
                             android:gravity="fill"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/unit_recycler"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintVertical_weight=".7">
 
                             <TableRow
@@ -170,32 +182,31 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
-                                    android:textColor="@color/colorBlack"
                                     android:background="@drawable/button_background_calculator"
                                     android:onClick="onDigit"
-                                    android:text="8" />
+                                    android:text="8"
+                                    android:textColor="@color/colorBlack" />
 
                                 <androidx.appcompat.widget.AppCompatButton
                                     android:id="@+id/btnNine"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
-                                    android:textColor="@color/colorBlack"
                                     android:background="@drawable/button_background_calculator"
                                     android:onClick="onDigit"
-                                    android:text="9" />
+                                    android:text="9"
+                                    android:textColor="@color/colorBlack" />
 
                                 <androidx.appcompat.widget.AppCompatImageButton
                                     android:id="@+id/btnDivide"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
-                                    android:textColor="@color/colorBlack"
                                     android:background="@drawable/cross_button_background"
                                     android:onClick="Clear"
                                     android:src="@drawable/crossbutton"
                                     android:text="/"
-                                    />
+                                    android:textColor="@color/colorBlack" />
                             </TableRow>
 
                             <TableRow
@@ -209,40 +220,40 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
-                                    android:textColor="@color/colorBlack"
                                     android:background="@drawable/button_background_calculator"
                                     android:onClick="onDigit"
-                                    android:text="4" />
+                                    android:text="4"
+                                    android:textColor="@color/colorBlack" />
 
                                 <androidx.appcompat.widget.AppCompatButton
                                     android:id="@+id/btnFive"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
-                                    android:textColor="@color/colorBlack"
                                     android:background="@drawable/button_background_calculator"
                                     android:onClick="onDigit"
-                                    android:text="5" />
+                                    android:text="5"
+                                    android:textColor="@color/colorBlack" />
 
                                 <androidx.appcompat.widget.AppCompatButton
                                     android:id="@+id/btnSix"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
-                                    android:textColor="@color/colorBlack"
                                     android:background="@drawable/button_background_calculator"
                                     android:onClick="onDigit"
-                                    android:text="6" />
+                                    android:text="6"
+                                    android:textColor="@color/colorBlack" />
 
                                 <androidx.appcompat.widget.AppCompatButton
                                     android:id="@+id/btnMultiply"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
-                                    android:textColor="@color/colorBlack"
                                     android:background="@drawable/button_background_calculator"
                                     android:onClick="@{clickListener::onClick}"
-                                    android:text="*" />
+                                    android:text="*"
+                                    android:textColor="@color/colorBlack" />
                             </TableRow>
 
                             <TableRow
@@ -252,44 +263,43 @@
                                 android:gravity="center">
 
                                 <androidx.appcompat.widget.AppCompatButton
-                                    android:id="@+id/btnOne"
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:textColor="@color/colorBlack"
-                                    android:background="@drawable/button_background_calculator"
-                                    android:onClick="onDigit"
-                                    android:text="1" />
-
-                                <androidx.appcompat.widget.AppCompatButton
                                     android:id="@+id/btnTwo"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
-                                    android:textColor="@color/colorBlack"
                                     android:background="@drawable/button_background_calculator"
                                     android:onClick="onDigit"
-                                    android:text="2" />
+                                    android:text="2"
+                                    android:textColor="@color/colorBlack" />
 
                                 <androidx.appcompat.widget.AppCompatButton
                                     android:id="@+id/btnThree"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
-                                    android:textColor="@color/colorBlack"
                                     android:background="@drawable/button_background_calculator"
                                     android:onClick="onDigit"
-                                    android:text="3" />
+                                    android:text="3"
+                                    android:textColor="@color/colorBlack" />
+                                <androidx.appcompat.widget.AppCompatButton
+                                    android:id="@+id/btnOne"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/button_background_calculator"
+                                    android:onClick="onDigit"
+                                    android:text="1"
+                                    android:textColor="@color/colorBlack" />
 
                                 <androidx.appcompat.widget.AppCompatButton
                                     android:id="@+id/btnSubtract"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
-                                    android:textColor="@color/colorBlack"
                                     android:background="@drawable/button_background_calculator"
                                     android:onClick="@{clickListener::onClick}"
-                                    android:text="-" />
+                                    android:text="-"
+                                    android:textColor="@color/colorBlack" />
                             </TableRow>
 
                             <TableRow
@@ -303,47 +313,52 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
-                                    android:textColor="@color/colorBlack"
                                     android:background="@drawable/button_background_calculator"
                                     android:onClick="onDecimalPoint"
-                                    android:text="." />
+                                    android:text="."
+                                    android:textColor="@color/colorBlack" />
 
                                 <androidx.appcompat.widget.AppCompatButton
                                     android:id="@+id/btnZero"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
-                                    android:textColor="@color/colorBlack"
                                     android:background="@drawable/button_background_calculator"
                                     android:onClick="onDigit"
-                                    android:text="0" />
+                                    android:text="0"
+                                    android:textColor="@color/colorBlack" />
 
                                 <androidx.appcompat.widget.AppCompatButton
                                     android:id="@+id/btnClear"
                                     android:layout_width="0dp"
-                                    android:fontFamily="@font/gotham_bold"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
-                                    android:textColor="@color/colorBlack"
                                     android:background="@drawable/button_background_calculator"
+                                    android:fontFamily="@font/gotham_bold"
                                     android:onClick="onClear"
-                                    android:text="AC" />
+                                    android:text="AC"
+                                    android:textColor="@color/colorBlack" />
 
                                 <androidx.appcompat.widget.AppCompatButton
                                     android:id="@+id/btnAdd"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
-                                    android:textColor="@color/colorBlack"
                                     android:background="@drawable/button_background_calculator"
                                     android:onClick="@{clickListener::onClick}"
-                                    android:text="+" />
+                                    android:text="+"
+                                    android:textColor="@color/colorBlack" />
+
+
                             </TableRow>
 
                         </TableLayout>
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
-            </com.google.android.material.card.MaterialCardView>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
