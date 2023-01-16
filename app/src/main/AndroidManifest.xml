@@ -3,9 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="karma.converter">
 
-    <queries>
-
-    </queries>
+    <queries></queries>
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -23,56 +21,63 @@
         tools:ignore="LockedOrientationActivity"
         tools:replace="android:allowBackup">
         <activity
-            android:name="karma.converter.ui.activities.SpeedActivity"
+            android:name=".ui.activities.VolumeActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="karma.converter.ui.activities.PowerActivity"
+            android:name=".ui.activities.SpeedActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="karma.converter.ui.activities.AreaActivity"
+            android:name=".ui.activities.PowerActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="karma.converter.ui.activities.LengthActivity"
+            android:name=".ui.activities.AreaActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="karma.converter.ui.activities.SoundActivity"
+            android:name=".ui.activities.LengthActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="karma.converter.ui.activities.TemperatureActivity"
+            android:name=".ui.activities.SoundActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="karma.converter.ui.activities.DataActivity"
+            android:name=".ui.activities.TemperatureActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="karma.converter.ui.activities.WeightActivity"
+            android:name=".ui.activities.DataActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.activities.WeightActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustPan">
             <meta-data
@@ -85,16 +90,16 @@
             android:value="ca-app-pub-1829431093631944~9605428672" />
 
         <activity
-            android:name="karma.converter.ui.activities.MainActivity"
+            android:name=".ui.activities.MainActivity"
             android:exported="false"
             android:label="main"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="karma.converter.ui.activities.WebActivity"
+            android:name=".ui.activities.WebActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
         <activity
-            android:name="karma.converter.ui.activities.SplashActivity"
+            android:name=".ui.activities.SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">

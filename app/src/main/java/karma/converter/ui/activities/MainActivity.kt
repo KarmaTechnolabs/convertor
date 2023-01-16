@@ -41,6 +41,7 @@ class MainActivity : BaseActivity(), View.OnClickListener,
         itemList.add(UnititemModel(R.drawable.length, "Length"))
         itemList.add(UnititemModel(R.drawable.mobile_data, "Data"))
         itemList.add(UnititemModel(R.drawable.electric_tower_power, "Power"))
+        itemList.add(UnititemModel(R.drawable.length, "Volume"))
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -191,9 +192,10 @@ class MainActivity : BaseActivity(), View.OnClickListener,
                 gotoActivity(DataActivity::class.java, needToFinish = false)
             }
             7 -> {
-
                 gotoActivity(PowerActivity::class.java, needToFinish = false)
-
+            }
+            8-> {
+                gotoActivity(VolumeActivity::class.java, needToFinish = false)
             }
 
         }
