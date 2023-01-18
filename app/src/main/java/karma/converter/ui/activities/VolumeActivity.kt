@@ -127,10 +127,10 @@ class VolumeActivity: BaseActivity(), View.OnClickListener,
     private fun setPicker() {
         data.add("L")
         data.add("ML")
-        data.add("m3")
-        data.add("cm3")
-        data.add("ft3")
-        data.add("inch3")
+        data.add("m³")
+        data.add("cm³")
+        data.add("ft³")
+        data.add("inch³")
 
         rvHorizontalPicker = binding.rvHorizontalPicker
 
@@ -235,24 +235,20 @@ class VolumeActivity: BaseActivity(), View.OnClickListener,
 
                             unitActivityList.clear()
                             if (it.conversionValue != "") {
-                                unitActivityList.add(UnitActivityModelResponse("Hectare", (it.conversionValue.trim().toDouble() *0.404686).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq km", (it.conversionValue.trim().toDouble()*0.00404686).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq m", (it.conversionValue.trim().toDouble() * 4046.86).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq yds", (it.conversionValue.trim().toDouble()*4840).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq ft", (it.conversionValue.trim().toDouble() * 43560).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq inch", (it.conversionValue.trim().toDouble()*6.273e+6).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("L", (it.conversionValue.trim().toDouble() *0.001).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("m³", (it.conversionValue.trim().toDouble()*1e-6).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("cm³", (it.conversionValue.trim().toDouble() * 1).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("ft³", (it.conversionValue.trim().toDouble()*3.5315e-5).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("inch³", (it.conversionValue.trim().toDouble() * 0.0610237).toString()))
+
 
 
                             } else {
-                                unitActivityList.add(UnitActivityModelResponse("Hectare", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq km", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq m", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq yds", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq ft", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq inch", ""))
-
-
-
+                                unitActivityList.add(UnitActivityModelResponse("L", ""))
+                                unitActivityList.add(UnitActivityModelResponse("m³", ""))
+                                unitActivityList.add(UnitActivityModelResponse("cm³", ""))
+                                unitActivityList.add(UnitActivityModelResponse("ft³", ""))
+                                unitActivityList.add(UnitActivityModelResponse("inch³", ""))
                             }
 
                             unitActivityAdapter?.clear()
@@ -287,25 +283,20 @@ class VolumeActivity: BaseActivity(), View.OnClickListener,
 
 
                         viewModel.weightResponse.observe(this@VolumeActivity) {
-
                             unitActivityList.clear()
-                            if (it.conversionValue != "") {
-                                unitActivityList.add(UnitActivityModelResponse("Hectare", (it.conversionValue.trim().toDouble() *100).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("Acre", (it.conversionValue.trim().toDouble()*247.105).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq m", (it.conversionValue.trim().toDouble() * 1e+6).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq yds", (it.conversionValue.trim().toDouble()*1.196e+6).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq ft", (it.conversionValue.trim().toDouble() * 1.076e+7).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq inch", (it.conversionValue.trim().toDouble()*1.55e+9).toString()))
+                            if ( it.conversionValue != "") {
+                                unitActivityList.add(UnitActivityModelResponse("L", (it.conversionValue.trim().toDouble() *1000).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("ML", (it.conversionValue.trim().toDouble()*1e+6).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("cm³", (it.conversionValue.trim().toDouble() * 1e+6).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("ft³", (it.conversionValue.trim().toDouble()*35.3147).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("inch³", (it.conversionValue.trim().toDouble() * 61023.7).toString()))
 
                             } else {
-
-                                unitActivityList.add(UnitActivityModelResponse("Hectare", ""))
-                                unitActivityList.add(UnitActivityModelResponse("Acre", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq m", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq yds", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq ft", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq inch", ""))
-
+                                unitActivityList.add(UnitActivityModelResponse("L", ""))
+                                unitActivityList.add(UnitActivityModelResponse("ML", ""))
+                                unitActivityList.add(UnitActivityModelResponse("cm³", ""))
+                                unitActivityList.add(UnitActivityModelResponse("ft³", ""))
+                                unitActivityList.add(UnitActivityModelResponse("inch³", ""))
                             }
 
                             unitActivityAdapter?.clear()
@@ -347,30 +338,24 @@ class VolumeActivity: BaseActivity(), View.OnClickListener,
 
                             unitActivityList.clear()
                             if (it.conversionValue != "") {
-                                unitActivityList.add(UnitActivityModelResponse("Hectare", (it.conversionValue.trim().toDouble() *1e-4).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("Acre", (it.conversionValue.trim().toDouble()*0.000247105).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq km", (it.conversionValue.trim().toDouble() * 1e-6).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq yds", (it.conversionValue.trim().toDouble()*1.19599).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq ft", (it.conversionValue.trim().toDouble() *10.7639).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq inch", (it.conversionValue.trim().toDouble()*1550).toString()))
-
+                                unitActivityList.add(UnitActivityModelResponse("L", (it.conversionValue.trim().toDouble() *0.001).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("ML", (it.conversionValue.trim().toDouble()*1).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("m³", (it.conversionValue.trim().toDouble() * 1e-6).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("ft³", (it.conversionValue.trim().toDouble()*3.5315e-5).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("inch³", (it.conversionValue.trim().toDouble() * 0.0610237).toString()))
                             } else {
 
-                                unitActivityList.add(UnitActivityModelResponse("Hectare", ""))
-                                unitActivityList.add(UnitActivityModelResponse("Acre", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq km", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq yds", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq ft", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq inch", ""))
-
+                                unitActivityList.add(UnitActivityModelResponse("L", ""))
+                                unitActivityList.add(UnitActivityModelResponse("ML", ""))
+                                unitActivityList.add(UnitActivityModelResponse("m³", ""))
+                                unitActivityList.add(UnitActivityModelResponse("ft³", ""))
+                                unitActivityList.add(UnitActivityModelResponse("inch³", ""))
                             }
 
                             unitActivityAdapter?.clear()
                             unitActivityAdapter?.setClickListener(this@VolumeActivity)
                             binding.unitRecycler.adapter = unitActivityAdapter
                             unitActivityAdapter?.setItems(unitActivityList)
-
-
                         }
 
 
@@ -404,22 +389,17 @@ class VolumeActivity: BaseActivity(), View.OnClickListener,
 
                             unitActivityList.clear()
                             if (it.conversionValue != "") {
-                                unitActivityList.add(UnitActivityModelResponse("Hectare", (it.conversionValue.trim().toDouble() *8.3613e-5).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("Acre", (it.conversionValue.trim().toDouble()*0.000206612).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq km", (it.conversionValue.trim().toDouble() *8.3613e-7).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq m", (it.conversionValue.trim().toDouble()*0.836127).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq ft", (it.conversionValue.trim().toDouble() *9).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq inch", (it.conversionValue.trim().toDouble()*1296).toString()))
-
-
+                                unitActivityList.add(UnitActivityModelResponse("L", (it.conversionValue.trim().toDouble() *28.3168).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("ML", (it.conversionValue.trim().toDouble()*28316.8).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("m³", (it.conversionValue.trim().toDouble() * 0.0283168).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("cm³", (it.conversionValue.trim().toDouble()*28316.8).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("inch³", (it.conversionValue.trim().toDouble() * 1728).toString()))
                             } else {
-
-                                unitActivityList.add(UnitActivityModelResponse("Hectare", ""))
-                                unitActivityList.add(UnitActivityModelResponse("Acre", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq km", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq m", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq ft", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq inch", ""))
+                                unitActivityList.add(UnitActivityModelResponse("L", ""))
+                                unitActivityList.add(UnitActivityModelResponse("ML", ""))
+                                unitActivityList.add(UnitActivityModelResponse("m³", ""))
+                                unitActivityList.add(UnitActivityModelResponse("cm³", ""))
+                                unitActivityList.add(UnitActivityModelResponse("inch³", ""))
                             }
 
                             unitActivityAdapter?.clear()
@@ -461,21 +441,19 @@ class VolumeActivity: BaseActivity(), View.OnClickListener,
 
                             unitActivityList.clear()
                             if (it.conversionValue != "") {
-                                unitActivityList.add(UnitActivityModelResponse("Hectare", (it.conversionValue.trim().toDouble() *9.2903e-6).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("Acre", (it.conversionValue.trim().toDouble()*2.2957e-5).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq km", (it.conversionValue.trim().toDouble() *9.2903e-8).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq m", (it.conversionValue.trim().toDouble()*0.092903).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq yds", (it.conversionValue.trim().toDouble() *0.111111).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq inch", (it.conversionValue.trim().toDouble()*144).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("L", (it.conversionValue.trim().toDouble() *0.0163871).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("ML", (it.conversionValue.trim().toDouble()*16.3871).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("m³", (it.conversionValue.trim().toDouble() *1.6387e-5).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("cm³", (it.conversionValue.trim().toDouble()*16.3871).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("ft³", (it.conversionValue.trim().toDouble() * 0.000578704).toString()))
 
                             } else {
 
-                                unitActivityList.add(UnitActivityModelResponse("Hectare", ""))
-                                unitActivityList.add(UnitActivityModelResponse("Acre", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq km", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq m", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq yds", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq inch", ""))
+                                unitActivityList.add(UnitActivityModelResponse("L", ""))
+                                unitActivityList.add(UnitActivityModelResponse("ML", ""))
+                                unitActivityList.add(UnitActivityModelResponse("m³", ""))
+                                unitActivityList.add(UnitActivityModelResponse("cm³", ""))
+                                unitActivityList.add(UnitActivityModelResponse("ft³", ""))
                             }
 
                             unitActivityAdapter?.clear()
