@@ -41,7 +41,9 @@ class MainActivity : BaseActivity(), View.OnClickListener,
         itemList.add(UnititemModel(R.drawable.length, "Length"))
         itemList.add(UnititemModel(R.drawable.mobile_data, "Data"))
         itemList.add(UnititemModel(R.drawable.electric_tower_power, "Power"))
-        itemList.add(UnititemModel(R.drawable.length, "Volume"))
+        itemList.add(UnititemModel(R.drawable.noun_density, "Volume"))
+        itemList.add(UnititemModel(R.drawable.pressure_gauge, "Pressure"))
+        itemList.add(UnititemModel(R.drawable.force_, "Force"))
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -196,6 +198,12 @@ class MainActivity : BaseActivity(), View.OnClickListener,
             }
             8-> {
                 gotoActivity(VolumeActivity::class.java, needToFinish = false)
+            }
+            9-> {
+                gotoActivity(PressureActivity::class.java, needToFinish = false)
+            }
+            10-> {
+                gotoActivity(ForceActivity::class.java, needToFinish = false)
             }
 
         }
