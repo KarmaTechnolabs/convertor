@@ -24,8 +24,7 @@ class WeightViewModel : ViewModel() {
      weightRequestLiveData.map { UnitActivityModelResponse("GRAM" ,it) }
 
     fun callweightAPI(weightdata: String) {
-
-      weightRequestLiveData.value = weightdata
+        weightRequestLiveData.value = weightdata
     }
 
 

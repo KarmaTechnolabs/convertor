@@ -60,13 +60,9 @@ class ForceActivity: BaseActivity(), View.OnClickListener,
         binding = ActivityAreaBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.clickListener = this
-
-
         binding.header.backToHome.setOnClickListener(this)
         binding.header.shareImageView.setOnClickListener(this)
-
-        binding.header.toolbar.text = resources.getString(R.string.area)
-
+        binding.header.toolbar.text = resources.getString(R.string.force)
         binding.inputValue.addTextChangedListener(object : TextWatcher {
 
             override fun afterTextChanged(s: Editable) {}
@@ -107,13 +103,11 @@ class ForceActivity: BaseActivity(), View.OnClickListener,
 
 
             } else {
-
                 unitActivityList.add(UnitActivityModelResponse("dvn", ""))
                 unitActivityList.add(UnitActivityModelResponse("gf", ""))
                 unitActivityList.add(UnitActivityModelResponse("pdl", ""))
                 unitActivityList.add(UnitActivityModelResponse("lbf", ""))
                 unitActivityList.add(UnitActivityModelResponse("Kgf", ""))
-
             }
 
             unitActivityAdapter?.clear()
@@ -239,24 +233,18 @@ class ForceActivity: BaseActivity(), View.OnClickListener,
 
                             unitActivityList.clear()
                             if (it.conversionValue != "") {
-                                unitActivityList.add(UnitActivityModelResponse("N", (it.conversionValue.trim().toDouble()*100000).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("gf", (it.conversionValue.trim().toDouble() * 101.9716212978).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("pdl", (it.conversionValue.trim().toDouble()*	7.2330138512).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("lbf", (it.conversionValue.trim().toDouble() *0.224809).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("Kgf", (it.conversionValue.trim().toDouble()*0.101972).toString()))
-
-
+                                unitActivityList.add(UnitActivityModelResponse("N", (it.conversionValue.trim().toDouble()*1e-5).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("gf", (it.conversionValue.trim().toDouble() * 0.0010197162).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("pdl", (it.conversionValue.trim().toDouble()*		7.23301E-5).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("lbf", (it.conversionValue.trim().toDouble() *2.24809e-6).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("Kgf", (it.conversionValue.trim().toDouble()*1.01972e-6).toString()))
                             } else {
-                                unitActivityList.add(UnitActivityModelResponse("dvn", ""))
+                                unitActivityList.add(UnitActivityModelResponse("N", ""))
                                 unitActivityList.add(UnitActivityModelResponse("gf", ""))
                                 unitActivityList.add(UnitActivityModelResponse("pdl", ""))
                                 unitActivityList.add(UnitActivityModelResponse("lbf", ""))
                                 unitActivityList.add(UnitActivityModelResponse("Kgf", ""))
-
-
-
                             }
-
                             unitActivityAdapter?.clear()
                             unitActivityAdapter?.setClickListener(this@ForceActivity)
                             binding.unitRecycler.adapter = unitActivityAdapter
@@ -292,22 +280,17 @@ class ForceActivity: BaseActivity(), View.OnClickListener,
 
                             unitActivityList.clear()
                             if (it.conversionValue != "") {
-                                unitActivityList.add(UnitActivityModelResponse("Hectare", (it.conversionValue.trim().toDouble() *100).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("Acre", (it.conversionValue.trim().toDouble()*247.105).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq m", (it.conversionValue.trim().toDouble() * 1e+6).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq yds", (it.conversionValue.trim().toDouble()*1.196e+6).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq ft", (it.conversionValue.trim().toDouble() * 1.076e+7).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq inch", (it.conversionValue.trim().toDouble()*1.55e+9).toString()))
-
+                                unitActivityList.add(UnitActivityModelResponse("N", (it.conversionValue.trim().toDouble()*0.0098).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("dvn", (it.conversionValue.trim().toDouble() * 980).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("pdl", (it.conversionValue.trim().toDouble()*0.0709316352839636).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("lbf", (it.conversionValue.trim().toDouble() *0.002205).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("Kgf", (it.conversionValue.trim().toDouble()*0.001).toString()))
                             } else {
-
-                                unitActivityList.add(UnitActivityModelResponse("Hectare", ""))
-                                unitActivityList.add(UnitActivityModelResponse("Acre", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq m", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq yds", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq ft", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq inch", ""))
-
+                                unitActivityList.add(UnitActivityModelResponse("N", ""))
+                                unitActivityList.add(UnitActivityModelResponse("dvn", ""))
+                                unitActivityList.add(UnitActivityModelResponse("pdl", ""))
+                                unitActivityList.add(UnitActivityModelResponse("lbf", ""))
+                                unitActivityList.add(UnitActivityModelResponse("Kgf", ""))
                             }
 
                             unitActivityAdapter?.clear()
@@ -349,22 +332,19 @@ class ForceActivity: BaseActivity(), View.OnClickListener,
 
                             unitActivityList.clear()
                             if (it.conversionValue != "") {
-                                unitActivityList.add(UnitActivityModelResponse("Hectare", (it.conversionValue.trim().toDouble() *1e-4).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("Acre", (it.conversionValue.trim().toDouble()*0.000247105).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq km", (it.conversionValue.trim().toDouble() * 1e-6).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq yds", (it.conversionValue.trim().toDouble()*1.19599).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq ft", (it.conversionValue.trim().toDouble() *10.7639).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq inch", (it.conversionValue.trim().toDouble()*1550).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("N", (it.conversionValue.trim().toDouble()*0.138254954376).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("dvn", (it.conversionValue.trim().toDouble() * 13825.5).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("gf", (it.conversionValue.trim().toDouble()* 14.098082).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("lbf", (it.conversionValue.trim().toDouble() * 0.031081).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("Kgf", (it.conversionValue.trim().toDouble()* 0.0140980819 ).toString()))
 
                             } else {
 
-                                unitActivityList.add(UnitActivityModelResponse("Hectare", ""))
-                                unitActivityList.add(UnitActivityModelResponse("Acre", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq km", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq yds", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq ft", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq inch", ""))
-
+                                unitActivityList.add(UnitActivityModelResponse("N", ""))
+                                unitActivityList.add(UnitActivityModelResponse("dvn", ""))
+                                unitActivityList.add(UnitActivityModelResponse("gf", ""))
+                                unitActivityList.add(UnitActivityModelResponse("lbf", ""))
+                                unitActivityList.add(UnitActivityModelResponse("Kgf", ""))
                             }
 
                             unitActivityAdapter?.clear()
@@ -406,22 +386,19 @@ class ForceActivity: BaseActivity(), View.OnClickListener,
 
                             unitActivityList.clear()
                             if (it.conversionValue != "") {
-                                unitActivityList.add(UnitActivityModelResponse("Hectare", (it.conversionValue.trim().toDouble() *8.3613e-5).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("Acre", (it.conversionValue.trim().toDouble()*0.000206612).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq km", (it.conversionValue.trim().toDouble() *8.3613e-7).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq m", (it.conversionValue.trim().toDouble()*0.836127).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq ft", (it.conversionValue.trim().toDouble() *9).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq inch", (it.conversionValue.trim().toDouble()*1296).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("N", (it.conversionValue.trim().toDouble()*4.44822).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("dvn", (it.conversionValue.trim().toDouble() * 444822).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("gf", (it.conversionValue.trim().toDouble()* 453.5923699994).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("pdl", (it.conversionValue.trim().toDouble() * 32.17).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("Kgf", (it.conversionValue.trim().toDouble()* 0.453592 ).toString()))
 
 
                             } else {
-
-                                unitActivityList.add(UnitActivityModelResponse("Hectare", ""))
-                                unitActivityList.add(UnitActivityModelResponse("Acre", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq km", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq m", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq ft", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq inch", ""))
+                                unitActivityList.add(UnitActivityModelResponse("N", ""))
+                                unitActivityList.add(UnitActivityModelResponse("dvn", ""))
+                                unitActivityList.add(UnitActivityModelResponse("gf", ""))
+                                unitActivityList.add(UnitActivityModelResponse("pdl", ""))
+                                unitActivityList.add(UnitActivityModelResponse("Kgf", ""))
                             }
 
                             unitActivityAdapter?.clear()
@@ -463,21 +440,18 @@ class ForceActivity: BaseActivity(), View.OnClickListener,
 
                             unitActivityList.clear()
                             if (it.conversionValue != "") {
-                                unitActivityList.add(UnitActivityModelResponse("Hectare", (it.conversionValue.trim().toDouble() *9.2903e-6).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("Acre", (it.conversionValue.trim().toDouble()*2.2957e-5).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq km", (it.conversionValue.trim().toDouble() *9.2903e-8).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq m", (it.conversionValue.trim().toDouble()*0.092903).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq yds", (it.conversionValue.trim().toDouble() *0.111111).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("sq inch", (it.conversionValue.trim().toDouble()*144).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("N", (it.conversionValue.trim().toDouble()*9.80665).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("dvn", (it.conversionValue.trim().toDouble() *980665).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("gf", (it.conversionValue.trim().toDouble()*1000).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("pdl", (it.conversionValue.trim().toDouble() *70.931637).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("lbf", (it.conversionValue.trim().toDouble()*2.20462 ).toString()))
 
                             } else {
-
-                                unitActivityList.add(UnitActivityModelResponse("Hectare", ""))
-                                unitActivityList.add(UnitActivityModelResponse("Acre", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq km", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq m", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq yds", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq inch", ""))
+                                unitActivityList.add(UnitActivityModelResponse("N", ""))
+                                unitActivityList.add(UnitActivityModelResponse("dvn", ""))
+                                unitActivityList.add(UnitActivityModelResponse("gf", ""))
+                                unitActivityList.add(UnitActivityModelResponse("pdl", ""))
+                                unitActivityList.add(UnitActivityModelResponse("lbf", ""))
                             }
 
                             unitActivityAdapter?.clear()

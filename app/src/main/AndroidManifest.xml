@@ -21,6 +21,13 @@
         tools:ignore="LockedOrientationActivity"
         tools:replace="android:allowBackup">
         <activity
+            android:name=".ui.activities.WorkActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ui.activities.ForceActivity"
             android:exported="false">
             <meta-data

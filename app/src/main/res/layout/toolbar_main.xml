@@ -62,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="@dimen/_7sdp"
-                android:src="@drawable/ic_splash_logo"
+                android:src="@drawable/ic_convertorlogo"
                 android:visibility="@{isFromBottomMenu?View.VISIBLE:View.GONE}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/iv_media"
