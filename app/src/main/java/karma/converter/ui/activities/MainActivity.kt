@@ -45,6 +45,7 @@ class MainActivity : BaseActivity(), View.OnClickListener,
         itemList.add(UnititemModel(R.drawable.pressure_gauge, "Pressure"))
         itemList.add(UnititemModel(R.drawable.force_, "Force"))
         itemList.add(UnititemModel(R.drawable.work, "Work"))
+        itemList.add(UnititemModel(R.drawable.angle, "Angle"))
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -209,6 +210,10 @@ class MainActivity : BaseActivity(), View.OnClickListener,
 
             11-> {
                 gotoActivity(WorkActivity::class.java, needToFinish = false)
+            }
+
+            12-> {
+                gotoActivity(DegreeActivity::class.java, needToFinish = false)
             }
 
         }

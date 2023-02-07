@@ -17,6 +17,7 @@
     <string name="app_title">UNIT CONVERTOR</string>
     <string name="weight">WEIGHT</string>
     <string name="area">AREA</string>
+    <string name="angle">ANGLE</string>
     <string name="work">WORK</string>
     <string name="force">FORCE</string>
     <string name="length">LENGTH</string>

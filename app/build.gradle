@@ -20,8 +20,8 @@ android {
         applicationId "karma.converter"
         minSdkVersion 21
         targetSdkVersion 33
-        versionCode 8
-        versionName "1.0.7"
+        versionCode 9
+        versionName "1.0.8"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
