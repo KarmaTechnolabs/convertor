@@ -46,6 +46,7 @@ class MainActivity : BaseActivity(), View.OnClickListener,
         itemList.add(UnititemModel(R.drawable.force_, "Force"))
         itemList.add(UnititemModel(R.drawable.work, "Work"))
         itemList.add(UnititemModel(R.drawable.angle, "Angle"))
+     //   itemList.add(UnititemModel(R.drawable.binary, "Binary"))
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -215,6 +216,10 @@ class MainActivity : BaseActivity(), View.OnClickListener,
             12-> {
                 gotoActivity(DegreeActivity::class.java, needToFinish = false)
             }
+
+            /*13-> {
+                gotoActivity(BinaryActivity::class.java, needToFinish = false)
+            }*/
 
         }
     }
