@@ -24,13 +24,14 @@ import karma.converter.databinding.ActivityAreaBinding
 import karma.converter.listeners.ItemClickListener
 import karma.converter.viewmodel.WeightViewModel
 import java.util.*
+import kotlin.collections.ArrayList
 
-class CookingActivity : BaseActivity(), View.OnClickListener,
+class SpaceActivity: BaseActivity(), View.OnClickListener,
     ItemClickListener<UnitActivityModelResponse> {
 
 
     private lateinit var analytics: FirebaseAnalytics
-    private lateinit var binding: ActivityAreaBinding
+    private lateinit var binding:ActivityAreaBinding
     var adRequest: AdRequest? = null
     var itemList = ArrayList<UnititemModel>()
     private val viewModel by viewModels<WeightViewModel>()
@@ -41,6 +42,7 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
     private var unitActivityAdapter: UnitActivityAdpater? = UnitActivityAdpater(this)
 
     // TextView used to display the input and output
+
 
     // Represent whether the lastly pressed key is numeric or not
     var lastNumeric: Boolean = false
@@ -59,11 +61,11 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
         setContentView(binding.root)
         binding.clickListener = this
 
-        binding.rvHorizontalPicker
+
         binding.header.backToHome.setOnClickListener(this)
         binding.header.shareImageView.setOnClickListener(this)
 
-        binding.header.toolbar.text = resources.getString(R.string.cooking)
+        binding.header.toolbar.text = resources.getString(R.string.space)
 
         binding.inputValue.addTextChangedListener(object : TextWatcher {
 
@@ -96,35 +98,15 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
         viewModel.weightResponse.observe(this) {
             unitActivityList.clear()
             if (it.conversionValue != "") {
-                unitActivityList.add(
-                    UnitActivityModelResponse(
-                        "tspn",
-                        (it.conversionValue.trim().toDouble() * 0.202884).toString()
-                    )
-                )
-                unitActivityList.add(
-                    UnitActivityModelResponse(
-                        "tbsp",
-                        (it.conversionValue.trim().toDouble() * 0.067628).toString()
-                    )
-                )
-                unitActivityList.add(
-                    UnitActivityModelResponse(
-                        "cup(mt)",
-                        (it.conversionValue.trim().toDouble() * 0.004).toString()
-                    )
-                )
-                unitActivityList.add(
-                    UnitActivityModelResponse(
-                        "floz(us)",
-                        (it.conversionValue.trim().toDouble() * 0.033814).toString()
-                    )
-                )
+                unitActivityList.add(UnitActivityModelResponse("KM", (it.conversionValue.trim().toDouble() *1.496e+8).toString()))
+                unitActivityList.add(UnitActivityModelResponse("ly", (it.conversionValue.trim().toDouble()*1.58125e-5).toString()))
+                unitActivityList.add(UnitActivityModelResponse("lm", (it.conversionValue.trim().toDouble() * 8.31675).toString()))
+                unitActivityList.add(UnitActivityModelResponse("ls", (it.conversionValue.trim().toDouble()*499.005).toString()))
             } else {
-                unitActivityList.add(UnitActivityModelResponse("tspn", ""))
-                unitActivityList.add(UnitActivityModelResponse("tbsp", ""))
-                unitActivityList.add(UnitActivityModelResponse("cub(mt)", ""))
-                unitActivityList.add(UnitActivityModelResponse("floz(us)", ""))
+                unitActivityList.add(UnitActivityModelResponse("KM", ""))
+                unitActivityList.add(UnitActivityModelResponse("ly", ""))
+                unitActivityList.add(UnitActivityModelResponse("lm", ""))
+                unitActivityList.add(UnitActivityModelResponse("ls", ""))
             }
 
             unitActivityAdapter?.clear()
@@ -139,12 +121,19 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
 
     }
 
+
     private fun setPicker() {
-        data.add("ml(cc)")
-        data.add("tspn")
-        data.add("tbsp")
-        data.add("cup(mt)")
-        data.add("floz(us)")
+        data.add("AU")
+        data.add("KM")
+        data.add("ly")
+        data.add("lm")
+        data.add("ls")
+
+
+
+
+
+
 
 
         rvHorizontalPicker = binding.rvHorizontalPicker
@@ -159,7 +148,7 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
                 override fun onItemSelected(layoutPosition: Int) {
                     sliderAdapter.setSelectedItem(layoutPosition)
 
-                    if (layoutPosition == 0) {
+                    if(layoutPosition == 0) {
 
                         sliderAdapter.setSelectedItem(0)
                         binding.inputValue.addTextChangedListener(object : TextWatcher {
@@ -190,50 +179,31 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
                         })
 
 
-                        viewModel.weightResponse.observe(this@CookingActivity) {
+                        viewModel.weightResponse.observe(this@SpaceActivity) {
 
                             unitActivityList.clear()
                             if (it.conversionValue != "") {
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "tspn",
-                                        (it.conversionValue.trim().toDouble() * 0.202884).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "tbsp",
-                                        (it.conversionValue.trim().toDouble() * 0.067628).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "cup(mt)",
-                                        (it.conversionValue.trim().toDouble() * 0.004).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "floz(us)",
-                                        (it.conversionValue.trim().toDouble() * 0.033814).toString()
-                                    )
-                                )
+                                unitActivityList.add(UnitActivityModelResponse("KM", (it.conversionValue.trim().toDouble() *1.496e+8).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("ly", (it.conversionValue.trim().toDouble()*1.58125e-5).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("lm", (it.conversionValue.trim().toDouble() * 8.31675).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("ls", (it.conversionValue.trim().toDouble()*499.005).toString()))
                             } else {
-                                unitActivityList.add(UnitActivityModelResponse("tspn", ""))
-                                unitActivityList.add(UnitActivityModelResponse("tbsp", ""))
-                                unitActivityList.add(UnitActivityModelResponse("cub(mt)", ""))
-                                unitActivityList.add(UnitActivityModelResponse("floz(us)", ""))
+                                unitActivityList.add(UnitActivityModelResponse("KM", ""))
+                                unitActivityList.add(UnitActivityModelResponse("ly", ""))
+                                unitActivityList.add(UnitActivityModelResponse("lm", ""))
+                                unitActivityList.add(UnitActivityModelResponse("ls", ""))
+
                             }
 
                             unitActivityAdapter?.clear()
-                            unitActivityAdapter?.setClickListener(this@CookingActivity)
+                            unitActivityAdapter?.setClickListener(this@SpaceActivity)
                             binding.unitRecycler.adapter = unitActivityAdapter
                             unitActivityAdapter?.setItems(unitActivityList)
 
 
                         }
 
-                    } else if (layoutPosition == 1) {
+                    }else if(layoutPosition == 1){
 
                         binding.inputValue.addTextChangedListener(object : TextWatcher {
 
@@ -263,31 +233,30 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
                         })
 
 
-                        viewModel.weightResponse.observe(this@CookingActivity) {
+                        viewModel.weightResponse.observe(this@SpaceActivity) {
 
                             unitActivityList.clear()
                             if (it.conversionValue != "") {
-                                unitActivityList.add(UnitActivityModelResponse("ml(cc)", (it.conversionValue.trim().toDouble() * 4.92892).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("tbsp", (it.conversionValue.trim().toDouble() * 0.333333).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("cup(mt)", (it.conversionValue.trim().toDouble() *0.0205372).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("floz(us)", (it.conversionValue.trim().toDouble() * 0.166667).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("AU", (it.conversionValue.trim().toDouble() *6.68459e-9).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("ly", (it.conversionValue.trim().toDouble()*1.057e-13).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("lm", (it.conversionValue.trim().toDouble() * 5.5594e-8).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("ls", (it.conversionValue.trim().toDouble()*3.33564e-6).toString()))
+
 
                             } else {
-                                unitActivityList.add(UnitActivityModelResponse("ml(cc)", ""))
-                                unitActivityList.add(UnitActivityModelResponse("tbsp", ""))
-                                unitActivityList.add(UnitActivityModelResponse("cub(mt)", ""))
-                                unitActivityList.add(UnitActivityModelResponse("floz(us)", ""))
-
-
+                                unitActivityList.add(UnitActivityModelResponse("AU", ""))
+                                unitActivityList.add(UnitActivityModelResponse("ly", ""))
+                                unitActivityList.add(UnitActivityModelResponse("lm", ""))
+                                unitActivityList.add(UnitActivityModelResponse("ls", ""))
                             }
 
                             unitActivityAdapter?.clear()
-                            unitActivityAdapter?.setClickListener(this@CookingActivity)
+                            unitActivityAdapter?.setClickListener(this@SpaceActivity)
                             binding.unitRecycler.adapter = unitActivityAdapter
                             unitActivityAdapter?.setItems(unitActivityList)
                         }
 
-                    } else if (layoutPosition == 2) {
+                    }else if(layoutPosition == 2){
                         binding.inputValue.addTextChangedListener(object : TextWatcher {
 
                             override fun afterTextChanged(s: Editable) {}
@@ -296,7 +265,6 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
                                 count: Int, after: Int
                             ) {
                             }
-
                             override fun onTextChanged(
                                 s: CharSequence, start: Int,
                                 before: Int, count: Int
@@ -313,25 +281,26 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
                         })
 
 
-                        viewModel.weightResponse.observe(this@CookingActivity) {
+                        viewModel.weightResponse.observe(this@SpaceActivity) {
 
                             unitActivityList.clear()
                             if (it.conversionValue != "") {
-                                unitActivityList.add(UnitActivityModelResponse("ml(cc)", (it.conversionValue.trim().toDouble() * 14.7868).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("tspn", (it.conversionValue.trim().toDouble() * 3).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("cup(mt)", (it.conversionValue.trim().toDouble() *0.0616115).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("floz(us)", (it.conversionValue.trim().toDouble() * 0.166667).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("AU", (it.conversionValue.trim().toDouble() *63241.1).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("KM", (it.conversionValue.trim().toDouble()*9.461e+12).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("lm", (it.conversionValue.trim().toDouble() * 525960).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("ls", (it.conversionValue.trim().toDouble()*3.156e+7).toString()))
 
                             } else {
 
-                                unitActivityList.add(UnitActivityModelResponse("ml(cc)", ""))
-                                unitActivityList.add(UnitActivityModelResponse("tspn", ""))
-                                unitActivityList.add(UnitActivityModelResponse("cub(mt)", ""))
-                                unitActivityList.add(UnitActivityModelResponse("floz(us)", ""))
+                                unitActivityList.add(UnitActivityModelResponse("AU", ""))
+                                unitActivityList.add(UnitActivityModelResponse("KM", ""))
+                                unitActivityList.add(UnitActivityModelResponse("lm", ""))
+                                unitActivityList.add(UnitActivityModelResponse("ls", ""))
+
                             }
 
                             unitActivityAdapter?.clear()
-                            unitActivityAdapter?.setClickListener(this@CookingActivity)
+                            unitActivityAdapter?.setClickListener(this@SpaceActivity)
                             binding.unitRecycler.adapter = unitActivityAdapter
                             unitActivityAdapter?.setItems(unitActivityList)
 
@@ -339,7 +308,8 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
                         }
 
 
-                    } else if (layoutPosition == 3) {
+
+                    }else if(layoutPosition == 3){
                         binding.inputValue.addTextChangedListener(object : TextWatcher {
 
                             override fun afterTextChanged(s: Editable) {}
@@ -348,7 +318,6 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
                                 count: Int, after: Int
                             ) {
                             }
-
                             override fun onTextChanged(
                                 s: CharSequence, start: Int,
                                 before: Int, count: Int
@@ -365,25 +334,25 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
                         })
 
 
-                        viewModel.weightResponse.observe(this@CookingActivity) {
+                        viewModel.weightResponse.observe(this@SpaceActivity) {
 
                             unitActivityList.clear()
                             if (it.conversionValue != "") {
-                                unitActivityList.add(UnitActivityModelResponse("ml(cc)", (it.conversionValue.trim().toDouble() * 240).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("tspn", (it.conversionValue.trim().toDouble() *48.6922).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("tbsp", (it.conversionValue.trim().toDouble() *16.2307).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("floz(us)", (it.conversionValue.trim().toDouble() *8.11537).toString()))
-
+                                unitActivityList.add(UnitActivityModelResponse("AU", (it.conversionValue.trim().toDouble() *0.120239).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("KM", (it.conversionValue.trim().toDouble()*1.799e+7).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("ly", (it.conversionValue.trim().toDouble() *1.90129e-6).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("ls", (it.conversionValue.trim().toDouble()*60).toString()))
 
                             } else {
-                                unitActivityList.add(UnitActivityModelResponse("ml(cc)", ""))
-                                unitActivityList.add(UnitActivityModelResponse("tspn", ""))
-                                unitActivityList.add(UnitActivityModelResponse("tbsp", ""))
-                                unitActivityList.add(UnitActivityModelResponse("floz(us)", ""))
+                                unitActivityList.add(UnitActivityModelResponse("AU", ""))
+                                unitActivityList.add(UnitActivityModelResponse("KM", ""))
+                                unitActivityList.add(UnitActivityModelResponse("ly", ""))
+                                unitActivityList.add(UnitActivityModelResponse("ls", ""))
+
                             }
 
                             unitActivityAdapter?.clear()
-                            unitActivityAdapter?.setClickListener(this@CookingActivity)
+                            unitActivityAdapter?.setClickListener(this@SpaceActivity)
                             binding.unitRecycler.adapter = unitActivityAdapter
                             unitActivityAdapter?.setItems(unitActivityList)
 
@@ -391,7 +360,8 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
                         }
 
 
-                    } else if (layoutPosition == 4) {
+
+                    }else if(layoutPosition == 4){
                         binding.inputValue.addTextChangedListener(object : TextWatcher {
 
                             override fun afterTextChanged(s: Editable) {}
@@ -400,7 +370,6 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
                                 count: Int, after: Int
                             ) {
                             }
-
                             override fun onTextChanged(
                                 s: CharSequence, start: Int,
                                 before: Int, count: Int
@@ -417,25 +386,23 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
                         })
 
 
-                        viewModel.weightResponse.observe(this@CookingActivity) {
+                        viewModel.weightResponse.observe(this@SpaceActivity) {
 
                             unitActivityList.clear()
                             if (it.conversionValue != "") {
-                                unitActivityList.add(UnitActivityModelResponse("ml(cc)", (it.conversionValue.trim().toDouble() *29.5735).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("tspn", (it.conversionValue.trim().toDouble() *6).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("tbsp", (it.conversionValue.trim().toDouble() *2).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("cup(mt)", (it.conversionValue.trim().toDouble() *0.123223).toString()))
-
+                                unitActivityList.add(UnitActivityModelResponse("AU", (it.conversionValue.trim().toDouble() *0.00200399).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("KM", (it.conversionValue.trim().toDouble()*299792).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("ly", (it.conversionValue.trim().toDouble() *3.16881e-8).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("lm", (it.conversionValue.trim().toDouble()*0.0166667).toString()))
                             } else {
-
-                                unitActivityList.add(UnitActivityModelResponse("ml(cc)", ""))
-                                unitActivityList.add(UnitActivityModelResponse("tspn", ""))
-                                unitActivityList.add(UnitActivityModelResponse("tbsp", ""))
-                                unitActivityList.add(UnitActivityModelResponse("cup(mt)", ""))
+                                unitActivityList.add(UnitActivityModelResponse("AU", ""))
+                                unitActivityList.add(UnitActivityModelResponse("KM", ""))
+                                unitActivityList.add(UnitActivityModelResponse("ly", ""))
+                                unitActivityList.add(UnitActivityModelResponse("lm", ""))
                             }
 
                             unitActivityAdapter?.clear()
-                            unitActivityAdapter?.setClickListener(this@CookingActivity)
+                            unitActivityAdapter?.setClickListener(this@SpaceActivity)
                             binding.unitRecycler.adapter = unitActivityAdapter
                             unitActivityAdapter?.setItems(unitActivityList)
 
@@ -443,7 +410,8 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
                         }
 
 
-                    } else if (layoutPosition == 5) {
+
+                    }else if(layoutPosition == 5){
                         binding.inputValue.addTextChangedListener(object : TextWatcher {
 
                             override fun afterTextChanged(s: Editable) {}
@@ -452,7 +420,6 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
                                 count: Int, after: Int
                             ) {
                             }
-
                             override fun onTextChanged(
                                 s: CharSequence, start: Int,
                                 before: Int, count: Int
@@ -469,49 +436,16 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
                         })
 
 
-                        viewModel.weightResponse.observe(this@CookingActivity) {
+                        viewModel.weightResponse.observe(this@SpaceActivity) {
 
                             unitActivityList.clear()
                             if (it.conversionValue != "") {
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "Hectare",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 9.2903e-6).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "Acre",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 2.2957e-5).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "sq km",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 9.2903e-8).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "sq m",
-                                        (it.conversionValue.trim().toDouble() * 0.092903).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "sq yds",
-                                        (it.conversionValue.trim().toDouble() * 0.111111).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "sq inch",
-                                        (it.conversionValue.trim().toDouble() * 144).toString()
-                                    )
-                                )
+                                unitActivityList.add(UnitActivityModelResponse("Hectare", (it.conversionValue.trim().toDouble() *9.2903e-6).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("Acre", (it.conversionValue.trim().toDouble()*2.2957e-5).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("sq km", (it.conversionValue.trim().toDouble() *9.2903e-8).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("sq m", (it.conversionValue.trim().toDouble()*0.092903).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("sq yds", (it.conversionValue.trim().toDouble() *0.111111).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("sq inch", (it.conversionValue.trim().toDouble()*144).toString()))
 
                             } else {
 
@@ -524,7 +458,7 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
                             }
 
                             unitActivityAdapter?.clear()
-                            unitActivityAdapter?.setClickListener(this@CookingActivity)
+                            unitActivityAdapter?.setClickListener(this@SpaceActivity)
                             binding.unitRecycler.adapter = unitActivityAdapter
                             unitActivityAdapter?.setItems(unitActivityList)
 
@@ -532,7 +466,8 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
                         }
 
 
-                    } else if (layoutPosition == 6) {
+
+                    }else if(layoutPosition == 6){
                         binding.inputValue.addTextChangedListener(object : TextWatcher {
 
                             override fun afterTextChanged(s: Editable) {}
@@ -541,7 +476,6 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
                                 count: Int, after: Int
                             ) {
                             }
-
                             override fun onTextChanged(
                                 s: CharSequence, start: Int,
                                 before: Int, count: Int
@@ -558,52 +492,16 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
                         })
 
 
-                        viewModel.weightResponse.observe(this@CookingActivity) {
+                        viewModel.weightResponse.observe(this@SpaceActivity) {
 
                             unitActivityList.clear()
                             if (it.conversionValue != "") {
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "Hectare",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 6.4516e-8).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "Acre",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 1.5942e-7).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "sq km",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 6.4516e-10).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "sq m",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 0.00064516).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "sq yds",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 0.000771605).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "sq ft",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 0.006944445).toString()
-                                    )
-                                )
+                                unitActivityList.add(UnitActivityModelResponse("Hectare", (it.conversionValue.trim().toDouble() *6.4516e-8).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("Acre", (it.conversionValue.trim().toDouble()*1.5942e-7).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("sq km", (it.conversionValue.trim().toDouble() *6.4516e-10).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("sq m", (it.conversionValue.trim().toDouble()*0.00064516).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("sq yds", (it.conversionValue.trim().toDouble() *0.000771605).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("sq ft", (it.conversionValue.trim().toDouble()*0.006944445).toString()))
 
                             } else {
 
@@ -616,7 +514,7 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
                             }
 
                             unitActivityAdapter?.clear()
-                            unitActivityAdapter?.setClickListener(this@CookingActivity)
+                            unitActivityAdapter?.setClickListener(this@SpaceActivity)
                             binding.unitRecycler.adapter = unitActivityAdapter
                             unitActivityAdapter?.setItems(unitActivityList)
 
@@ -624,7 +522,8 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
                         }
 
 
-                    } else if (layoutPosition == 7) {
+
+                    }else if(layoutPosition == 7){
                         binding.inputValue.addTextChangedListener(object : TextWatcher {
 
                             override fun afterTextChanged(s: Editable) {}
@@ -633,7 +532,6 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
                                 count: Int, after: Int
                             ) {
                             }
-
                             override fun onTextChanged(
                                 s: CharSequence, start: Int,
                                 before: Int, count: Int
@@ -650,55 +548,17 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
                         })
 
 
-                        viewModel.weightResponse.observe(this@CookingActivity) {
+                        viewModel.weightResponse.observe(this@SpaceActivity) {
 
                             unitActivityList.clear()
                             if (it.conversionValue != "") {
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "km",
-                                        (it.conversionValue.trim().toDouble() * 2.54e-5).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "mile",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 1.5783e-5).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "m",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 0.025400276352).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "dm",
-                                        (it.conversionValue.trim().toDouble() * 0.254).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "cm",
-                                        (it.conversionValue.trim().toDouble() * 2.54).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "mm",
-                                        (it.conversionValue.trim().toDouble() * 25.4).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "ft",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 0.0833333).toString()
-                                    )
-                                )
+                                unitActivityList.add(UnitActivityModelResponse("km", (it.conversionValue.trim().toDouble() *2.54e-5).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("mile", (it.conversionValue.trim().toDouble()*1.5783e-5).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("m", (it.conversionValue.trim().toDouble() *0.025400276352).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("dm", (it.conversionValue.trim().toDouble()*0.254).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("cm", (it.conversionValue.trim().toDouble() *2.54).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("mm", (it.conversionValue.trim().toDouble()*25.4).toString()))
+                                unitActivityList.add(UnitActivityModelResponse("ft", (it.conversionValue.trim().toDouble()*0.0833333).toString()))
 
                             } else {
 
@@ -712,7 +572,7 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
                             }
 
                             unitActivityAdapter?.clear()
-                            unitActivityAdapter?.setClickListener(this@CookingActivity)
+                            unitActivityAdapter?.setClickListener(this@SpaceActivity)
                             binding.unitRecycler.adapter = unitActivityAdapter
                             unitActivityAdapter?.setItems(unitActivityList)
 
@@ -720,7 +580,13 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
                         }
 
 
+
                     }
+
+
+
+
+
 
 
                 }
@@ -754,8 +620,7 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
             binding.header.shareImageView -> {
                 val shareIntent = Intent(Intent.ACTION_SEND)
                 shareIntent.type = "text/plain"
-                val app_url =
-                    resources.getString(R.string.whatsapp_sharemessages) + BuildConfig.APPLICATION_ID
+                val app_url = resources.getString(R.string.whatsapp_sharemessages) + BuildConfig.APPLICATION_ID
                 shareIntent.putExtra(Intent.EXTRA_TEXT, app_url)
                 startActivity(Intent.createChooser(shareIntent, "Share via"))
             }

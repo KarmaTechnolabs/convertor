@@ -47,7 +47,7 @@ class MainActivity : BaseActivity(), View.OnClickListener,
         itemList.add(UnititemModel(R.drawable.work, "Work"))
         itemList.add(UnititemModel(R.drawable.angle, "Angle"))
         itemList.add(UnititemModel(R.drawable.cooking, "Cooking"))
-
+        itemList.add(UnititemModel(R.drawable.outerspace1, "Space"))
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.header.toolbar.text = resources.getString(R.string.app_title)
@@ -57,9 +57,7 @@ class MainActivity : BaseActivity(), View.OnClickListener,
         binding.header.shareImageView.setOnClickListener(this)
 
 
-
         MobileAds.initialize(this) {}
-
         val adRequest = AdRequest.Builder().build()
         binding.adView.loadAd(adRequest)
 
@@ -219,6 +217,10 @@ class MainActivity : BaseActivity(), View.OnClickListener,
 
             13-> {
                 gotoActivity(CookingActivity::class.java, needToFinish = false)
+            }
+
+            14-> {
+                gotoActivity(SpaceActivity::class.java, needToFinish = false)
             }
 
         }
