@@ -230,7 +230,7 @@ class MainActivity : BaseActivity(), View.OnClickListener,
             }
 
             16-> {
-                gotoActivity(FuelActivity::class.java, needToFinish = false)
+                gotoActivity(BloodActivity::class.java, needToFinish = false)
             }
 
         }
