@@ -138,12 +138,6 @@ class AreaActivity: BaseActivity(), View.OnClickListener,
         data.add("sq ft")
         data.add("sq inch")
 
-
-
-
-
-
-
         rvHorizontalPicker = binding.rvHorizontalPicker
 
         // Setting the padding such that the items will appear in the middle of the screen

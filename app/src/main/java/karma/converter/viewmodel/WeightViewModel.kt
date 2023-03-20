@@ -12,25 +12,11 @@ class WeightViewModel : ViewModel() {
 
     private val weightRequestLiveData = MutableLiveData<String>()
 
- val  weigthlivedata = MutableLiveData<UnitActivityModelResponse>()
-
-    /*val hisoryResponse: LiveData<Event<APIResource<ArrayList<HistoryResponse>>>> =
-        historyRequestLiveData.switchMap {
-            repository.callHistoryAPI(it)
-        }*/
-
-
     val weightResponse: LiveData<UnitActivityModelResponse> =
      weightRequestLiveData.map { UnitActivityModelResponse("GRAM" ,it) }
 
-    fun callweightAPI(weightdata: String) {
-        weightRequestLiveData.value = weightdata
+    fun callweightAPI(weightData: String) {
+        weightRequestLiveData.value = weightData
     }
 
-
-
-   /* override fun onCleared() {
-        super.onCleared()
-        repository.clearRepo()
-    }*/
 }

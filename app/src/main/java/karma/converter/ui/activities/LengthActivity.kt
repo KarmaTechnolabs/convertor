@@ -158,478 +158,486 @@ class LengthActivity: BaseActivity(), View.OnClickListener,
                 override fun onItemSelected(layoutPosition: Int) {
                     sliderAdapter.setSelectedItem(layoutPosition)
 
-                    if(layoutPosition == 0) {
+                    when (layoutPosition) {
+                        0 -> {
 
-                        sliderAdapter.setSelectedItem(0)
-                        binding.inputValue.addTextChangedListener(object : TextWatcher {
+                            sliderAdapter.setSelectedItem(0)
+                            binding.inputValue.addTextChangedListener(object : TextWatcher {
 
-                            override fun afterTextChanged(s: Editable) {}
+                                override fun afterTextChanged(s: Editable) {}
 
-                            override fun beforeTextChanged(
-                                s: CharSequence, start: Int,
-                                count: Int, after: Int
-                            ) {
-                            }
-
-                            override fun onTextChanged(
-                                s: CharSequence, start: Int,
-                                before: Int, count: Int
-                            ) {
-                                val num1 = binding.inputValue.text.toString()
-                                if (num1.isNotBlank()) {
-                                    val num2 = binding.inputValue.text.toString().trim().toDouble()
-                                    val num3 = (num2).toString()
-
-
-                                    viewModel.callweightAPI(num3)
-                                } else {
-                                    viewModel.callweightAPI("")
+                                override fun beforeTextChanged(
+                                    s: CharSequence, start: Int,
+                                    count: Int, after: Int
+                                ) {
                                 }
+
+                                override fun onTextChanged(
+                                    s: CharSequence, start: Int,
+                                    before: Int, count: Int
+                                ) {
+                                    val num1 = binding.inputValue.text.toString()
+                                    if (num1.isNotBlank()) {
+                                        val num2 = binding.inputValue.text.toString().trim().toDouble()
+                                        val num3 = (num2).toString()
+
+
+                                        viewModel.callweightAPI(num3)
+                                    } else {
+                                        viewModel.callweightAPI("")
+                                    }
+                                }
+                            })
+
+
+                            viewModel.weightResponse.observe(this@LengthActivity) {
+
+                                unitActivityList.clear()
+                                if (it.conversionValue != "") {
+                                    unitActivityList.add(UnitActivityModelResponse("mile", (it.conversionValue.trim().toDouble() *0.621371).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("m", (it.conversionValue.trim().toDouble()*1000 ).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("dm", (it.conversionValue.trim().toDouble() * 10000).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("cm", (it.conversionValue.trim().toDouble()*100000 ).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("mm", (it.conversionValue.trim().toDouble() * 1000000).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("ft", (it.conversionValue.trim().toDouble()*3280.84).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("inch", (it.conversionValue.trim().toDouble()*39370.1 ).toString()))
+
+
+                                } else {
+                                    unitActivityList.add(UnitActivityModelResponse("mile", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("m", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("dm", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("cm", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("mm", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("ft", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("inch", ""))
+
+                                }
+
+                                unitActivityAdapter?.clear()
+                                unitActivityAdapter?.setClickListener(this@LengthActivity)
+                                binding.unitRecycler.adapter = unitActivityAdapter
+                                unitActivityAdapter?.setItems(unitActivityList)
+
+
                             }
-                        })
+
+                        }
+                        1 -> {
+
+                            binding.inputValue.addTextChangedListener(object : TextWatcher {
+
+                                override fun afterTextChanged(s: Editable) {}
+
+                                override fun beforeTextChanged(
+                                    s: CharSequence, start: Int,
+                                    count: Int, after: Int
+                                ) {
+                                }
+
+                                override fun onTextChanged(
+                                    s: CharSequence, start: Int,
+                                    before: Int, count: Int
+                                ) {
+                                    val num1 = binding.inputValue.text.toString()
+                                    if (num1.isNotBlank()) {
+                                        val num2 = binding.inputValue.text.toString().trim().toDouble()
+                                        val num3 = (num2).toString()
 
 
-                        viewModel.weightResponse.observe(this@LengthActivity) {
-
-                            unitActivityList.clear()
-                            if (it.conversionValue != "") {
-                                unitActivityList.add(UnitActivityModelResponse("mile", (it.conversionValue.trim().toDouble() *0.621371).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("m", (it.conversionValue.trim().toDouble()*1000 ).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("dm", (it.conversionValue.trim().toDouble() * 10000).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("cm", (it.conversionValue.trim().toDouble()*100000 ).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("mm", (it.conversionValue.trim().toDouble() * 1000000).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("ft", (it.conversionValue.trim().toDouble()*3280.84).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("inch", (it.conversionValue.trim().toDouble()*39370.1 ).toString()))
+                                        viewModel.callweightAPI(num3)
+                                    } else {
+                                        viewModel.callweightAPI("")
+                                    }
+                                }
+                            })
 
 
+                            viewModel.weightResponse.observe(this@LengthActivity) {
 
-                            } else {
-                                unitActivityList.add(UnitActivityModelResponse("mile", ""))
-                                unitActivityList.add(UnitActivityModelResponse("m", ""))
-                                unitActivityList.add(UnitActivityModelResponse("dm", ""))
-                                unitActivityList.add(UnitActivityModelResponse("cm", ""))
-                                unitActivityList.add(UnitActivityModelResponse("mm", ""))
-                                unitActivityList.add(UnitActivityModelResponse("ft", ""))
-                                unitActivityList.add(UnitActivityModelResponse("inch", ""))
+                                unitActivityList.clear()
+                                if (it.conversionValue != "") {
+                                    unitActivityList.add(UnitActivityModelResponse("km", (it.conversionValue.trim().toDouble() *1.60934).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("m", (it.conversionValue.trim().toDouble()*1609.34 ).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("dm", (it.conversionValue.trim().toDouble() *16093.4).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("cm", (it.conversionValue.trim().toDouble()*160934).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("mm", (it.conversionValue.trim().toDouble() * 1609344).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("ft", (it.conversionValue.trim().toDouble()*5280).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("inch", (it.conversionValue.trim().toDouble()*63360 ).toString()))
 
+                                } else {
+                                    unitActivityList.add(UnitActivityModelResponse("km", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("m", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("dm", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("cm", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("mm", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("ft", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("inch", ""))
+
+
+                                }
+
+                                unitActivityAdapter?.clear()
+                                unitActivityAdapter?.setClickListener(this@LengthActivity)
+                                binding.unitRecycler.adapter = unitActivityAdapter
+                                unitActivityAdapter?.setItems(unitActivityList)
                             }
 
-                            unitActivityAdapter?.clear()
-                            unitActivityAdapter?.setClickListener(this@LengthActivity)
-                            binding.unitRecycler.adapter = unitActivityAdapter
-                            unitActivityAdapter?.setItems(unitActivityList)
+                        }
+                        2 -> {
+                            binding.inputValue.addTextChangedListener(object : TextWatcher {
+
+                                override fun afterTextChanged(s: Editable) {}
+                                override fun beforeTextChanged(
+                                    s: CharSequence, start: Int,
+                                    count: Int, after: Int
+                                ) {
+                                }
+
+                                override fun onTextChanged(
+                                    s: CharSequence, start: Int,
+                                    before: Int, count: Int
+                                ) {
+                                    val num1 = binding.inputValue.text.toString()
+                                    if (num1.isNotBlank()) {
+                                        val num2 = binding.inputValue.text.toString().trim().toDouble()
+                                        val num3 = (num2).toString()
+                                        viewModel.callweightAPI(num3)
+                                    } else {
+                                        viewModel.callweightAPI("")
+                                    }
+                                }
+                            })
+
+
+                            viewModel.weightResponse.observe(this@LengthActivity) {
+
+                                unitActivityList.clear()
+                                if (it.conversionValue != "") {
+                                    unitActivityList.add(UnitActivityModelResponse("km", (it.conversionValue.trim().toDouble() *0.001).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("mile", (it.conversionValue.trim().toDouble()*0.00063 ).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("dm", (it.conversionValue.trim().toDouble() *10).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("cm", (it.conversionValue.trim().toDouble()*100).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("mm", (it.conversionValue.trim().toDouble() * 1000).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("ft", (it.conversionValue.trim().toDouble()*3.28084).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("inch", (it.conversionValue.trim().toDouble()*39.37008 ).toString()))
+
+                                } else {
+
+                                    unitActivityList.add(UnitActivityModelResponse("km", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("mile", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("dm", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("cm", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("mm", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("ft", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("inch", ""))
+                                }
+
+                                unitActivityAdapter?.clear()
+                                unitActivityAdapter?.setClickListener(this@LengthActivity)
+                                binding.unitRecycler.adapter = unitActivityAdapter
+                                unitActivityAdapter?.setItems(unitActivityList)
+
+
+                            }
 
 
                         }
+                        3 -> {
+                            binding.inputValue.addTextChangedListener(object : TextWatcher {
 
-                    }else if(layoutPosition == 1){
-
-                        binding.inputValue.addTextChangedListener(object : TextWatcher {
-
-                            override fun afterTextChanged(s: Editable) {}
-
-                            override fun beforeTextChanged(
-                                s: CharSequence, start: Int,
-                                count: Int, after: Int
-                            ) {
-                            }
-
-                            override fun onTextChanged(
-                                s: CharSequence, start: Int,
-                                before: Int, count: Int
-                            ) {
-                                val num1 = binding.inputValue.text.toString()
-                                if (num1.isNotBlank()) {
-                                    val num2 = binding.inputValue.text.toString().trim().toDouble()
-                                    val num3 = (num2).toString()
-
-
-                                    viewModel.callweightAPI(num3)
-                                } else {
-                                    viewModel.callweightAPI("")
+                                override fun afterTextChanged(s: Editable) {}
+                                override fun beforeTextChanged(
+                                    s: CharSequence, start: Int,
+                                    count: Int, after: Int
+                                ) {
                                 }
-                            }
-                        })
 
-
-                        viewModel.weightResponse.observe(this@LengthActivity) {
-
-                            unitActivityList.clear()
-                            if (it.conversionValue != "") {
-                                unitActivityList.add(UnitActivityModelResponse("km", (it.conversionValue.trim().toDouble() *1.60934).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("m", (it.conversionValue.trim().toDouble()*1609.34 ).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("dm", (it.conversionValue.trim().toDouble() *16093.4).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("cm", (it.conversionValue.trim().toDouble()*160934).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("mm", (it.conversionValue.trim().toDouble() * 1609344).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("ft", (it.conversionValue.trim().toDouble()*5280).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("inch", (it.conversionValue.trim().toDouble()*63360 ).toString()))
-
-                            } else {
-                                unitActivityList.add(UnitActivityModelResponse("km", ""))
-                                unitActivityList.add(UnitActivityModelResponse("m", ""))
-                                unitActivityList.add(UnitActivityModelResponse("dm", ""))
-                                unitActivityList.add(UnitActivityModelResponse("cm", ""))
-                                unitActivityList.add(UnitActivityModelResponse("mm", ""))
-                                unitActivityList.add(UnitActivityModelResponse("ft", ""))
-                                unitActivityList.add(UnitActivityModelResponse("inch", ""))
-
-
-                            }
-
-                            unitActivityAdapter?.clear()
-                            unitActivityAdapter?.setClickListener(this@LengthActivity)
-                            binding.unitRecycler.adapter = unitActivityAdapter
-                            unitActivityAdapter?.setItems(unitActivityList)
-                        }
-
-                    }else if(layoutPosition == 2){
-                        binding.inputValue.addTextChangedListener(object : TextWatcher {
-
-                            override fun afterTextChanged(s: Editable) {}
-                            override fun beforeTextChanged(
-                                s: CharSequence, start: Int,
-                                count: Int, after: Int
-                            ) {
-                            }
-                            override fun onTextChanged(
-                                s: CharSequence, start: Int,
-                                before: Int, count: Int
-                            ) {
-                                val num1 = binding.inputValue.text.toString()
-                                if (num1.isNotBlank()) {
-                                    val num2 = binding.inputValue.text.toString().trim().toDouble()
-                                    val num3 = (num2).toString()
-                                    viewModel.callweightAPI(num3)
-                                } else {
-                                    viewModel.callweightAPI("")
+                                override fun onTextChanged(
+                                    s: CharSequence, start: Int,
+                                    before: Int, count: Int
+                                ) {
+                                    val num1 = binding.inputValue.text.toString()
+                                    if (num1.isNotBlank()) {
+                                        val num2 = binding.inputValue.text.toString().trim().toDouble()
+                                        val num3 = (num2).toString()
+                                        viewModel.callweightAPI(num3)
+                                    } else {
+                                        viewModel.callweightAPI("")
+                                    }
                                 }
+                            })
+
+
+                            viewModel.weightResponse.observe(this@LengthActivity) {
+
+                                unitActivityList.clear()
+                                if (it.conversionValue != "") {
+                                    unitActivityList.add(UnitActivityModelResponse("km", (it.conversionValue.trim().toDouble() *0.0001).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("mile", (it.conversionValue.trim().toDouble()*6.2137e-5 ).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("m", (it.conversionValue.trim().toDouble() *0.1).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("cm", (it.conversionValue.trim().toDouble()*10).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("mm", (it.conversionValue.trim().toDouble() *100).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("ft", (it.conversionValue.trim().toDouble()*0.328084).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("inch", (it.conversionValue.trim().toDouble()*3.937008).toString()))
+
+                                } else {
+
+                                    unitActivityList.add(UnitActivityModelResponse("km", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("mile", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("m", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("cm", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("mm", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("ft", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("inch", ""))
+                                }
+
+                                unitActivityAdapter?.clear()
+                                unitActivityAdapter?.setClickListener(this@LengthActivity)
+                                binding.unitRecycler.adapter = unitActivityAdapter
+                                unitActivityAdapter?.setItems(unitActivityList)
+
+
                             }
-                        })
-
-
-                        viewModel.weightResponse.observe(this@LengthActivity) {
-
-                            unitActivityList.clear()
-                            if (it.conversionValue != "") {
-                                unitActivityList.add(UnitActivityModelResponse("km", (it.conversionValue.trim().toDouble() *0.001).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("mile", (it.conversionValue.trim().toDouble()*0.00063 ).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("dm", (it.conversionValue.trim().toDouble() *10).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("cm", (it.conversionValue.trim().toDouble()*100).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("mm", (it.conversionValue.trim().toDouble() * 1000).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("ft", (it.conversionValue.trim().toDouble()*3.28084).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("inch", (it.conversionValue.trim().toDouble()*39.37008 ).toString()))
-
-                            } else {
-
-                                unitActivityList.add(UnitActivityModelResponse("km", ""))
-                                unitActivityList.add(UnitActivityModelResponse("mile", ""))
-                                unitActivityList.add(UnitActivityModelResponse("dm", ""))
-                                unitActivityList.add(UnitActivityModelResponse("cm", ""))
-                                unitActivityList.add(UnitActivityModelResponse("mm", ""))
-                                unitActivityList.add(UnitActivityModelResponse("ft", ""))
-                                unitActivityList.add(UnitActivityModelResponse("inch", ""))
-                            }
-
-                            unitActivityAdapter?.clear()
-                            unitActivityAdapter?.setClickListener(this@LengthActivity)
-                            binding.unitRecycler.adapter = unitActivityAdapter
-                            unitActivityAdapter?.setItems(unitActivityList)
 
 
                         }
+                        4 -> {
+                            binding.inputValue.addTextChangedListener(object : TextWatcher {
 
-
-
-                    }else if(layoutPosition == 3){
-                        binding.inputValue.addTextChangedListener(object : TextWatcher {
-
-                            override fun afterTextChanged(s: Editable) {}
-                            override fun beforeTextChanged(
-                                s: CharSequence, start: Int,
-                                count: Int, after: Int
-                            ) {
-                            }
-                            override fun onTextChanged(
-                                s: CharSequence, start: Int,
-                                before: Int, count: Int
-                            ) {
-                                val num1 = binding.inputValue.text.toString()
-                                if (num1.isNotBlank()) {
-                                    val num2 = binding.inputValue.text.toString().trim().toDouble()
-                                    val num3 = (num2).toString()
-                                    viewModel.callweightAPI(num3)
-                                } else {
-                                    viewModel.callweightAPI("")
+                                override fun afterTextChanged(s: Editable) {}
+                                override fun beforeTextChanged(
+                                    s: CharSequence, start: Int,
+                                    count: Int, after: Int
+                                ) {
                                 }
+
+                                override fun onTextChanged(
+                                    s: CharSequence, start: Int,
+                                    before: Int, count: Int
+                                ) {
+                                    val num1 = binding.inputValue.text.toString()
+                                    if (num1.isNotBlank()) {
+                                        val num2 = binding.inputValue.text.toString().trim().toDouble()
+                                        val num3 = (num2).toString()
+                                        viewModel.callweightAPI(num3)
+                                    } else {
+                                        viewModel.callweightAPI("")
+                                    }
+                                }
+                            })
+
+
+                            viewModel.weightResponse.observe(this@LengthActivity) {
+
+                                unitActivityList.clear()
+                                if (it.conversionValue != "") {
+                                    unitActivityList.add(UnitActivityModelResponse("km", (it.conversionValue.trim().toDouble() *0.00001).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("mile", (it.conversionValue.trim().toDouble()*6.21371e-6).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("m", (it.conversionValue.trim().toDouble() *0.01).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("dm", (it.conversionValue.trim().toDouble()*.10).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("mm", (it.conversionValue.trim().toDouble() *10).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("ft", (it.conversionValue.trim().toDouble()*0.0328084).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("inch", (it.conversionValue.trim().toDouble()*0.393701).toString()))
+
+                                } else {
+
+                                    unitActivityList.add(UnitActivityModelResponse("km", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("mile", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("m", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("dm", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("mm", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("ft", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("inch", ""))
+                                }
+
+                                unitActivityAdapter?.clear()
+                                unitActivityAdapter?.setClickListener(this@LengthActivity)
+                                binding.unitRecycler.adapter = unitActivityAdapter
+                                unitActivityAdapter?.setItems(unitActivityList)
+
+
                             }
-                        })
-
-
-                        viewModel.weightResponse.observe(this@LengthActivity) {
-
-                            unitActivityList.clear()
-                            if (it.conversionValue != "") {
-                                unitActivityList.add(UnitActivityModelResponse("km", (it.conversionValue.trim().toDouble() *0.0001).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("mile", (it.conversionValue.trim().toDouble()*6.2137e-5 ).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("m", (it.conversionValue.trim().toDouble() *0.1).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("cm", (it.conversionValue.trim().toDouble()*10).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("mm", (it.conversionValue.trim().toDouble() *100).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("ft", (it.conversionValue.trim().toDouble()*0.328084).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("inch", (it.conversionValue.trim().toDouble()*3.937008).toString()))
-
-                            } else {
-
-                                unitActivityList.add(UnitActivityModelResponse("km", ""))
-                                unitActivityList.add(UnitActivityModelResponse("mile", ""))
-                                unitActivityList.add(UnitActivityModelResponse("m", ""))
-                                unitActivityList.add(UnitActivityModelResponse("cm", ""))
-                                unitActivityList.add(UnitActivityModelResponse("mm", ""))
-                                unitActivityList.add(UnitActivityModelResponse("ft", ""))
-                                unitActivityList.add(UnitActivityModelResponse("inch", ""))
-                            }
-
-                            unitActivityAdapter?.clear()
-                            unitActivityAdapter?.setClickListener(this@LengthActivity)
-                            binding.unitRecycler.adapter = unitActivityAdapter
-                            unitActivityAdapter?.setItems(unitActivityList)
 
 
                         }
+                        5 -> {
+                            binding.inputValue.addTextChangedListener(object : TextWatcher {
 
-
-
-                    }else if(layoutPosition == 4){
-                        binding.inputValue.addTextChangedListener(object : TextWatcher {
-
-                            override fun afterTextChanged(s: Editable) {}
-                            override fun beforeTextChanged(
-                                s: CharSequence, start: Int,
-                                count: Int, after: Int
-                            ) {
-                            }
-                            override fun onTextChanged(
-                                s: CharSequence, start: Int,
-                                before: Int, count: Int
-                            ) {
-                                val num1 = binding.inputValue.text.toString()
-                                if (num1.isNotBlank()) {
-                                    val num2 = binding.inputValue.text.toString().trim().toDouble()
-                                    val num3 = (num2).toString()
-                                    viewModel.callweightAPI(num3)
-                                } else {
-                                    viewModel.callweightAPI("")
+                                override fun afterTextChanged(s: Editable) {}
+                                override fun beforeTextChanged(
+                                    s: CharSequence, start: Int,
+                                    count: Int, after: Int
+                                ) {
                                 }
+
+                                override fun onTextChanged(
+                                    s: CharSequence, start: Int,
+                                    before: Int, count: Int
+                                ) {
+                                    val num1 = binding.inputValue.text.toString()
+                                    if (num1.isNotBlank()) {
+                                        val num2 = binding.inputValue.text.toString().trim().toDouble()
+                                        val num3 = (num2).toString()
+                                        viewModel.callweightAPI(num3)
+                                    } else {
+                                        viewModel.callweightAPI("")
+                                    }
+                                }
+                            })
+
+
+                            viewModel.weightResponse.observe(this@LengthActivity) {
+
+                                unitActivityList.clear()
+                                if (it.conversionValue != "") {
+                                    unitActivityList.add(UnitActivityModelResponse("km", (it.conversionValue.trim().toDouble() *1e-6).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("mile", (it.conversionValue.trim().toDouble()*6.2137e-7).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("m", (it.conversionValue.trim().toDouble() *0.001).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("dm", (it.conversionValue.trim().toDouble()*0.01).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("cm", (it.conversionValue.trim().toDouble() *0.1).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("ft", (it.conversionValue.trim().toDouble()*0.00328084).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("inch", (it.conversionValue.trim().toDouble()*0.0393701).toString()))
+
+                                } else {
+
+                                    unitActivityList.add(UnitActivityModelResponse("km", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("mile", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("m", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("dm", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("cm", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("ft", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("inch", ""))
+                                }
+
+                                unitActivityAdapter?.clear()
+                                unitActivityAdapter?.setClickListener(this@LengthActivity)
+                                binding.unitRecycler.adapter = unitActivityAdapter
+                                unitActivityAdapter?.setItems(unitActivityList)
+
+
                             }
-                        })
-
-
-                        viewModel.weightResponse.observe(this@LengthActivity) {
-
-                            unitActivityList.clear()
-                            if (it.conversionValue != "") {
-                                unitActivityList.add(UnitActivityModelResponse("km", (it.conversionValue.trim().toDouble() *0.00001).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("mile", (it.conversionValue.trim().toDouble()*6.21371e-6).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("m", (it.conversionValue.trim().toDouble() *0.01).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("dm", (it.conversionValue.trim().toDouble()*.10).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("mm", (it.conversionValue.trim().toDouble() *10).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("ft", (it.conversionValue.trim().toDouble()*0.0328084).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("inch", (it.conversionValue.trim().toDouble()*0.393701).toString()))
-
-                            } else {
-
-                                unitActivityList.add(UnitActivityModelResponse("km", ""))
-                                unitActivityList.add(UnitActivityModelResponse("mile", ""))
-                                unitActivityList.add(UnitActivityModelResponse("m", ""))
-                                unitActivityList.add(UnitActivityModelResponse("dm", ""))
-                                unitActivityList.add(UnitActivityModelResponse("mm", ""))
-                                unitActivityList.add(UnitActivityModelResponse("ft", ""))
-                                unitActivityList.add(UnitActivityModelResponse("inch", ""))
-                            }
-
-                            unitActivityAdapter?.clear()
-                            unitActivityAdapter?.setClickListener(this@LengthActivity)
-                            binding.unitRecycler.adapter = unitActivityAdapter
-                            unitActivityAdapter?.setItems(unitActivityList)
 
 
                         }
+                        6 -> {
+                            binding.inputValue.addTextChangedListener(object : TextWatcher {
 
-
-
-                    }else if(layoutPosition == 5){
-                        binding.inputValue.addTextChangedListener(object : TextWatcher {
-
-                            override fun afterTextChanged(s: Editable) {}
-                            override fun beforeTextChanged(
-                                s: CharSequence, start: Int,
-                                count: Int, after: Int
-                            ) {
-                            }
-                            override fun onTextChanged(
-                                s: CharSequence, start: Int,
-                                before: Int, count: Int
-                            ) {
-                                val num1 = binding.inputValue.text.toString()
-                                if (num1.isNotBlank()) {
-                                    val num2 = binding.inputValue.text.toString().trim().toDouble()
-                                    val num3 = (num2).toString()
-                                    viewModel.callweightAPI(num3)
-                                } else {
-                                    viewModel.callweightAPI("")
+                                override fun afterTextChanged(s: Editable) {}
+                                override fun beforeTextChanged(
+                                    s: CharSequence, start: Int,
+                                    count: Int, after: Int
+                                ) {
                                 }
+
+                                override fun onTextChanged(
+                                    s: CharSequence, start: Int,
+                                    before: Int, count: Int
+                                ) {
+                                    val num1 = binding.inputValue.text.toString()
+                                    if (num1.isNotBlank()) {
+                                        val num2 = binding.inputValue.text.toString().trim().toDouble()
+                                        val num3 = (num2).toString()
+                                        viewModel.callweightAPI(num3)
+                                    } else {
+                                        viewModel.callweightAPI("")
+                                    }
+                                }
+                            })
+
+
+                            viewModel.weightResponse.observe(this@LengthActivity) {
+
+                                unitActivityList.clear()
+                                if (it.conversionValue != "") {
+                                    unitActivityList.add(UnitActivityModelResponse("km", (it.conversionValue.trim().toDouble() *0.0003048).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("mile", (it.conversionValue.trim().toDouble()*0.000189394).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("m", (it.conversionValue.trim().toDouble() *0.3048).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("dm", (it.conversionValue.trim().toDouble()*3.048).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("cm", (it.conversionValue.trim().toDouble() *30.48).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("mm", (it.conversionValue.trim().toDouble()*304.8).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("inch", (it.conversionValue.trim().toDouble()*12).toString()))
+
+                                } else {
+
+                                    unitActivityList.add(UnitActivityModelResponse("km", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("mile", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("m", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("dm", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("cm", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("mm", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("inch", ""))
+                                }
+
+                                unitActivityAdapter?.clear()
+                                unitActivityAdapter?.setClickListener(this@LengthActivity)
+                                binding.unitRecycler.adapter = unitActivityAdapter
+                                unitActivityAdapter?.setItems(unitActivityList)
+
+
                             }
-                        })
-
-
-                        viewModel.weightResponse.observe(this@LengthActivity) {
-
-                            unitActivityList.clear()
-                            if (it.conversionValue != "") {
-                                unitActivityList.add(UnitActivityModelResponse("km", (it.conversionValue.trim().toDouble() *1e-6).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("mile", (it.conversionValue.trim().toDouble()*6.2137e-7).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("m", (it.conversionValue.trim().toDouble() *0.001).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("dm", (it.conversionValue.trim().toDouble()*0.01).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("cm", (it.conversionValue.trim().toDouble() *0.1).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("ft", (it.conversionValue.trim().toDouble()*0.00328084).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("inch", (it.conversionValue.trim().toDouble()*0.0393701).toString()))
-
-                            } else {
-
-                                unitActivityList.add(UnitActivityModelResponse("km", ""))
-                                unitActivityList.add(UnitActivityModelResponse("mile", ""))
-                                unitActivityList.add(UnitActivityModelResponse("m", ""))
-                                unitActivityList.add(UnitActivityModelResponse("dm", ""))
-                                unitActivityList.add(UnitActivityModelResponse("cm", ""))
-                                unitActivityList.add(UnitActivityModelResponse("ft", ""))
-                                unitActivityList.add(UnitActivityModelResponse("inch", ""))
-                            }
-
-                            unitActivityAdapter?.clear()
-                            unitActivityAdapter?.setClickListener(this@LengthActivity)
-                            binding.unitRecycler.adapter = unitActivityAdapter
-                            unitActivityAdapter?.setItems(unitActivityList)
 
 
                         }
+                        7 -> {
+                            binding.inputValue.addTextChangedListener(object : TextWatcher {
 
-
-
-                    }else if(layoutPosition == 6){
-                        binding.inputValue.addTextChangedListener(object : TextWatcher {
-
-                            override fun afterTextChanged(s: Editable) {}
-                            override fun beforeTextChanged(
-                                s: CharSequence, start: Int,
-                                count: Int, after: Int
-                            ) {
-                            }
-                            override fun onTextChanged(
-                                s: CharSequence, start: Int,
-                                before: Int, count: Int
-                            ) {
-                                val num1 = binding.inputValue.text.toString()
-                                if (num1.isNotBlank()) {
-                                    val num2 = binding.inputValue.text.toString().trim().toDouble()
-                                    val num3 = (num2).toString()
-                                    viewModel.callweightAPI(num3)
-                                } else {
-                                    viewModel.callweightAPI("")
+                                override fun afterTextChanged(s: Editable) {}
+                                override fun beforeTextChanged(
+                                    s: CharSequence, start: Int,
+                                    count: Int, after: Int
+                                ) {
                                 }
+
+                                override fun onTextChanged(
+                                    s: CharSequence, start: Int,
+                                    before: Int, count: Int
+                                ) {
+                                    val num1 = binding.inputValue.text.toString()
+                                    if (num1.isNotBlank()) {
+                                        val num2 = binding.inputValue.text.toString().trim().toDouble()
+                                        val num3 = (num2).toString()
+                                        viewModel.callweightAPI(num3)
+                                    } else {
+                                        viewModel.callweightAPI("")
+                                    }
+                                }
+                            })
+
+
+                            viewModel.weightResponse.observe(this@LengthActivity) {
+
+                                unitActivityList.clear()
+                                if (it.conversionValue != "") {
+                                    unitActivityList.add(UnitActivityModelResponse("km", (it.conversionValue.trim().toDouble() *2.54e-5).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("mile", (it.conversionValue.trim().toDouble()*1.5783e-5).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("m", (it.conversionValue.trim().toDouble() *0.025400276352).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("dm", (it.conversionValue.trim().toDouble()*0.254).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("cm", (it.conversionValue.trim().toDouble() *2.54).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("mm", (it.conversionValue.trim().toDouble()*25.4).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("ft", (it.conversionValue.trim().toDouble()*0.0833333).toString()))
+
+                                } else {
+
+                                    unitActivityList.add(UnitActivityModelResponse("km", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("mile", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("m", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("dm", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("cm", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("mm", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("ft", ""))
+                                }
+
+                                unitActivityAdapter?.clear()
+                                unitActivityAdapter?.setClickListener(this@LengthActivity)
+                                binding.unitRecycler.adapter = unitActivityAdapter
+                                unitActivityAdapter?.setItems(unitActivityList)
+
+
                             }
-                        })
-
-
-                        viewModel.weightResponse.observe(this@LengthActivity) {
-
-                            unitActivityList.clear()
-                            if (it.conversionValue != "") {
-                                unitActivityList.add(UnitActivityModelResponse("km", (it.conversionValue.trim().toDouble() *0.0003048).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("mile", (it.conversionValue.trim().toDouble()*0.000189394).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("m", (it.conversionValue.trim().toDouble() *0.3048).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("dm", (it.conversionValue.trim().toDouble()*3.048).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("cm", (it.conversionValue.trim().toDouble() *30.48).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("mm", (it.conversionValue.trim().toDouble()*304.8).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("inch", (it.conversionValue.trim().toDouble()*12).toString()))
-
-                            } else {
-
-                                unitActivityList.add(UnitActivityModelResponse("km", ""))
-                                unitActivityList.add(UnitActivityModelResponse("mile", ""))
-                                unitActivityList.add(UnitActivityModelResponse("m", ""))
-                                unitActivityList.add(UnitActivityModelResponse("dm", ""))
-                                unitActivityList.add(UnitActivityModelResponse("cm", ""))
-                                unitActivityList.add(UnitActivityModelResponse("mm", ""))
-                                unitActivityList.add(UnitActivityModelResponse("inch", ""))
-                            }
-
-                            unitActivityAdapter?.clear()
-                            unitActivityAdapter?.setClickListener(this@LengthActivity)
-                            binding.unitRecycler.adapter = unitActivityAdapter
-                            unitActivityAdapter?.setItems(unitActivityList)
 
 
                         }
-
-
-
-                    }else if(layoutPosition == 7){
-                        binding.inputValue.addTextChangedListener(object : TextWatcher {
-
-                            override fun afterTextChanged(s: Editable) {}
-                            override fun beforeTextChanged(
-                                s: CharSequence, start: Int,
-                                count: Int, after: Int
-                            ) {
-                            }
-                            override fun onTextChanged(
-                                s: CharSequence, start: Int,
-                                before: Int, count: Int
-                            ) {
-                                val num1 = binding.inputValue.text.toString()
-                                if (num1.isNotBlank()) {
-                                    val num2 = binding.inputValue.text.toString().trim().toDouble()
-                                    val num3 = (num2).toString()
-                                    viewModel.callweightAPI(num3)
-                                } else {
-                                    viewModel.callweightAPI("")
-                                }
-                            }
-                        })
-
-
-                        viewModel.weightResponse.observe(this@LengthActivity) {
-
-                            unitActivityList.clear()
-                            if (it.conversionValue != "") {
-                                unitActivityList.add(UnitActivityModelResponse("km", (it.conversionValue.trim().toDouble() *2.54e-5).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("mile", (it.conversionValue.trim().toDouble()*1.5783e-5).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("m", (it.conversionValue.trim().toDouble() *0.025400276352).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("dm", (it.conversionValue.trim().toDouble()*0.254).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("cm", (it.conversionValue.trim().toDouble() *2.54).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("mm", (it.conversionValue.trim().toDouble()*25.4).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("ft", (it.conversionValue.trim().toDouble()*0.0833333).toString()))
-
-                            } else {
-
-                                unitActivityList.add(UnitActivityModelResponse("km", ""))
-                                unitActivityList.add(UnitActivityModelResponse("mile", ""))
-                                unitActivityList.add(UnitActivityModelResponse("m", ""))
-                                unitActivityList.add(UnitActivityModelResponse("dm", ""))
-                                unitActivityList.add(UnitActivityModelResponse("cm", ""))
-                                unitActivityList.add(UnitActivityModelResponse("mm", ""))
-                                unitActivityList.add(UnitActivityModelResponse("ft", ""))
-                            }
-
-                            unitActivityAdapter?.clear()
-                            unitActivityAdapter?.setClickListener(this@LengthActivity)
-                            binding.unitRecycler.adapter = unitActivityAdapter
-                            unitActivityAdapter?.setItems(unitActivityList)
-
-
-                        }
-
-
-
                     }
 
 

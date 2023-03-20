@@ -10,7 +10,6 @@ import android.widget.Button
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.ads.AdRequest
-import com.google.firebase.analytics.FirebaseAnalytics
 import karma.converter.BuildConfig
 import karma.converter.R
 import karma.converter.adapter.PickerAdapter
@@ -29,12 +28,11 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
     ItemClickListener<UnitActivityModelResponse> {
 
 
-    private lateinit var analytics: FirebaseAnalytics
     private lateinit var binding: ActivityAreaBinding
     var adRequest: AdRequest? = null
     var itemList = ArrayList<UnititemModel>()
     private val viewModel by viewModels<WeightViewModel>()
-    var unitActivityList = java.util.ArrayList<UnitActivityModelResponse>()
+    var unitActivityList = ArrayList<UnitActivityModelResponse>()
     private val data = ArrayList<String>()
     private lateinit var rvHorizontalPicker: RecyclerView
     private lateinit var sliderAdapter: PickerAdapter
@@ -159,567 +157,576 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
                 override fun onItemSelected(layoutPosition: Int) {
                     sliderAdapter.setSelectedItem(layoutPosition)
 
-                    if (layoutPosition == 0) {
+                    when (layoutPosition) {
+                        0 -> {
 
-                        sliderAdapter.setSelectedItem(0)
-                        binding.inputValue.addTextChangedListener(object : TextWatcher {
+                            sliderAdapter.setSelectedItem(0)
+                            binding.inputValue.addTextChangedListener(object : TextWatcher {
 
-                            override fun afterTextChanged(s: Editable) {}
+                                override fun afterTextChanged(s: Editable) {}
 
-                            override fun beforeTextChanged(
-                                s: CharSequence, start: Int,
-                                count: Int, after: Int
-                            ) {
-                            }
-
-                            override fun onTextChanged(
-                                s: CharSequence, start: Int,
-                                before: Int, count: Int
-                            ) {
-                                val num1 = binding.inputValue.text.toString()
-                                if (num1.isNotBlank()) {
-                                    val num2 = binding.inputValue.text.toString().trim().toDouble()
-                                    val num3 = (num2).toString()
-
-
-                                    viewModel.callweightAPI(num3)
-                                } else {
-                                    viewModel.callweightAPI("")
+                                override fun beforeTextChanged(
+                                    s: CharSequence, start: Int,
+                                    count: Int, after: Int
+                                ) {
                                 }
+
+                                override fun onTextChanged(
+                                    s: CharSequence, start: Int,
+                                    before: Int, count: Int
+                                ) {
+                                    val num1 = binding.inputValue.text.toString()
+                                    if (num1.isNotBlank()) {
+                                        val num2 = binding.inputValue.text.toString().trim().toDouble()
+                                        val num3 = (num2).toString()
+
+
+                                        viewModel.callweightAPI(num3)
+                                    } else {
+                                        viewModel.callweightAPI("")
+                                    }
+                                }
+                            })
+
+
+                            viewModel.weightResponse.observe(this@CookingActivity) {
+
+                                unitActivityList.clear()
+                                if (it.conversionValue != "") {
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "tspn",
+                                            (it.conversionValue.trim().toDouble() * 0.202884).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "tbsp",
+                                            (it.conversionValue.trim().toDouble() * 0.067628).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "cup(mt)",
+                                            (it.conversionValue.trim().toDouble() * 0.004).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "floz(us)",
+                                            (it.conversionValue.trim().toDouble() * 0.033814).toString()
+                                        )
+                                    )
+                                } else {
+                                    unitActivityList.add(UnitActivityModelResponse("tspn", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("tbsp", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("cub(mt)", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("floz(us)", ""))
+                                }
+
+                                unitActivityAdapter?.clear()
+                                unitActivityAdapter?.setClickListener(this@CookingActivity)
+                                binding.unitRecycler.adapter = unitActivityAdapter
+                                unitActivityAdapter?.setItems(unitActivityList)
+
+
                             }
-                        })
+
+                        }
+                        1 -> {
+
+                            binding.inputValue.addTextChangedListener(object : TextWatcher {
+
+                                override fun afterTextChanged(s: Editable) {}
+
+                                override fun beforeTextChanged(
+                                    s: CharSequence, start: Int,
+                                    count: Int, after: Int
+                                ) {
+                                }
+
+                                override fun onTextChanged(
+                                    s: CharSequence, start: Int,
+                                    before: Int, count: Int
+                                ) {
+                                    val num1 = binding.inputValue.text.toString()
+                                    if (num1.isNotBlank()) {
+                                        val num2 = binding.inputValue.text.toString().trim().toDouble()
+                                        val num3 = (num2).toString()
 
 
-                        viewModel.weightResponse.observe(this@CookingActivity) {
+                                        viewModel.callweightAPI(num3)
+                                    } else {
+                                        viewModel.callweightAPI("")
+                                    }
+                                }
+                            })
 
-                            unitActivityList.clear()
-                            if (it.conversionValue != "") {
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "tspn",
-                                        (it.conversionValue.trim().toDouble() * 0.202884).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "tbsp",
-                                        (it.conversionValue.trim().toDouble() * 0.067628).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "cup(mt)",
-                                        (it.conversionValue.trim().toDouble() * 0.004).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "floz(us)",
-                                        (it.conversionValue.trim().toDouble() * 0.033814).toString()
-                                    )
-                                )
-                            } else {
-                                unitActivityList.add(UnitActivityModelResponse("tspn", ""))
-                                unitActivityList.add(UnitActivityModelResponse("tbsp", ""))
-                                unitActivityList.add(UnitActivityModelResponse("cub(mt)", ""))
-                                unitActivityList.add(UnitActivityModelResponse("floz(us)", ""))
+
+                            viewModel.weightResponse.observe(this@CookingActivity) {
+
+                                unitActivityList.clear()
+                                if (it.conversionValue != "") {
+                                    unitActivityList.add(UnitActivityModelResponse("ml(cc)", (it.conversionValue.trim().toDouble() * 4.92892).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("tbsp", (it.conversionValue.trim().toDouble() * 0.333333).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("cup(mt)", (it.conversionValue.trim().toDouble() *0.0205372).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("floz(us)", (it.conversionValue.trim().toDouble() * 0.166667).toString()))
+
+                                } else {
+                                    unitActivityList.add(UnitActivityModelResponse("ml(cc)", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("tbsp", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("cub(mt)", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("floz(us)", ""))
+
+
+                                }
+
+                                unitActivityAdapter?.clear()
+                                unitActivityAdapter?.setClickListener(this@CookingActivity)
+                                binding.unitRecycler.adapter = unitActivityAdapter
+                                unitActivityAdapter?.setItems(unitActivityList)
                             }
 
-                            unitActivityAdapter?.clear()
-                            unitActivityAdapter?.setClickListener(this@CookingActivity)
-                            binding.unitRecycler.adapter = unitActivityAdapter
-                            unitActivityAdapter?.setItems(unitActivityList)
+                        }
+                        2 -> {
+                            binding.inputValue.addTextChangedListener(object : TextWatcher {
+
+                                override fun afterTextChanged(s: Editable) {}
+                                override fun beforeTextChanged(
+                                    s: CharSequence, start: Int,
+                                    count: Int, after: Int
+                                ) {
+                                }
+
+                                override fun onTextChanged(
+                                    s: CharSequence, start: Int,
+                                    before: Int, count: Int
+                                ) {
+                                    val num1 = binding.inputValue.text.toString()
+                                    if (num1.isNotBlank()) {
+                                        val num2 = binding.inputValue.text.toString().trim().toDouble()
+                                        val num3 = (num2).toString()
+                                        viewModel.callweightAPI(num3)
+                                    } else {
+                                        viewModel.callweightAPI("")
+                                    }
+                                }
+                            })
+
+
+                            viewModel.weightResponse.observe(this@CookingActivity) {
+
+                                unitActivityList.clear()
+                                if (it.conversionValue != "") {
+                                    unitActivityList.add(UnitActivityModelResponse("ml(cc)", (it.conversionValue.trim().toDouble() * 14.7868).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("tspn", (it.conversionValue.trim().toDouble() * 3).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("cup(mt)", (it.conversionValue.trim().toDouble() *0.0616115).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("floz(us)", (it.conversionValue.trim().toDouble() * 0.166667).toString()))
+
+                                } else {
+
+                                    unitActivityList.add(UnitActivityModelResponse("ml(cc)", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("tspn", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("cub(mt)", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("floz(us)", ""))
+                                }
+
+                                unitActivityAdapter?.clear()
+                                unitActivityAdapter?.setClickListener(this@CookingActivity)
+                                binding.unitRecycler.adapter = unitActivityAdapter
+                                unitActivityAdapter?.setItems(unitActivityList)
+
+
+                            }
 
 
                         }
+                        3 -> {
+                            binding.inputValue.addTextChangedListener(object : TextWatcher {
 
-                    } else if (layoutPosition == 1) {
-
-                        binding.inputValue.addTextChangedListener(object : TextWatcher {
-
-                            override fun afterTextChanged(s: Editable) {}
-
-                            override fun beforeTextChanged(
-                                s: CharSequence, start: Int,
-                                count: Int, after: Int
-                            ) {
-                            }
-
-                            override fun onTextChanged(
-                                s: CharSequence, start: Int,
-                                before: Int, count: Int
-                            ) {
-                                val num1 = binding.inputValue.text.toString()
-                                if (num1.isNotBlank()) {
-                                    val num2 = binding.inputValue.text.toString().trim().toDouble()
-                                    val num3 = (num2).toString()
-
-
-                                    viewModel.callweightAPI(num3)
-                                } else {
-                                    viewModel.callweightAPI("")
+                                override fun afterTextChanged(s: Editable) {}
+                                override fun beforeTextChanged(
+                                    s: CharSequence, start: Int,
+                                    count: Int, after: Int
+                                ) {
                                 }
-                            }
-                        })
 
-
-                        viewModel.weightResponse.observe(this@CookingActivity) {
-
-                            unitActivityList.clear()
-                            if (it.conversionValue != "") {
-                                unitActivityList.add(UnitActivityModelResponse("ml(cc)", (it.conversionValue.trim().toDouble() * 4.92892).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("tbsp", (it.conversionValue.trim().toDouble() * 0.333333).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("cup(mt)", (it.conversionValue.trim().toDouble() *0.0205372).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("floz(us)", (it.conversionValue.trim().toDouble() * 0.166667).toString()))
-
-                            } else {
-                                unitActivityList.add(UnitActivityModelResponse("ml(cc)", ""))
-                                unitActivityList.add(UnitActivityModelResponse("tbsp", ""))
-                                unitActivityList.add(UnitActivityModelResponse("cub(mt)", ""))
-                                unitActivityList.add(UnitActivityModelResponse("floz(us)", ""))
-
-
-                            }
-
-                            unitActivityAdapter?.clear()
-                            unitActivityAdapter?.setClickListener(this@CookingActivity)
-                            binding.unitRecycler.adapter = unitActivityAdapter
-                            unitActivityAdapter?.setItems(unitActivityList)
-                        }
-
-                    } else if (layoutPosition == 2) {
-                        binding.inputValue.addTextChangedListener(object : TextWatcher {
-
-                            override fun afterTextChanged(s: Editable) {}
-                            override fun beforeTextChanged(
-                                s: CharSequence, start: Int,
-                                count: Int, after: Int
-                            ) {
-                            }
-
-                            override fun onTextChanged(
-                                s: CharSequence, start: Int,
-                                before: Int, count: Int
-                            ) {
-                                val num1 = binding.inputValue.text.toString()
-                                if (num1.isNotBlank()) {
-                                    val num2 = binding.inputValue.text.toString().trim().toDouble()
-                                    val num3 = (num2).toString()
-                                    viewModel.callweightAPI(num3)
-                                } else {
-                                    viewModel.callweightAPI("")
+                                override fun onTextChanged(
+                                    s: CharSequence, start: Int,
+                                    before: Int, count: Int
+                                ) {
+                                    val num1 = binding.inputValue.text.toString()
+                                    if (num1.isNotBlank()) {
+                                        val num2 = binding.inputValue.text.toString().trim().toDouble()
+                                        val num3 = (num2).toString()
+                                        viewModel.callweightAPI(num3)
+                                    } else {
+                                        viewModel.callweightAPI("")
+                                    }
                                 }
+                            })
+
+
+                            viewModel.weightResponse.observe(this@CookingActivity) {
+
+                                unitActivityList.clear()
+                                if (it.conversionValue != "") {
+                                    unitActivityList.add(UnitActivityModelResponse("ml(cc)", (it.conversionValue.trim().toDouble() * 240).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("tspn", (it.conversionValue.trim().toDouble() *48.6922).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("tbsp", (it.conversionValue.trim().toDouble() *16.2307).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("floz(us)", (it.conversionValue.trim().toDouble() *8.11537).toString()))
+
+
+                                } else {
+                                    unitActivityList.add(UnitActivityModelResponse("ml(cc)", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("tspn", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("tbsp", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("floz(us)", ""))
+                                }
+
+                                unitActivityAdapter?.clear()
+                                unitActivityAdapter?.setClickListener(this@CookingActivity)
+                                binding.unitRecycler.adapter = unitActivityAdapter
+                                unitActivityAdapter?.setItems(unitActivityList)
+
+
                             }
-                        })
-
-
-                        viewModel.weightResponse.observe(this@CookingActivity) {
-
-                            unitActivityList.clear()
-                            if (it.conversionValue != "") {
-                                unitActivityList.add(UnitActivityModelResponse("ml(cc)", (it.conversionValue.trim().toDouble() * 14.7868).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("tspn", (it.conversionValue.trim().toDouble() * 3).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("cup(mt)", (it.conversionValue.trim().toDouble() *0.0616115).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("floz(us)", (it.conversionValue.trim().toDouble() * 0.166667).toString()))
-
-                            } else {
-
-                                unitActivityList.add(UnitActivityModelResponse("ml(cc)", ""))
-                                unitActivityList.add(UnitActivityModelResponse("tspn", ""))
-                                unitActivityList.add(UnitActivityModelResponse("cub(mt)", ""))
-                                unitActivityList.add(UnitActivityModelResponse("floz(us)", ""))
-                            }
-
-                            unitActivityAdapter?.clear()
-                            unitActivityAdapter?.setClickListener(this@CookingActivity)
-                            binding.unitRecycler.adapter = unitActivityAdapter
-                            unitActivityAdapter?.setItems(unitActivityList)
 
 
                         }
+                        4 -> {
+                            binding.inputValue.addTextChangedListener(object : TextWatcher {
 
-
-                    } else if (layoutPosition == 3) {
-                        binding.inputValue.addTextChangedListener(object : TextWatcher {
-
-                            override fun afterTextChanged(s: Editable) {}
-                            override fun beforeTextChanged(
-                                s: CharSequence, start: Int,
-                                count: Int, after: Int
-                            ) {
-                            }
-
-                            override fun onTextChanged(
-                                s: CharSequence, start: Int,
-                                before: Int, count: Int
-                            ) {
-                                val num1 = binding.inputValue.text.toString()
-                                if (num1.isNotBlank()) {
-                                    val num2 = binding.inputValue.text.toString().trim().toDouble()
-                                    val num3 = (num2).toString()
-                                    viewModel.callweightAPI(num3)
-                                } else {
-                                    viewModel.callweightAPI("")
+                                override fun afterTextChanged(s: Editable) {}
+                                override fun beforeTextChanged(
+                                    s: CharSequence, start: Int,
+                                    count: Int, after: Int
+                                ) {
                                 }
+
+                                override fun onTextChanged(
+                                    s: CharSequence, start: Int,
+                                    before: Int, count: Int
+                                ) {
+                                    val num1 = binding.inputValue.text.toString()
+                                    if (num1.isNotBlank()) {
+                                        val num2 = binding.inputValue.text.toString().trim().toDouble()
+                                        val num3 = (num2).toString()
+                                        viewModel.callweightAPI(num3)
+                                    } else {
+                                        viewModel.callweightAPI("")
+                                    }
+                                }
+                            })
+
+
+                            viewModel.weightResponse.observe(this@CookingActivity) {
+
+                                unitActivityList.clear()
+                                if (it.conversionValue != "") {
+                                    unitActivityList.add(UnitActivityModelResponse("ml(cc)", (it.conversionValue.trim().toDouble() *29.5735).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("tspn", (it.conversionValue.trim().toDouble() *6).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("tbsp", (it.conversionValue.trim().toDouble() *2).toString()))
+                                    unitActivityList.add(UnitActivityModelResponse("cup(mt)", (it.conversionValue.trim().toDouble() *0.123223).toString()))
+
+                                } else {
+
+                                    unitActivityList.add(UnitActivityModelResponse("ml(cc)", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("tspn", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("tbsp", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("cup(mt)", ""))
+                                }
+
+                                unitActivityAdapter?.clear()
+                                unitActivityAdapter?.setClickListener(this@CookingActivity)
+                                binding.unitRecycler.adapter = unitActivityAdapter
+                                unitActivityAdapter?.setItems(unitActivityList)
+
+
                             }
-                        })
-
-
-                        viewModel.weightResponse.observe(this@CookingActivity) {
-
-                            unitActivityList.clear()
-                            if (it.conversionValue != "") {
-                                unitActivityList.add(UnitActivityModelResponse("ml(cc)", (it.conversionValue.trim().toDouble() * 240).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("tspn", (it.conversionValue.trim().toDouble() *48.6922).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("tbsp", (it.conversionValue.trim().toDouble() *16.2307).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("floz(us)", (it.conversionValue.trim().toDouble() *8.11537).toString()))
-
-
-                            } else {
-                                unitActivityList.add(UnitActivityModelResponse("ml(cc)", ""))
-                                unitActivityList.add(UnitActivityModelResponse("tspn", ""))
-                                unitActivityList.add(UnitActivityModelResponse("tbsp", ""))
-                                unitActivityList.add(UnitActivityModelResponse("floz(us)", ""))
-                            }
-
-                            unitActivityAdapter?.clear()
-                            unitActivityAdapter?.setClickListener(this@CookingActivity)
-                            binding.unitRecycler.adapter = unitActivityAdapter
-                            unitActivityAdapter?.setItems(unitActivityList)
 
 
                         }
+                        5 -> {
+                            binding.inputValue.addTextChangedListener(object : TextWatcher {
 
-
-                    } else if (layoutPosition == 4) {
-                        binding.inputValue.addTextChangedListener(object : TextWatcher {
-
-                            override fun afterTextChanged(s: Editable) {}
-                            override fun beforeTextChanged(
-                                s: CharSequence, start: Int,
-                                count: Int, after: Int
-                            ) {
-                            }
-
-                            override fun onTextChanged(
-                                s: CharSequence, start: Int,
-                                before: Int, count: Int
-                            ) {
-                                val num1 = binding.inputValue.text.toString()
-                                if (num1.isNotBlank()) {
-                                    val num2 = binding.inputValue.text.toString().trim().toDouble()
-                                    val num3 = (num2).toString()
-                                    viewModel.callweightAPI(num3)
-                                } else {
-                                    viewModel.callweightAPI("")
+                                override fun afterTextChanged(s: Editable) {}
+                                override fun beforeTextChanged(
+                                    s: CharSequence, start: Int,
+                                    count: Int, after: Int
+                                ) {
                                 }
+
+                                override fun onTextChanged(
+                                    s: CharSequence, start: Int,
+                                    before: Int, count: Int
+                                ) {
+                                    val num1 = binding.inputValue.text.toString()
+                                    if (num1.isNotBlank()) {
+                                        val num2 = binding.inputValue.text.toString().trim().toDouble()
+                                        val num3 = (num2).toString()
+                                        viewModel.callweightAPI(num3)
+                                    } else {
+                                        viewModel.callweightAPI("")
+                                    }
+                                }
+                            })
+
+
+                            viewModel.weightResponse.observe(this@CookingActivity) {
+
+                                unitActivityList.clear()
+                                if (it.conversionValue != "") {
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "Hectare",
+                                            (it.conversionValue.trim()
+                                                .toDouble() * 9.2903e-6).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "Acre",
+                                            (it.conversionValue.trim()
+                                                .toDouble() * 2.2957e-5).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "sq km",
+                                            (it.conversionValue.trim()
+                                                .toDouble() * 9.2903e-8).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "sq m",
+                                            (it.conversionValue.trim().toDouble() * 0.092903).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "sq yds",
+                                            (it.conversionValue.trim().toDouble() * 0.111111).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "sq inch",
+                                            (it.conversionValue.trim().toDouble() * 144).toString()
+                                        )
+                                    )
+
+                                } else {
+
+                                    unitActivityList.add(UnitActivityModelResponse("Hectare", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("Acre", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("sq km", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("sq m", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("sq yds", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("sq inch", ""))
+                                }
+
+                                unitActivityAdapter?.clear()
+                                unitActivityAdapter?.setClickListener(this@CookingActivity)
+                                binding.unitRecycler.adapter = unitActivityAdapter
+                                unitActivityAdapter?.setItems(unitActivityList)
+
+
                             }
-                        })
-
-
-                        viewModel.weightResponse.observe(this@CookingActivity) {
-
-                            unitActivityList.clear()
-                            if (it.conversionValue != "") {
-                                unitActivityList.add(UnitActivityModelResponse("ml(cc)", (it.conversionValue.trim().toDouble() *29.5735).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("tspn", (it.conversionValue.trim().toDouble() *6).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("tbsp", (it.conversionValue.trim().toDouble() *2).toString()))
-                                unitActivityList.add(UnitActivityModelResponse("cup(mt)", (it.conversionValue.trim().toDouble() *0.123223).toString()))
-
-                            } else {
-
-                                unitActivityList.add(UnitActivityModelResponse("ml(cc)", ""))
-                                unitActivityList.add(UnitActivityModelResponse("tspn", ""))
-                                unitActivityList.add(UnitActivityModelResponse("tbsp", ""))
-                                unitActivityList.add(UnitActivityModelResponse("cup(mt)", ""))
-                            }
-
-                            unitActivityAdapter?.clear()
-                            unitActivityAdapter?.setClickListener(this@CookingActivity)
-                            binding.unitRecycler.adapter = unitActivityAdapter
-                            unitActivityAdapter?.setItems(unitActivityList)
 
 
                         }
+                        6 -> {
+                            binding.inputValue.addTextChangedListener(object : TextWatcher {
 
-
-                    } else if (layoutPosition == 5) {
-                        binding.inputValue.addTextChangedListener(object : TextWatcher {
-
-                            override fun afterTextChanged(s: Editable) {}
-                            override fun beforeTextChanged(
-                                s: CharSequence, start: Int,
-                                count: Int, after: Int
-                            ) {
-                            }
-
-                            override fun onTextChanged(
-                                s: CharSequence, start: Int,
-                                before: Int, count: Int
-                            ) {
-                                val num1 = binding.inputValue.text.toString()
-                                if (num1.isNotBlank()) {
-                                    val num2 = binding.inputValue.text.toString().trim().toDouble()
-                                    val num3 = (num2).toString()
-                                    viewModel.callweightAPI(num3)
-                                } else {
-                                    viewModel.callweightAPI("")
+                                override fun afterTextChanged(s: Editable) {}
+                                override fun beforeTextChanged(
+                                    s: CharSequence, start: Int,
+                                    count: Int, after: Int
+                                ) {
                                 }
+
+                                override fun onTextChanged(
+                                    s: CharSequence, start: Int,
+                                    before: Int, count: Int
+                                ) {
+                                    val num1 = binding.inputValue.text.toString()
+                                    if (num1.isNotBlank()) {
+                                        val num2 = binding.inputValue.text.toString().trim().toDouble()
+                                        val num3 = (num2).toString()
+                                        viewModel.callweightAPI(num3)
+                                    } else {
+                                        viewModel.callweightAPI("")
+                                    }
+                                }
+                            })
+
+
+                            viewModel.weightResponse.observe(this@CookingActivity) {
+
+                                unitActivityList.clear()
+                                if (it.conversionValue != "") {
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "Hectare",
+                                            (it.conversionValue.trim()
+                                                .toDouble() * 6.4516e-8).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "Acre",
+                                            (it.conversionValue.trim()
+                                                .toDouble() * 1.5942e-7).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "sq km",
+                                            (it.conversionValue.trim()
+                                                .toDouble() * 6.4516e-10).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "sq m",
+                                            (it.conversionValue.trim()
+                                                .toDouble() * 0.00064516).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "sq yds",
+                                            (it.conversionValue.trim()
+                                                .toDouble() * 0.000771605).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "sq ft",
+                                            (it.conversionValue.trim()
+                                                .toDouble() * 0.006944445).toString()
+                                        )
+                                    )
+
+                                } else {
+
+                                    unitActivityList.add(UnitActivityModelResponse("Hectare", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("Acre", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("sq km", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("sq m", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("sq yds", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("sq ft", ""))
+                                }
+
+                                unitActivityAdapter?.clear()
+                                unitActivityAdapter?.setClickListener(this@CookingActivity)
+                                binding.unitRecycler.adapter = unitActivityAdapter
+                                unitActivityAdapter?.setItems(unitActivityList)
+
+
                             }
-                        })
-
-
-                        viewModel.weightResponse.observe(this@CookingActivity) {
-
-                            unitActivityList.clear()
-                            if (it.conversionValue != "") {
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "Hectare",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 9.2903e-6).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "Acre",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 2.2957e-5).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "sq km",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 9.2903e-8).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "sq m",
-                                        (it.conversionValue.trim().toDouble() * 0.092903).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "sq yds",
-                                        (it.conversionValue.trim().toDouble() * 0.111111).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "sq inch",
-                                        (it.conversionValue.trim().toDouble() * 144).toString()
-                                    )
-                                )
-
-                            } else {
-
-                                unitActivityList.add(UnitActivityModelResponse("Hectare", ""))
-                                unitActivityList.add(UnitActivityModelResponse("Acre", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq km", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq m", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq yds", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq inch", ""))
-                            }
-
-                            unitActivityAdapter?.clear()
-                            unitActivityAdapter?.setClickListener(this@CookingActivity)
-                            binding.unitRecycler.adapter = unitActivityAdapter
-                            unitActivityAdapter?.setItems(unitActivityList)
 
 
                         }
+                        7 -> {
+                            binding.inputValue.addTextChangedListener(object : TextWatcher {
 
-
-                    } else if (layoutPosition == 6) {
-                        binding.inputValue.addTextChangedListener(object : TextWatcher {
-
-                            override fun afterTextChanged(s: Editable) {}
-                            override fun beforeTextChanged(
-                                s: CharSequence, start: Int,
-                                count: Int, after: Int
-                            ) {
-                            }
-
-                            override fun onTextChanged(
-                                s: CharSequence, start: Int,
-                                before: Int, count: Int
-                            ) {
-                                val num1 = binding.inputValue.text.toString()
-                                if (num1.isNotBlank()) {
-                                    val num2 = binding.inputValue.text.toString().trim().toDouble()
-                                    val num3 = (num2).toString()
-                                    viewModel.callweightAPI(num3)
-                                } else {
-                                    viewModel.callweightAPI("")
+                                override fun afterTextChanged(s: Editable) {}
+                                override fun beforeTextChanged(
+                                    s: CharSequence, start: Int,
+                                    count: Int, after: Int
+                                ) {
                                 }
+
+                                override fun onTextChanged(
+                                    s: CharSequence, start: Int,
+                                    before: Int, count: Int
+                                ) {
+                                    val num1 = binding.inputValue.text.toString()
+                                    if (num1.isNotBlank()) {
+                                        val num2 = binding.inputValue.text.toString().trim().toDouble()
+                                        val num3 = (num2).toString()
+                                        viewModel.callweightAPI(num3)
+                                    } else {
+                                        viewModel.callweightAPI("")
+                                    }
+                                }
+                            })
+
+
+                            viewModel.weightResponse.observe(this@CookingActivity) {
+
+                                unitActivityList.clear()
+                                if (it.conversionValue != "") {
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "km",
+                                            (it.conversionValue.trim().toDouble() * 2.54e-5).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "mile",
+                                            (it.conversionValue.trim()
+                                                .toDouble() * 1.5783e-5).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "m",
+                                            (it.conversionValue.trim()
+                                                .toDouble() * 0.025400276352).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "dm",
+                                            (it.conversionValue.trim().toDouble() * 0.254).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "cm",
+                                            (it.conversionValue.trim().toDouble() * 2.54).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "mm",
+                                            (it.conversionValue.trim().toDouble() * 25.4).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "ft",
+                                            (it.conversionValue.trim()
+                                                .toDouble() * 0.0833333).toString()
+                                        )
+                                    )
+
+                                } else {
+
+                                    unitActivityList.add(UnitActivityModelResponse("km", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("mile", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("m", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("dm", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("cm", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("mm", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("ft", ""))
+                                }
+
+                                unitActivityAdapter?.clear()
+                                unitActivityAdapter?.setClickListener(this@CookingActivity)
+                                binding.unitRecycler.adapter = unitActivityAdapter
+                                unitActivityAdapter?.setItems(unitActivityList)
+
+
                             }
-                        })
-
-
-                        viewModel.weightResponse.observe(this@CookingActivity) {
-
-                            unitActivityList.clear()
-                            if (it.conversionValue != "") {
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "Hectare",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 6.4516e-8).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "Acre",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 1.5942e-7).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "sq km",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 6.4516e-10).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "sq m",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 0.00064516).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "sq yds",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 0.000771605).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "sq ft",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 0.006944445).toString()
-                                    )
-                                )
-
-                            } else {
-
-                                unitActivityList.add(UnitActivityModelResponse("Hectare", ""))
-                                unitActivityList.add(UnitActivityModelResponse("Acre", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq km", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq m", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq yds", ""))
-                                unitActivityList.add(UnitActivityModelResponse("sq ft", ""))
-                            }
-
-                            unitActivityAdapter?.clear()
-                            unitActivityAdapter?.setClickListener(this@CookingActivity)
-                            binding.unitRecycler.adapter = unitActivityAdapter
-                            unitActivityAdapter?.setItems(unitActivityList)
 
 
                         }
-
-
-                    } else if (layoutPosition == 7) {
-                        binding.inputValue.addTextChangedListener(object : TextWatcher {
-
-                            override fun afterTextChanged(s: Editable) {}
-                            override fun beforeTextChanged(
-                                s: CharSequence, start: Int,
-                                count: Int, after: Int
-                            ) {
-                            }
-
-                            override fun onTextChanged(
-                                s: CharSequence, start: Int,
-                                before: Int, count: Int
-                            ) {
-                                val num1 = binding.inputValue.text.toString()
-                                if (num1.isNotBlank()) {
-                                    val num2 = binding.inputValue.text.toString().trim().toDouble()
-                                    val num3 = (num2).toString()
-                                    viewModel.callweightAPI(num3)
-                                } else {
-                                    viewModel.callweightAPI("")
-                                }
-                            }
-                        })
-
-
-                        viewModel.weightResponse.observe(this@CookingActivity) {
-
-                            unitActivityList.clear()
-                            if (it.conversionValue != "") {
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "km",
-                                        (it.conversionValue.trim().toDouble() * 2.54e-5).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "mile",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 1.5783e-5).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "m",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 0.025400276352).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "dm",
-                                        (it.conversionValue.trim().toDouble() * 0.254).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "cm",
-                                        (it.conversionValue.trim().toDouble() * 2.54).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "mm",
-                                        (it.conversionValue.trim().toDouble() * 25.4).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "ft",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 0.0833333).toString()
-                                    )
-                                )
-
-                            } else {
-
-                                unitActivityList.add(UnitActivityModelResponse("km", ""))
-                                unitActivityList.add(UnitActivityModelResponse("mile", ""))
-                                unitActivityList.add(UnitActivityModelResponse("m", ""))
-                                unitActivityList.add(UnitActivityModelResponse("dm", ""))
-                                unitActivityList.add(UnitActivityModelResponse("cm", ""))
-                                unitActivityList.add(UnitActivityModelResponse("mm", ""))
-                                unitActivityList.add(UnitActivityModelResponse("ft", ""))
-                            }
-
-                            unitActivityAdapter?.clear()
-                            unitActivityAdapter?.setClickListener(this@CookingActivity)
-                            binding.unitRecycler.adapter = unitActivityAdapter
-                            unitActivityAdapter?.setItems(unitActivityList)
-
-
-                        }
-
-
                     }
 
 
@@ -754,9 +761,9 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
             binding.header.shareImageView -> {
                 val shareIntent = Intent(Intent.ACTION_SEND)
                 shareIntent.type = "text/plain"
-                val app_url =
+                val appUrl =
                     resources.getString(R.string.whatsapp_sharemessages) + BuildConfig.APPLICATION_ID
-                shareIntent.putExtra(Intent.EXTRA_TEXT, app_url)
+                shareIntent.putExtra(Intent.EXTRA_TEXT, appUrl)
                 startActivity(Intent.createChooser(shareIntent, "Share via"))
             }
 
@@ -770,15 +777,6 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
         model: UnitActivityModelResponse,
         position: Int
     ) {
-        when (viewIdRes) {
-            /*  R.id.pdfview -> {
-                  startDownloadingFile(
-                      model.pdf_url,
-                      BuildConfig.PDF_BASE_URL + model.pdf_url
-                  )
-
-              }*/
-        }
     }
 
     fun onDigit(view: View) {
@@ -797,7 +795,7 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
     /**
      * Append . to the TextView
      */
-    fun onDecimalPoint(view: View) {
+    fun onDecimalPoint() {
         if (lastNumeric && !stateError && !lastDot) {
             binding.inputValue.append(".")
             lastNumeric = false
@@ -820,25 +818,25 @@ class CookingActivity : BaseActivity(), View.OnClickListener,
     /**
      * Clear the TextView
      */
-    fun onClear(view: View) {
+    fun onClear() {
         binding.inputValue.text = " "
         lastNumeric = false
         stateError = false
         lastDot = false
     }
 
-    fun Clear(view: View) {
+    fun clear() {
 
         var str: String = binding.inputValue.text.toString()
-        if (!str.equals("")) {
-            if (lastDot == true && str.equals(".")) {
+        if (str != "") {
+            if (lastDot && str == ".") {
                 str = str.substring(0, str.length - 1)
-                binding.inputValue.setText(str)
+                binding.inputValue.text = str
                 lastDot = false
 
             } else {
                 str = str.substring(0, str.length - 1)
-                binding.inputValue.setText(str)
+                binding.inputValue.text = str
                 lastDot = false
 
 
