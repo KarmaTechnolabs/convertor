@@ -21,6 +21,12 @@
         tools:ignore="LockedOrientationActivity"
         tools:replace="android:allowBackup">
         <activity
+            android:name=".ui.activities.LuminanceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activities.TimeActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.activities.EnergyActivity"
             android:exported="false" />
         <activity

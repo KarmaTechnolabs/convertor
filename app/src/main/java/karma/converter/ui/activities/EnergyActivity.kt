@@ -30,7 +30,7 @@ class EnergyActivity : BaseActivity(), View.OnClickListener,
     private val viewModel by viewModels<WeightViewModel>()
     var adRequest: AdRequest? = null
     var itemList = ArrayList<UnititemModel>()
-    var unitActivityList = java.util.ArrayList<UnitActivityModelResponse>()
+    var unitActivityList = ArrayList<UnitActivityModelResponse>()
     private val data = ArrayList<String>()
     private lateinit var rvHorizontalPicker: RecyclerView
     private lateinit var sliderAdapter: PickerAdapter
@@ -212,620 +212,628 @@ class EnergyActivity : BaseActivity(), View.OnClickListener,
             callback = object : PickerLayoutManager.OnItemSelectedListener {
                 override fun onItemSelected(layoutPosition: Int) {
                     sliderAdapter.setSelectedItem(layoutPosition)
-                    if (layoutPosition == 0) {
-                        sliderAdapter.setSelectedItem(0)
-                        binding.inputValue.addTextChangedListener(object : TextWatcher {
+                    when (layoutPosition) {
+                        0 -> {
+                            sliderAdapter.setSelectedItem(0)
+                            binding.inputValue.addTextChangedListener(object : TextWatcher {
 
-                            override fun afterTextChanged(s: Editable) {}
+                                override fun afterTextChanged(s: Editable) {}
 
-                            override fun beforeTextChanged(
-                                s: CharSequence, start: Int,
-                                count: Int, after: Int
-                            ) {
-                            }
-
-                            override fun onTextChanged(
-                                s: CharSequence, start: Int,
-                                before: Int, count: Int
-                            ) {
-                                val num1 = binding.inputValue.text.toString()
-                                if (num1.isNotBlank()) {
-                                    val num2 = binding.inputValue.text.toString().trim().toDouble()
-                                    val num3 = (num2).toString()
-
-
-                                    viewModel.callweightAPI(num3)
-                                } else {
-                                    viewModel.callweightAPI("")
+                                override fun beforeTextChanged(
+                                    s: CharSequence, start: Int,
+                                    count: Int, after: Int
+                                ) {
                                 }
+
+                                override fun onTextChanged(
+                                    s: CharSequence, start: Int,
+                                    before: Int, count: Int
+                                ) {
+                                    val num1 = binding.inputValue.text.toString()
+                                    if (num1.isNotBlank()) {
+                                        val num2 = binding.inputValue.text.toString().trim().toDouble()
+                                        val num3 = (num2).toString()
+
+
+                                        viewModel.callweightAPI(num3)
+                                    } else {
+                                        viewModel.callweightAPI("")
+                                    }
+                                }
+                            })
+
+                            viewModel.weightResponse.observe(this@EnergyActivity) {
+                                unitActivityList.clear()
+                                if (it.conversionValue != "") {
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "ton",
+                                            (it.conversionValue.trim()
+                                                .toDouble() * 2.390057361E-10).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "K J",
+                                            (it.conversionValue.trim().toDouble() * 0.001).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "kW*h",
+                                            (it.conversionValue.trim()
+                                                .toDouble() * 2.777777777E-7).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "W*h",
+                                            (it.conversionValue.trim()
+                                                .toDouble() * 0.0002777778).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "Calorie",
+                                            (it.conversionValue.trim()
+                                                .toDouble() * 0.0002388459).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "eV",
+                                            (it.conversionValue.trim()
+                                                .toDouble() * 6241509074461).toString()
+                                        )
+                                    )
+
+
+                                } else {
+                                    unitActivityList.add(UnitActivityModelResponse("ton", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("K J", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("kW*h", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("W*h", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("Calorie", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("eV", ""))
+
+                                }
+                                unitActivityAdapter?.clear()
+                                unitActivityAdapter?.setClickListener(this@EnergyActivity)
+                                binding.unitRecycler.adapter = unitActivityAdapter
+                                unitActivityAdapter?.setItems(unitActivityList)
                             }
-                        })
-
-                        viewModel.weightResponse.observe(this@EnergyActivity) {
-                            unitActivityList.clear()
-                            if (it.conversionValue != "") {
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "ton",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 2.390057361E-10).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "K J",
-                                        (it.conversionValue.trim().toDouble() * 0.001).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "kW*h",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 2.777777777E-7).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "W*h",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 0.0002777778).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "Calorie",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 0.0002388459).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "eV",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 6241509074461).toString()
-                                    )
-                                )
-
-
-                            } else {
-                                unitActivityList.add(UnitActivityModelResponse("ton", ""))
-                                unitActivityList.add(UnitActivityModelResponse("K J", ""))
-                                unitActivityList.add(UnitActivityModelResponse("kW*h", ""))
-                                unitActivityList.add(UnitActivityModelResponse("W*h", ""))
-                                unitActivityList.add(UnitActivityModelResponse("Calorie", ""))
-                                unitActivityList.add(UnitActivityModelResponse("eV", ""))
-
-                            }
-                            unitActivityAdapter?.clear()
-                            unitActivityAdapter?.setClickListener(this@EnergyActivity)
-                            binding.unitRecycler.adapter = unitActivityAdapter
-                            unitActivityAdapter?.setItems(unitActivityList)
                         }
-                    } else if (layoutPosition == 1) {
-                        binding.inputValue.addTextChangedListener(object : TextWatcher {
+                        1 -> {
+                            binding.inputValue.addTextChangedListener(object : TextWatcher {
 
-                            override fun afterTextChanged(s: Editable) {}
+                                override fun afterTextChanged(s: Editable) {}
 
-                            override fun beforeTextChanged(
-                                s: CharSequence, start: Int,
-                                count: Int, after: Int
-                            ) {
-                            }
-
-                            override fun onTextChanged(
-                                s: CharSequence, start: Int,
-                                before: Int, count: Int
-                            ) {
-                                val num1 = binding.inputValue.text.toString()
-                                if (num1.isNotBlank()) {
-                                    val num2 = binding.inputValue.text.toString().trim().toDouble()
-                                    val num3 = (num2).toString()
-
-
-                                    viewModel.callweightAPI(num3)
-                                } else {
-                                    viewModel.callweightAPI("")
+                                override fun beforeTextChanged(
+                                    s: CharSequence, start: Int,
+                                    count: Int, after: Int
+                                ) {
                                 }
+
+                                override fun onTextChanged(
+                                    s: CharSequence, start: Int,
+                                    before: Int, count: Int
+                                ) {
+                                    val num1 = binding.inputValue.text.toString()
+                                    if (num1.isNotBlank()) {
+                                        val num2 = binding.inputValue.text.toString().trim().toDouble()
+                                        val num3 = (num2).toString()
+
+
+                                        viewModel.callweightAPI(num3)
+                                    } else {
+                                        viewModel.callweightAPI("")
+                                    }
+                                }
+                            })
+                            viewModel.weightResponse.observe(this@EnergyActivity) {
+
+                                unitActivityList.clear()
+                                if (it.conversionValue != "") {
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "ton",
+                                            (it.conversionValue.trim()
+                                                .toDouble() * 2.390057361E-7).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "Joule",
+                                            (it.conversionValue.trim().toDouble() * 1000).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "kW*h",
+                                            (it.conversionValue.trim()
+                                                .toDouble() * 0.0002778).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "W*h",
+                                            (it.conversionValue.trim().toDouble() * 0.2778).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "Calorie",
+                                            (it.conversionValue.trim().toDouble() * 0.2389).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "eV",
+                                            (it.conversionValue.trim()
+                                                .toDouble() * 6.241509074E+21).toString()
+                                        )
+                                    )
+
+
+                                } else {
+                                    unitActivityList.add(UnitActivityModelResponse("ton", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("Joule", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("kW*h", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("W*h", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("Calorie", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("eV", ""))
+
+
+                                }
+
+                                unitActivityAdapter?.clear()
+                                unitActivityAdapter?.setClickListener(this@EnergyActivity)
+                                binding.unitRecycler.adapter = unitActivityAdapter
+                                unitActivityAdapter?.setItems(unitActivityList)
                             }
-                        })
-                        viewModel.weightResponse.observe(this@EnergyActivity) {
-
-                            unitActivityList.clear()
-                            if (it.conversionValue != "") {
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "ton",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 2.390057361E-7).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "Joule",
-                                        (it.conversionValue.trim().toDouble() * 1000).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "kW*h",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 0.0002778).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "W*h",
-                                        (it.conversionValue.trim().toDouble() * 0.2778).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "Calorie",
-                                        (it.conversionValue.trim().toDouble() * 0.2389).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "eV",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 6.241509074E+21).toString()
-                                    )
-                                )
-
-
-                            } else {
-                                unitActivityList.add(UnitActivityModelResponse("ton", ""))
-                                unitActivityList.add(UnitActivityModelResponse("Joule", ""))
-                                unitActivityList.add(UnitActivityModelResponse("kW*h", ""))
-                                unitActivityList.add(UnitActivityModelResponse("W*h", ""))
-                                unitActivityList.add(UnitActivityModelResponse("Calorie", ""))
-                                unitActivityList.add(UnitActivityModelResponse("eV", ""))
-
-
-                            }
-
-                            unitActivityAdapter?.clear()
-                            unitActivityAdapter?.setClickListener(this@EnergyActivity)
-                            binding.unitRecycler.adapter = unitActivityAdapter
-                            unitActivityAdapter?.setItems(unitActivityList)
                         }
-                    } else if (layoutPosition == 2) {
-                        binding.inputValue.addTextChangedListener(object : TextWatcher {
+                        2 -> {
+                            binding.inputValue.addTextChangedListener(object : TextWatcher {
 
-                            override fun afterTextChanged(s: Editable) {}
+                                override fun afterTextChanged(s: Editable) {}
 
-                            override fun beforeTextChanged(
-                                s: CharSequence, start: Int,
-                                count: Int, after: Int
-                            ) {
-                            }
-
-                            override fun onTextChanged(
-                                s: CharSequence, start: Int,
-                                before: Int, count: Int
-                            ) {
-                                val num1 = binding.inputValue.text.toString()
-                                if (num1.isNotBlank()) {
-                                    val num2 = binding.inputValue.text.toString().trim().toDouble()
-                                    val num3 = (num2).toString()
-
-
-                                    viewModel.callweightAPI(num3)
-                                } else {
-                                    viewModel.callweightAPI("")
+                                override fun beforeTextChanged(
+                                    s: CharSequence, start: Int,
+                                    count: Int, after: Int
+                                ) {
                                 }
+
+                                override fun onTextChanged(
+                                    s: CharSequence, start: Int,
+                                    before: Int, count: Int
+                                ) {
+                                    val num1 = binding.inputValue.text.toString()
+                                    if (num1.isNotBlank()) {
+                                        val num2 = binding.inputValue.text.toString().trim().toDouble()
+                                        val num3 = (num2).toString()
+
+
+                                        viewModel.callweightAPI(num3)
+                                    } else {
+                                        viewModel.callweightAPI("")
+                                    }
+                                }
+                            })
+                            viewModel.weightResponse.observe(this@EnergyActivity) {
+
+                                unitActivityList.clear()
+                                if (it.conversionValue != "") {
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "ton",
+                                            (it.conversionValue.trim()
+                                                .toDouble() * 0.0008604207).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "Joule",
+                                            (it.conversionValue.trim().toDouble() * 3600000).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "K J",
+                                            (it.conversionValue.trim()
+                                                .toDouble() * 3600).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "W*h",
+                                            (it.conversionValue.trim().toDouble() * 1000).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "Calorie",
+                                            (it.conversionValue.trim().toDouble() * 859.84523).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "eV",
+                                            (it.conversionValue.trim()
+                                                .toDouble() * 2.246943266E+25).toString()
+                                        )
+                                    )
+
+
+                                } else {
+                                    unitActivityList.add(UnitActivityModelResponse("ton", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("Joule", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("K J", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("W*h", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("Calorie", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("eV", ""))
+
+
+                                }
+
+                                unitActivityAdapter?.clear()
+                                unitActivityAdapter?.setClickListener(this@EnergyActivity)
+                                binding.unitRecycler.adapter = unitActivityAdapter
+                                unitActivityAdapter?.setItems(unitActivityList)
                             }
-                        })
-                        viewModel.weightResponse.observe(this@EnergyActivity) {
-
-                            unitActivityList.clear()
-                            if (it.conversionValue != "") {
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "ton",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 0.0008604207).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "Joule",
-                                        (it.conversionValue.trim().toDouble() * 3600000).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "K J",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 3600).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "W*h",
-                                        (it.conversionValue.trim().toDouble() * 1000).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "Calorie",
-                                        (it.conversionValue.trim().toDouble() * 859.84523).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "eV",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 2.246943266E+25).toString()
-                                    )
-                                )
-
-
-                            } else {
-                                unitActivityList.add(UnitActivityModelResponse("ton", ""))
-                                unitActivityList.add(UnitActivityModelResponse("Joule", ""))
-                                unitActivityList.add(UnitActivityModelResponse("K J", ""))
-                                unitActivityList.add(UnitActivityModelResponse("W*h", ""))
-                                unitActivityList.add(UnitActivityModelResponse("Calorie", ""))
-                                unitActivityList.add(UnitActivityModelResponse("eV", ""))
-
-
-                            }
-
-                            unitActivityAdapter?.clear()
-                            unitActivityAdapter?.setClickListener(this@EnergyActivity)
-                            binding.unitRecycler.adapter = unitActivityAdapter
-                            unitActivityAdapter?.setItems(unitActivityList)
                         }
-                    } else if (layoutPosition == 3) {
-                        binding.inputValue.addTextChangedListener(object : TextWatcher {
+                        3 -> {
+                            binding.inputValue.addTextChangedListener(object : TextWatcher {
 
-                            override fun afterTextChanged(s: Editable) {}
+                                override fun afterTextChanged(s: Editable) {}
 
-                            override fun beforeTextChanged(
-                                s: CharSequence, start: Int,
-                                count: Int, after: Int
-                            ) {
-                            }
-
-                            override fun onTextChanged(
-                                s: CharSequence, start: Int,
-                                before: Int, count: Int
-                            ) {
-                                val num1 = binding.inputValue.text.toString()
-                                if (num1.isNotBlank()) {
-                                    val num2 = binding.inputValue.text.toString().trim().toDouble()
-                                    val num3 = (num2).toString()
-
-
-                                    viewModel.callweightAPI(num3)
-                                } else {
-                                    viewModel.callweightAPI("")
+                                override fun beforeTextChanged(
+                                    s: CharSequence, start: Int,
+                                    count: Int, after: Int
+                                ) {
                                 }
+
+                                override fun onTextChanged(
+                                    s: CharSequence, start: Int,
+                                    before: Int, count: Int
+                                ) {
+                                    val num1 = binding.inputValue.text.toString()
+                                    if (num1.isNotBlank()) {
+                                        val num2 = binding.inputValue.text.toString().trim().toDouble()
+                                        val num3 = (num2).toString()
+
+
+                                        viewModel.callweightAPI(num3)
+                                    } else {
+                                        viewModel.callweightAPI("")
+                                    }
+                                }
+                            })
+                            viewModel.weightResponse.observe(this@EnergyActivity) {
+
+                                unitActivityList.clear()
+                                if (it.conversionValue != "") {
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "ton",
+                                            (it.conversionValue.trim()
+                                                .toDouble() * 8.6042065E-7).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "Joule",
+                                            (it.conversionValue.trim().toDouble() * 3600).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "K J",
+                                            (it.conversionValue.trim()
+                                                .toDouble() * 3.6).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "kW*h",
+                                            (it.conversionValue.trim().toDouble() * 0.001).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "Calorie",
+                                            (it.conversionValue.trim().toDouble() * 0.8598452279).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "eV",
+                                            (it.conversionValue.trim()
+                                                .toDouble() * 2.246943266E+22).toString()
+                                        )
+                                    )
+
+
+                                } else {
+                                    unitActivityList.add(UnitActivityModelResponse("ton", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("Joule", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("K J", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("kW*h", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("Calorie", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("eV", ""))
+
+
+                                }
+
+                                unitActivityAdapter?.clear()
+                                unitActivityAdapter?.setClickListener(this@EnergyActivity)
+                                binding.unitRecycler.adapter = unitActivityAdapter
+                                unitActivityAdapter?.setItems(unitActivityList)
                             }
-                        })
-                        viewModel.weightResponse.observe(this@EnergyActivity) {
-
-                            unitActivityList.clear()
-                            if (it.conversionValue != "") {
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "ton",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 8.6042065E-7).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "Joule",
-                                        (it.conversionValue.trim().toDouble() * 3600).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "K J",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 3.6).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "kW*h",
-                                        (it.conversionValue.trim().toDouble() * 0.001).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "Calorie",
-                                        (it.conversionValue.trim().toDouble() * 0.8598452279).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "eV",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 2.246943266E+22).toString()
-                                    )
-                                )
-
-
-                            } else {
-                                unitActivityList.add(UnitActivityModelResponse("ton", ""))
-                                unitActivityList.add(UnitActivityModelResponse("Joule", ""))
-                                unitActivityList.add(UnitActivityModelResponse("K J", ""))
-                                unitActivityList.add(UnitActivityModelResponse("kW*h", ""))
-                                unitActivityList.add(UnitActivityModelResponse("Calorie", ""))
-                                unitActivityList.add(UnitActivityModelResponse("eV", ""))
-
-
-                            }
-
-                            unitActivityAdapter?.clear()
-                            unitActivityAdapter?.setClickListener(this@EnergyActivity)
-                            binding.unitRecycler.adapter = unitActivityAdapter
-                            unitActivityAdapter?.setItems(unitActivityList)
                         }
-                    } else if (layoutPosition == 4) {
-                        binding.inputValue.addTextChangedListener(object : TextWatcher {
+                        4 -> {
+                            binding.inputValue.addTextChangedListener(object : TextWatcher {
 
-                            override fun afterTextChanged(s: Editable) {}
+                                override fun afterTextChanged(s: Editable) {}
 
-                            override fun beforeTextChanged(
-                                s: CharSequence, start: Int,
-                                count: Int, after: Int
-                            ) {
-                            }
-
-                            override fun onTextChanged(
-                                s: CharSequence, start: Int,
-                                before: Int, count: Int
-                            ) {
-                                val num1 = binding.inputValue.text.toString()
-                                if (num1.isNotBlank()) {
-                                    val num2 = binding.inputValue.text.toString().trim().toDouble()
-                                    val num3 = (num2).toString()
-
-
-                                    viewModel.callweightAPI(num3)
-                                } else {
-                                    viewModel.callweightAPI("")
+                                override fun beforeTextChanged(
+                                    s: CharSequence, start: Int,
+                                    count: Int, after: Int
+                                ) {
                                 }
+
+                                override fun onTextChanged(
+                                    s: CharSequence, start: Int,
+                                    before: Int, count: Int
+                                ) {
+                                    val num1 = binding.inputValue.text.toString()
+                                    if (num1.isNotBlank()) {
+                                        val num2 = binding.inputValue.text.toString().trim().toDouble()
+                                        val num3 = (num2).toString()
+
+
+                                        viewModel.callweightAPI(num3)
+                                    } else {
+                                        viewModel.callweightAPI("")
+                                    }
+                                }
+                            })
+                            viewModel.weightResponse.observe(this@EnergyActivity) {
+
+                                unitActivityList.clear()
+                                if (it.conversionValue != "") {
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "ton",
+                                            (it.conversionValue.trim()
+                                                .toDouble() * 0.0000010007).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "Joule",
+                                            (it.conversionValue.trim().toDouble() * 4186.8).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "K J",
+                                            (it.conversionValue.trim()
+                                                .toDouble() * 4.1868).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "kW*h",
+                                            (it.conversionValue.trim().toDouble() * 0.001163).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "W*h",
+                                            (it.conversionValue.trim().toDouble() * 1.163).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "eV",
+                                            (it.conversionValue.trim()
+                                                .toDouble() * 2.613195019E+22).toString()
+                                        )
+                                    )
+
+
+                                } else {
+                                    unitActivityList.add(UnitActivityModelResponse("ton", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("Joule", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("K J", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("kW*h", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("W*h", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("eV", ""))
+
+
+                                }
+
+                                unitActivityAdapter?.clear()
+                                unitActivityAdapter?.setClickListener(this@EnergyActivity)
+                                binding.unitRecycler.adapter = unitActivityAdapter
+                                unitActivityAdapter?.setItems(unitActivityList)
                             }
-                        })
-                        viewModel.weightResponse.observe(this@EnergyActivity) {
-
-                            unitActivityList.clear()
-                            if (it.conversionValue != "") {
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "ton",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 0.0000010007).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "Joule",
-                                        (it.conversionValue.trim().toDouble() * 4186.8).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "K J",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 4.1868).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "kW*h",
-                                        (it.conversionValue.trim().toDouble() * 0.001163).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "W*h",
-                                        (it.conversionValue.trim().toDouble() * 1.163).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "eV",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 2.613195019E+22).toString()
-                                    )
-                                )
-
-
-                            } else {
-                                unitActivityList.add(UnitActivityModelResponse("ton", ""))
-                                unitActivityList.add(UnitActivityModelResponse("Joule", ""))
-                                unitActivityList.add(UnitActivityModelResponse("K J", ""))
-                                unitActivityList.add(UnitActivityModelResponse("kW*h", ""))
-                                unitActivityList.add(UnitActivityModelResponse("W*h", ""))
-                                unitActivityList.add(UnitActivityModelResponse("eV", ""))
-
-
-                            }
-
-                            unitActivityAdapter?.clear()
-                            unitActivityAdapter?.setClickListener(this@EnergyActivity)
-                            binding.unitRecycler.adapter = unitActivityAdapter
-                            unitActivityAdapter?.setItems(unitActivityList)
                         }
-                    } else if (layoutPosition == 5) {
-                        binding.inputValue.addTextChangedListener(object : TextWatcher {
+                        5 -> {
+                            binding.inputValue.addTextChangedListener(object : TextWatcher {
 
-                            override fun afterTextChanged(s: Editable) {}
+                                override fun afterTextChanged(s: Editable) {}
 
-                            override fun beforeTextChanged(
-                                s: CharSequence, start: Int,
-                                count: Int, after: Int
-                            ) {
-                            }
-
-                            override fun onTextChanged(
-                                s: CharSequence, start: Int,
-                                before: Int, count: Int
-                            ) {
-                                val num1 = binding.inputValue.text.toString()
-                                if (num1.isNotBlank()) {
-                                    val num2 = binding.inputValue.text.toString().trim().toDouble()
-                                    val num3 = (num2).toString()
-
-
-                                    viewModel.callweightAPI(num3)
-                                } else {
-                                    viewModel.callweightAPI("")
+                                override fun beforeTextChanged(
+                                    s: CharSequence, start: Int,
+                                    count: Int, after: Int
+                                ) {
                                 }
+
+                                override fun onTextChanged(
+                                    s: CharSequence, start: Int,
+                                    before: Int, count: Int
+                                ) {
+                                    val num1 = binding.inputValue.text.toString()
+                                    if (num1.isNotBlank()) {
+                                        val num2 = binding.inputValue.text.toString().trim().toDouble()
+                                        val num3 = (num2).toString()
+
+
+                                        viewModel.callweightAPI(num3)
+                                    } else {
+                                        viewModel.callweightAPI("")
+                                    }
+                                }
+                            })
+                            viewModel.weightResponse.observe(this@EnergyActivity) {
+
+                                unitActivityList.clear()
+                                if (it.conversionValue != "") {
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "ton",
+                                            (it.conversionValue.trim()
+                                                .toDouble() * 3.829294058E-29).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "Joule",
+                                            (it.conversionValue.trim().toDouble() * 1.602176633E-19).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "K J",
+                                            (it.conversionValue.trim()
+                                                .toDouble() * 1.602176633E-22).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "kW*h",
+                                            (it.conversionValue.trim().toDouble() * 4.450490649E-26).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "W*h",
+                                            (it.conversionValue.trim().toDouble() * 4.450490649E-23).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "Calorie",
+                                            (it.conversionValue.trim().toDouble() * 3.826733147E-23).toString()
+                                        )
+                                    )
+
+
+                                } else {
+                                    unitActivityList.add(UnitActivityModelResponse("ton", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("Joule", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("K J", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("kW*h", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("W*h", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("Calorie", ""))
+
+
+                                }
+
+                                unitActivityAdapter?.clear()
+                                unitActivityAdapter?.setClickListener(this@EnergyActivity)
+                                binding.unitRecycler.adapter = unitActivityAdapter
+                                unitActivityAdapter?.setItems(unitActivityList)
                             }
-                        })
-                        viewModel.weightResponse.observe(this@EnergyActivity) {
-
-                            unitActivityList.clear()
-                            if (it.conversionValue != "") {
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "ton",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 3.829294058E-29).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "Joule",
-                                        (it.conversionValue.trim().toDouble() * 1.602176633E-19).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "K J",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 1.602176633E-22).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "kW*h",
-                                        (it.conversionValue.trim().toDouble() * 4.450490649E-26).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "W*h",
-                                        (it.conversionValue.trim().toDouble() * 4.450490649E-23).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "Calorie",
-                                        (it.conversionValue.trim().toDouble() * 3.826733147E-23).toString()
-                                    )
-                                )
-
-
-                            } else {
-                                unitActivityList.add(UnitActivityModelResponse("ton", ""))
-                                unitActivityList.add(UnitActivityModelResponse("Joule", ""))
-                                unitActivityList.add(UnitActivityModelResponse("K J", ""))
-                                unitActivityList.add(UnitActivityModelResponse("kW*h", ""))
-                                unitActivityList.add(UnitActivityModelResponse("W*h", ""))
-                                unitActivityList.add(UnitActivityModelResponse("Calorie", ""))
-
-
-                            }
-
-                            unitActivityAdapter?.clear()
-                            unitActivityAdapter?.setClickListener(this@EnergyActivity)
-                            binding.unitRecycler.adapter = unitActivityAdapter
-                            unitActivityAdapter?.setItems(unitActivityList)
                         }
-                    } else if (layoutPosition == 6) {
-                        binding.inputValue.addTextChangedListener(object : TextWatcher {
+                        6 -> {
+                            binding.inputValue.addTextChangedListener(object : TextWatcher {
 
-                            override fun afterTextChanged(s: Editable) {}
+                                override fun afterTextChanged(s: Editable) {}
 
-                            override fun beforeTextChanged(
-                                s: CharSequence, start: Int,
-                                count: Int, after: Int
-                            ) {
-                            }
-
-                            override fun onTextChanged(
-                                s: CharSequence, start: Int,
-                                before: Int, count: Int
-                            ) {
-                                val num1 = binding.inputValue.text.toString()
-                                if (num1.isNotBlank()) {
-                                    val num2 = binding.inputValue.text.toString().trim().toDouble()
-                                    val num3 = (num2).toString()
-
-
-                                    viewModel.callweightAPI(num3)
-                                } else {
-                                    viewModel.callweightAPI("")
+                                override fun beforeTextChanged(
+                                    s: CharSequence, start: Int,
+                                    count: Int, after: Int
+                                ) {
                                 }
+
+                                override fun onTextChanged(
+                                    s: CharSequence, start: Int,
+                                    before: Int, count: Int
+                                ) {
+                                    val num1 = binding.inputValue.text.toString()
+                                    if (num1.isNotBlank()) {
+                                        val num2 = binding.inputValue.text.toString().trim().toDouble()
+                                        val num3 = (num2).toString()
+
+
+                                        viewModel.callweightAPI(num3)
+                                    } else {
+                                        viewModel.callweightAPI("")
+                                    }
+                                }
+                            })
+                            viewModel.weightResponse.observe(this@EnergyActivity) {
+
+                                unitActivityList.clear()
+                                if (it.conversionValue != "") {
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "Joule",
+                                            (it.conversionValue.trim().toDouble() * 4184000000).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "K J",
+                                            (it.conversionValue.trim()
+                                                .toDouble() * 4184000).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "kW*h",
+                                            (it.conversionValue.trim().toDouble() * 1162.22).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "W*h",
+                                            (it.conversionValue.trim().toDouble() * 1162222.22).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "Calorie",
+                                            (it.conversionValue.trim().toDouble() * 999331.2315).toString()
+                                        )
+                                    )
+                                    unitActivityList.add(
+                                        UnitActivityModelResponse(
+                                            "eV",
+                                            (it.conversionValue.trim()
+                                                .toDouble() * 2.611447396E+28).toString()
+                                        )
+                                    )
+
+
+                                } else {
+                                    unitActivityList.add(UnitActivityModelResponse("Joule", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("K J", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("kW*h", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("W*h", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("Calorie", ""))
+                                    unitActivityList.add(UnitActivityModelResponse("eV", ""))
+
+
+                                }
+
+                                unitActivityAdapter?.clear()
+                                unitActivityAdapter?.setClickListener(this@EnergyActivity)
+                                binding.unitRecycler.adapter = unitActivityAdapter
+                                unitActivityAdapter?.setItems(unitActivityList)
                             }
-                        })
-                        viewModel.weightResponse.observe(this@EnergyActivity) {
-
-                            unitActivityList.clear()
-                            if (it.conversionValue != "") {
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "Joule",
-                                        (it.conversionValue.trim().toDouble() * 4184000000).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "K J",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 4184000).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "kW*h",
-                                        (it.conversionValue.trim().toDouble() * 1162.22).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "W*h",
-                                        (it.conversionValue.trim().toDouble() * 1162222.22).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "Calorie",
-                                        (it.conversionValue.trim().toDouble() * 999331.2315).toString()
-                                    )
-                                )
-                                unitActivityList.add(
-                                    UnitActivityModelResponse(
-                                        "eV",
-                                        (it.conversionValue.trim()
-                                            .toDouble() * 2.611447396E+28).toString()
-                                    )
-                                )
-
-
-                            } else {
-                                unitActivityList.add(UnitActivityModelResponse("Joule", ""))
-                                unitActivityList.add(UnitActivityModelResponse("K J", ""))
-                                unitActivityList.add(UnitActivityModelResponse("kW*h", ""))
-                                unitActivityList.add(UnitActivityModelResponse("W*h", ""))
-                                unitActivityList.add(UnitActivityModelResponse("Calorie", ""))
-                                unitActivityList.add(UnitActivityModelResponse("eV", ""))
-
-
-                            }
-
-                            unitActivityAdapter?.clear()
-                            unitActivityAdapter?.setClickListener(this@EnergyActivity)
-                            binding.unitRecycler.adapter = unitActivityAdapter
-                            unitActivityAdapter?.setItems(unitActivityList)
                         }
                     }
                 }

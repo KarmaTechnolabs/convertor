@@ -50,6 +50,8 @@ class MainActivity : BaseActivity(), View.OnClickListener,
         itemList.add(UnititemModel(R.drawable.sugar, "BloodSugar"))
         itemList.add(UnititemModel(R.drawable.fuel, "Fuel"))
         itemList.add(UnititemModel(R.drawable.energy, "Energy"))
+        itemList.add(UnititemModel(R.drawable.time, "Time"))
+        itemList.add(UnititemModel(R.drawable.luminance, "Luminance"))
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.header.toolbar.text = resources.getString(R.string.app_title)
@@ -135,6 +137,12 @@ class MainActivity : BaseActivity(), View.OnClickListener,
             }
             17 -> {
                 gotoActivity(EnergyActivity::class.java, needToFinish = false)
+            }
+            18 -> {
+                gotoActivity(TimeActivity::class.java, needToFinish = false)
+            }
+            19 -> {
+                gotoActivity(LuminanceActivity::class.java, needToFinish = false)
             }
 
         }

@@ -18,6 +18,7 @@
     <string name="weight">WEIGHT</string>
     <string name="area">AREA</string>
     <string name="energy">ENERGY</string>
+    <string name="time">TIME</string>
     <string name="fuel">FUEL</string>
     <string name="blood">BLOOD SUGAR</string>
     <string name="space">SPACE</string>
@@ -30,6 +31,7 @@
     <string name="speed">SPEED</string>
     <string name="volume">VOLUME</string>
     <string name="data">DATA</string>
+    <string name="luminance">Luminance</string>
     <string name="temperature">TEMPERATURE</string>
     <string name="sound">SOUND</string>
     <string name="power">POWER</string>
