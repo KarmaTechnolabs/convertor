@@ -54,6 +54,7 @@ class MainActivity : BaseActivity(), View.OnClickListener,
         itemList.add(UnititemModel(R.drawable.luminance, "Luminance"))
         itemList.add(UnititemModel(R.drawable.frequency, "Frequency"))
         itemList.add(UnititemModel(R.drawable.resistance, "Resistance"))
+        itemList.add(UnititemModel(R.drawable.magnetic, "Magnetic"))
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.header.toolbar.text = resources.getString(R.string.app_title)
@@ -149,6 +150,9 @@ class MainActivity : BaseActivity(), View.OnClickListener,
             }
             21 -> {
                 gotoActivity(ResistanceActivity::class.java, needToFinish = false)
+            }
+            22 -> {
+                gotoActivity(MagneticActivity::class.java, needToFinish = false)
             }
 
         }

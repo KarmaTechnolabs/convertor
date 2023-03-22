@@ -21,6 +21,9 @@
         tools:ignore="LockedOrientationActivity"
         tools:replace="android:allowBackup">
         <activity
+            android:name=".ui.activities.MagneticActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.activities.ResistanceActivity"
             android:exported="false" />
         <activity
