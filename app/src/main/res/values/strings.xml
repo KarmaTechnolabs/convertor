@@ -31,6 +31,8 @@
     <string name="speed">SPEED</string>
     <string name="volume">VOLUME</string>
     <string name="data">DATA</string>
+    <string name="resistance">Resistance</string>
+    <string name="frequency">Frequency</string>
     <string name="luminance">Luminance</string>
     <string name="temperature">TEMPERATURE</string>
     <string name="sound">SOUND</string>

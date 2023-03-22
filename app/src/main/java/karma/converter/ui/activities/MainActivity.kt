@@ -52,6 +52,8 @@ class MainActivity : BaseActivity(), View.OnClickListener,
         itemList.add(UnititemModel(R.drawable.energy, "Energy"))
         itemList.add(UnititemModel(R.drawable.time, "Time"))
         itemList.add(UnititemModel(R.drawable.luminance, "Luminance"))
+        itemList.add(UnititemModel(R.drawable.frequency, "Frequency"))
+        itemList.add(UnititemModel(R.drawable.resistance, "Resistance"))
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.header.toolbar.text = resources.getString(R.string.app_title)
@@ -77,9 +79,7 @@ class MainActivity : BaseActivity(), View.OnClickListener,
         when (position) {
 
             0 -> {
-
                 gotoActivity(AreaActivity::class.java, needToFinish = false)
-
             }
             1 -> {
                 gotoActivity(WeightActivity::class.java, needToFinish = false)
@@ -143,6 +143,12 @@ class MainActivity : BaseActivity(), View.OnClickListener,
             }
             19 -> {
                 gotoActivity(LuminanceActivity::class.java, needToFinish = false)
+            }
+            20 -> {
+                gotoActivity(FrequencyActivity::class.java, needToFinish = false)
+            }
+            21 -> {
+                gotoActivity(ResistanceActivity::class.java, needToFinish = false)
             }
 
         }
