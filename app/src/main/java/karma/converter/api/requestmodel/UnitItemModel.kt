@@ -1,5 +1,5 @@
 package karma.converter.api.requestmodel
-class UnititemModel(
+class UnitItemModel(
     var img_id: Int,
     var appname: String,
 

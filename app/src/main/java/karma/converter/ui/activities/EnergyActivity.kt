@@ -16,7 +16,7 @@ import karma.converter.adapter.PickerLayoutManager
 import karma.converter.adapter.ScreenUtils
 import karma.converter.adapter.UnitActivityAdpater
 import karma.converter.api.requestmodel.UnitActivityModelResponse
-import karma.converter.api.requestmodel.UnititemModel
+import karma.converter.api.requestmodel.UnitItemModel
 import karma.converter.base.BaseActivity
 import karma.converter.databinding.ActivityEnergyBinding
 import karma.converter.listeners.ItemClickListener
@@ -29,7 +29,7 @@ class EnergyActivity : BaseActivity(), View.OnClickListener,
     private lateinit var binding: ActivityEnergyBinding
     private val viewModel by viewModels<WeightViewModel>()
     var adRequest: AdRequest? = null
-    var itemList = ArrayList<UnititemModel>()
+    var itemList = ArrayList<UnitItemModel>()
     var unitActivityList = ArrayList<UnitActivityModelResponse>()
     private val data = ArrayList<String>()
     private lateinit var rvHorizontalPicker: RecyclerView

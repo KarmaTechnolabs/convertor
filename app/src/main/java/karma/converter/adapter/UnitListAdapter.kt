@@ -6,19 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.RecyclerView
-import karma.converter.api.requestmodel.UnititemModel
+import karma.converter.api.requestmodel.UnitItemModel
 import karma.converter.databinding.UnitItemBinding
 import karma.converter.listeners.ItemClickListener
 
 class UnitListAdapter internal constructor(
     context: Context,
     private val resource: Int,
-    private val itemList: ArrayList<UnititemModel>?
+    private val itemList: ArrayList<UnitItemModel>?
 ) : ArrayAdapter<UnitListAdapter.ItemViewHolder>(context, resource) {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private lateinit var itemBinding: UnitItemBinding
-    private var clickListener: ItemClickListener<UnititemModel>? = null
+    private var clickListener: ItemClickListener<UnitItemModel>? = null
 
     override fun getCount(): Int {
         return if (this.itemList != null) this.itemList.size else 0
@@ -45,7 +45,7 @@ class UnitListAdapter internal constructor(
         return convertView
     }
 
-    fun getListItem(position: Int): UnititemModel {
+    fun getListItem(position: Int): UnitItemModel {
         return itemList?.get(position)!!
     }
 
@@ -53,7 +53,7 @@ class UnitListAdapter internal constructor(
     inner class ItemViewHolder(binding: UnitItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         var binding: UnitItemBinding = binding
-        fun setBinding(model: UnititemModel) {
+        fun setBinding(model: UnitItemModel) {
             binding.model = model
             binding.clickListener = clickListener
             binding.position = absoluteAdapterPosition
@@ -64,7 +64,7 @@ class UnitListAdapter internal constructor(
 
 
 
-    fun setClickListener(clickListener: ItemClickListener<UnititemModel>?) {
+    fun setClickListener(clickListener: ItemClickListener<UnitItemModel>?) {
         this.clickListener = clickListener
     }
 

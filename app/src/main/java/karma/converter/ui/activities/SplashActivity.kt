@@ -17,8 +17,11 @@ class SplashActivity : FullScreenBaseActivity() {
         super.onResume()
         RemoteConfigManager.checkRemoteConfig()
 
-        Timer("splash", false).schedule(3000) {
+        Timer("splash", false).schedule(1000) {
             gotoActivity(MainActivity::class.java, needToFinish = true)
+            //gotoActivity(CategoryActivity::class.java, needToFinish = true)
+            //gotoActivity(TestActivity::class.java, needToFinish = true)
+            //gotoActivity(MainActivity2::class.java, needToFinish = true)
         }
     }
 

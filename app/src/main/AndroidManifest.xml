@@ -10,7 +10,7 @@
     <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
 
     <application
-        android:name="karma.converter.base.BaseApplication"
+        android:name=".base.BaseApplication"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -20,6 +20,30 @@
         android:usesCleartextTraffic="true"
         tools:ignore="LockedOrientationActivity"
         tools:replace="android:allowBackup">
+        <activity
+            android:name=".ui.activities.MainActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activities.TestActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.activities.EngineeringConvertorActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.activities.CategoryActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".ui.activities.MagneticActivity"
             android:exported="false" />
@@ -184,7 +208,7 @@
         </activity>
 
         <service
-            android:name="karma.converter.fcm.MyFirebaseMessagingService"
+            android:name=".fcm.MyFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

@@ -16,7 +16,7 @@ import karma.converter.adapter.PickerLayoutManager
 import karma.converter.adapter.ScreenUtils
 import karma.converter.adapter.UnitActivityAdpater
 import karma.converter.api.requestmodel.UnitActivityModelResponse
-import karma.converter.api.requestmodel.UnititemModel
+import karma.converter.api.requestmodel.UnitItemModel
 import karma.converter.base.BaseActivity
 import karma.converter.databinding.ActivityTimeBinding
 import karma.converter.listeners.ItemClickListener
@@ -27,7 +27,7 @@ class TimeActivity : BaseActivity(), View.OnClickListener,
 
     private lateinit var binding: ActivityTimeBinding
     var adRequest: AdRequest? = null
-    var itemList = ArrayList<UnititemModel>()
+    var itemList = ArrayList<UnitItemModel>()
     private val viewModel by viewModels<WeightViewModel>()
     var unitActivityList = java.util.ArrayList<UnitActivityModelResponse>()
     private val data = ArrayList<String>()

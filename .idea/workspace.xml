@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="170ac04e-8734-4c80-9fa8-492815dc1d8c" name="Changes" comment="space activity added">
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/converter/adapter/GridViewAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/converter/adapter/GridViewAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/converter/adapter/UnitListAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/converter/adapter/UnitListAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/converter/api/requestmodel/UnititemModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/converter/api/requestmodel/UnitItemModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/converter/custom/BindingAdapters.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/converter/custom/BindingAdapters.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/AreaActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/AreaActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/BinaryActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/BinaryActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/BloodActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/BloodActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/CookingActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/CookingActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/DataActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/DataActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/DegreeActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/DegreeActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/EnergyActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/EnergyActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/ForceActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/ForceActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/FrequencyActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/FrequencyActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/FuelActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/FuelActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/LengthActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/LengthActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/LuminanceActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/LuminanceActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/MagneticActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/MagneticActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/PowerActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/PowerActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/PressureActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/PressureActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/ResistanceActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/ResistanceActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/SoundActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/SoundActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/SpaceActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/SpaceActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/SpeedActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/SpeedActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/SplashActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/SplashActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/TemperatureActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/TemperatureActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/TimeActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/TimeActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/VolumeActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/VolumeActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/WeightActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/WeightActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/WorkActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/karma/converter/ui/activities/WorkActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/noun_density.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/noun_density.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/unit_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/unit_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/home/karma/.android/avd/Pixel_4_API_30.avd]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="convertor" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="valueResourceFile" />
+        <option value="resourceFile" />
+        <option value="layoutResourceFile" />
+        <option value="Kotlin Data Class" />
+        <option value="Kotlin Class" />
+      </list>
+    </option>
+  </component>
+  <component name="GenerateSignedApkSettings">
+    <option name="EXPORT_PRIVATE_KEY" value="false" />
+    <option name="KEY_STORE_PATH" value="$PROJECT_DIR$/keystore/converter.jks" />
+    <option name="KEY_ALIAS" value="converter" />
+    <option name="REMEMBER_PASSWORDS" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="android" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2Fl15KwCdBFcMxugfWVuTXSPJ5R" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "android-custom-view/home/karma/Android/Sdk/sources/android-33/android/view/View.java_SELECTED": "View",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "last_opened_file_path": "/home/karma/FlutterDev/flutter/examples",
+    "settings.editor.selected.configurable": "preferences.updates",
+    "show.migrate.to.gradle.popup": "false"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="android.template.-117994882">
+      <recent name="karma.converter.ui.activities" />
+    </key>
+    <key name="android.template.-1981898687">
+      <recent name="karma.converter.ui.activities" />
+    </key>
+    <key name="android.template.-151576053">
+      <recent name="karma.converter.ui.activities" />
+    </key>
+    <key name="android.template.-1601435662">
+      <recent name="karma.converter.ui.activities" />
+    </key>
+    <key name="android.template.-2036275241">
+      <recent name="karma.converter.ui.activities" />
+    </key>
+    <key name="android.template.-607125679">
+      <recent name="karma.convertor.ui.activities" />
+    </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="karma.converter.adapter" />
+      <recent name="karma.converter.api.requestmodel" />
+      <recent name="karma.converter.base" />
+    </key>
+    <key name="android.template.-1167374519">
+      <recent name="karma.converter.ui.activities" />
+    </key>
+    <key name="android.template.-721224182">
+      <recent name="karma.converter.ui.activities" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
+      <recent name="$PROJECT_DIR$/app/src/debug/res/drawable" />
+      <recent name="$PROJECT_DIR$/app" />
+    </key>
+    <key name="android.template.1436737724">
+      <recent name="karma.converter.ui.activities" />
+    </key>
+    <key name="android.template.4987357">
+      <recent name="karma.converter.ui.activities" />
+    </key>
+    <key name="android.template.1734998679">
+      <recent name="karma.convertor.ui.activities" />
+      <recent name="karma.convertor" />
+    </key>
+    <key name="android.template.1014073074">
+      <recent name="karma.convertor.ui.activities" />
+    </key>
+    <key name="android.template.426373936">
+      <recent name="karma.convertor.ui.activities" />
+    </key>
+    <key name="android.template.309656254">
+      <recent name="karma.converter.ui.activities" />
+    </key>
+    <key name="android.template.716361716">
+      <recent name="karma.convertor.ui.activities" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="convertor.app.main" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="MakeProject" enabled="true" />
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" goal="" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="170ac04e-8734-4c80-9fa8-492815dc1d8c" name="Changes" comment="" />
+      <created>1665051671371</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1665051671371</updated>
+    </task>
+    <task id="LOCAL-00001" summary="MainActivity added">
+      <created>1665062595492</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1665062595492</updated>
+    </task>
+    <task id="LOCAL-00002" summary="MainActivity added">
+      <created>1665062852985</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1665062852985</updated>
+    </task>
+    <task id="LOCAL-00003" summary="gridview updated on mainactivity ,svg images added, weightactivity added,">
+      <created>1665151320068</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1665151320068</updated>
+    </task>
+    <task id="LOCAL-00004" summary="logic for equation added, header added with back and share , logo added">
+      <created>1665406126249</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1665406126249</updated>
+    </task>
+    <task id="LOCAL-00005" summary="logic for equation added, header added with back and share , logo added">
+      <created>1665464168455</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1665464168455</updated>
+    </task>
+    <task id="LOCAL-00006" summary="ui updated , basic calculations added">
+      <created>1668088720645</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1668088720645</updated>
+    </task>
+    <task id="LOCAL-00007" summary="ui updated , basic calculations added">
+      <created>1668088831868</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1668088831868</updated>
+    </task>
+    <task id="LOCAL-00008" summary="number picker updated ...">
+      <created>1668173791755</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1668173791755</updated>
+    </task>
+    <task id="LOCAL-00009" summary="number picker updated ...">
+      <created>1668173823932</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1668173823932</updated>
+    </task>
+    <task id="LOCAL-00010" summary="number picker updated ...">
+      <created>1668401578777</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1668401578777</updated>
+    </task>
+    <task id="LOCAL-00011" summary="data actvity , sound, temperature, area , length activity created">
+      <created>1673274158978</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1673274158978</updated>
+    </task>
+    <task id="LOCAL-00012" summary="recycler gridview">
+      <created>1673446126895</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1673446126896</updated>
+    </task>
+    <task id="LOCAL-00013" summary="add missing files">
+      <created>1673503156274</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1673503156274</updated>
+    </task>
+    <task id="LOCAL-00014" summary="add missing files">
+      <created>1673532565132</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1673532565132</updated>
+    </task>
+    <task id="LOCAL-00015" summary="package name updated">
+      <created>1673593763358</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1673593763358</updated>
+    </task>
+    <task id="LOCAL-00016" summary="package name updated">
+      <created>1673593828567</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1673593828567</updated>
+    </task>
+    <task id="LOCAL-00017" summary="package name updated">
+      <created>1673594625915</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1673594625915</updated>
+    </task>
+    <task id="LOCAL-00018" summary="package name updated">
+      <created>1673615663328</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1673615663328</updated>
+    </task>
+    <task id="LOCAL-00019" summary="package name updated">
+      <created>1673619316501</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1673619316501</updated>
+    </task>
+    <task id="LOCAL-00020" summary="volume activity updated">
+      <created>1673879347842</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1673879347842</updated>
+    </task>
+    <task id="LOCAL-00021" summary="volume activity updated">
+      <created>1673879362656</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1673879362656</updated>
+    </task>
+    <task id="LOCAL-00022" summary="volume activity updated">
+      <created>1673879407578</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1673879407578</updated>
+    </task>
+    <task id="LOCAL-00023" summary="volume activity updated">
+      <created>1674051955388</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1674051955388</updated>
+    </task>
+    <task id="LOCAL-00024" summary="volume activity updated">
+      <created>1674051979771</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1674051979771</updated>
+    </task>
+    <task id="LOCAL-00025" summary="force and presure Activity updated">
+      <created>1674484252788</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1674484252788</updated>
+    </task>
+    <task id="LOCAL-00026" summary="force and presure Activity updated">
+      <created>1674818446686</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1674818446686</updated>
+    </task>
+    <task id="LOCAL-00027" summary="remove old splash screen&#10;version 8 live">
+      <created>1674828328218</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1674828328218</updated>
+    </task>
+    <task id="LOCAL-00028" summary="angle Activity updated">
+      <created>1675779266756</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1675779266756</updated>
+    </task>
+    <task id="LOCAL-00029" summary="binary activity created">
+      <created>1675865600673</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1675865600673</updated>
+    </task>
+    <task id="LOCAL-00030" summary="binary activity created">
+      <created>1676288038880</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1676288038880</updated>
+    </task>
+    <task id="LOCAL-00031" summary="space activity added">
+      <created>1676642076805</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1676642076805</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="MainActivity added" />
+    <MESSAGE value="gridview updated on mainactivity ,svg images added, weightactivity added," />
+    <MESSAGE value="logic for equation added, header added with back and share , logo added" />
+    <MESSAGE value="ui updated , basic calculations added" />
+    <MESSAGE value="number picker updated ..." />
+    <MESSAGE value="data actvity , sound, temperature, area , length activity created" />
+    <MESSAGE value="recycler gridview" />
+    <MESSAGE value="add missing files" />
+    <MESSAGE value="package name updated" />
+    <MESSAGE value="volume activity updated" />
+    <MESSAGE value="force and presure Activity updated" />
+    <MESSAGE value="remove old splash screen&#10;version 8 live" />
+    <MESSAGE value="angle Activity updated" />
+    <MESSAGE value="binary activity created" />
+    <MESSAGE value="space activity added" />
+    <option name="LAST_COMMIT_MESSAGE" value="space activity added" />
+  </component>
+</project>

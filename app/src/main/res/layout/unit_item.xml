@@ -7,7 +7,7 @@
 
         <variable
             name="model"
-            type="karma.converter.api.requestmodel.UnititemModel" />
+            type="karma.converter.api.requestmodel.UnitItemModel" />
 
         <variable
             name="position"

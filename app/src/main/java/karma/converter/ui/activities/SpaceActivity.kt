@@ -17,7 +17,7 @@ import karma.converter.adapter.PickerLayoutManager
 import karma.converter.adapter.ScreenUtils
 import karma.converter.adapter.UnitActivityAdpater
 import karma.converter.api.requestmodel.UnitActivityModelResponse
-import karma.converter.api.requestmodel.UnititemModel
+import karma.converter.api.requestmodel.UnitItemModel
 import karma.converter.base.BaseActivity
 import karma.converter.databinding.ActivityAreaBinding
 import karma.converter.listeners.ItemClickListener
@@ -30,7 +30,7 @@ class SpaceActivity : BaseActivity(), View.OnClickListener,
 
     private lateinit var binding: ActivityAreaBinding
     var adRequest: AdRequest? = null
-    var itemList = ArrayList<UnititemModel>()
+    var itemList = ArrayList<UnitItemModel>()
     private val viewModel by viewModels<WeightViewModel>()
     var unitActivityList = ArrayList<UnitActivityModelResponse>()
     private val data = ArrayList<String>()

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="model"
+            type="karma.converter.api.requestmodel.UnitItemModel" />
+
+        <variable
+            name="position"
+            type="int" />
+
+        <variable
+            name="clickListener"
+            type="karma.converter.listeners.ItemClickListener" />
+
+        <import type="android.text.TextUtils" />
+
+        <import type="android.view.View" />
+    </data>
+
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_4sdp"
+            android:onClick="@{v -> clickListener.onItemClick(v.id,model,position)}"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:layout_marginBottom="@dimen/_6sdp"
+                android:text="@{model.appname}"
+                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold"
+                android:fontFamily="@font/gotham_medium"
+                android:textAlignment="center"
+                android:padding="@dimen/_3sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/icon"
+                tools:text="uittype" />
+        </com.google.android.material.card.MaterialCardView>
+</layout>

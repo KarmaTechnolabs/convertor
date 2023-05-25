@@ -9,17 +9,17 @@ import android.widget.Filterable
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import karma.converter.R
-import karma.converter.api.requestmodel.UnititemModel
+import karma.converter.api.requestmodel.UnitItemModel
 import karma.converter.databinding.UnitItemBinding
 import karma.converter.listeners.ItemClickListener
 import java.util.*
 
 class GridViewAdapter(context: Context?) :
-    BaseAdapter<UnititemModel,GridViewAdapter.ViewHolder?>(context),
+    BaseAdapter<UnitItemModel,GridViewAdapter.ViewHolder?>(context),
     Filterable {
-    var filteredTicketList = ArrayList<UnititemModel>()
-    var originalData = ArrayList<UnititemModel>()
-    private var clickListener: ItemClickListener<UnititemModel>? = null
+    var filteredTicketList = ArrayList<UnitItemModel>()
+    var originalData = ArrayList<UnitItemModel>()
+    private var clickListener: ItemClickListener<UnitItemModel>? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding: UnitItemBinding= DataBindingUtil.inflate(
             LayoutInflater.from(parent.context), R.layout.unit_item, parent, false
@@ -45,7 +45,7 @@ class GridViewAdapter(context: Context?) :
                     results.values = originalData
                     results.count = originalData.size
                 } else {
-                    val filterData: MutableList<UnititemModel> = ArrayList()
+                    val filterData: MutableList<UnitItemModel> = ArrayList()
                     for (model in list) {
                         if (model?.appname?.lowercase(Locale.getDefault())
                                 ?.contains(charSequence)!!
@@ -60,7 +60,7 @@ class GridViewAdapter(context: Context?) :
             }
 
             override fun publishResults(charSequence: CharSequence, filterResults: FilterResults) {
-                filteredTicketList = filterResults.values as ArrayList<UnititemModel>
+                filteredTicketList = filterResults.values as ArrayList<UnitItemModel>
                 notifyDataSetChanged()
             }
         }
@@ -70,14 +70,14 @@ class GridViewAdapter(context: Context?) :
         return filteredTicketList.size
     }
 
-    override fun getListItem(position: Int):UnititemModel{
+    override fun getListItem(position: Int):UnitItemModel{
         return filteredTicketList[position]!!
     }
 
     inner class ViewHolder(binding: UnitItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         var binding:UnitItemBinding= binding
-        fun setBinding(model: UnititemModel) {
+        fun setBinding(model: UnitItemModel) {
             binding.model = model
             binding.clickListener = clickListener
             binding.position = absoluteAdapterPosition
@@ -87,7 +87,7 @@ class GridViewAdapter(context: Context?) :
         init {
             binding.root.setOnClickListener(View.OnClickListener { view ->
                 if (onItemClickListener != null) {
-                    val model: UnititemModel = getListItem(bindingAdapterPosition)
+                    val model: UnitItemModel = getListItem(bindingAdapterPosition)
                     val selectedPos = bindingAdapterPosition
                     notifyDataSetChanged()
                     onItemClickListener?.onItemClick(view, model, selectedPos)
@@ -101,7 +101,7 @@ class GridViewAdapter(context: Context?) :
         originalData = list
     }
 
-    fun setClickListener(clickListener: ItemClickListener<UnititemModel>?) {
+    fun setClickListener(clickListener: ItemClickListener<UnitItemModel>?) {
         this.clickListener = clickListener
     }
 

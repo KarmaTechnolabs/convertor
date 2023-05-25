@@ -1,7 +1,6 @@
 package karma.converter.ui.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -17,7 +16,7 @@ import karma.converter.adapter.PickerLayoutManager
 import karma.converter.adapter.ScreenUtils
 import karma.converter.adapter.UnitActivityAdpater
 import karma.converter.api.requestmodel.UnitActivityModelResponse
-import karma.converter.api.requestmodel.UnititemModel
+import karma.converter.api.requestmodel.UnitItemModel
 import karma.converter.base.BaseActivity
 import karma.converter.databinding.ActivityMagneticBinding
 import karma.converter.listeners.ItemClickListener
@@ -28,7 +27,7 @@ class MagneticActivity : BaseActivity(), View.OnClickListener,
 
     private lateinit var binding : ActivityMagneticBinding
     var adRequest: AdRequest? = null
-    var itemList = ArrayList<UnititemModel>()
+    var itemList = ArrayList<UnitItemModel>()
     private val viewModel by viewModels<WeightViewModel>()
     var unitActivityList = java.util.ArrayList<UnitActivityModelResponse>()
     private val data = ArrayList<String>()
