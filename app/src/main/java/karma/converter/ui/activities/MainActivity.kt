@@ -174,7 +174,6 @@ class MainActivity : BaseActivity(), View.OnClickListener,
 
 }*/
 
-
 class MainActivity : BaseActivity(), OnItemClickListener<ChildItem>, View.OnClickListener {
 
     private lateinit var binding: ActivityMainBinding

@@ -22,4 +22,13 @@ object UserStateManager {
     fun saveFirebaseToken(token: String) {
         sharedPreferenceHelper.setValue(Constants.PREF_FIREBASE_TOKEN, token)
     }
+
+    fun isOnBoardingComplete(): Boolean {
+        return sharedPreferenceHelper
+            .getValue(Constants.PREF_IS_INTRODUCTION_FINISHED_BOOL, false)
+    }
+
+    fun markOnBoardingComplete() {
+        sharedPreferenceHelper.setValue(Constants.PREF_IS_INTRODUCTION_FINISHED_BOOL, true)
+    }
 }

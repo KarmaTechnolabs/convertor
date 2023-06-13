@@ -41,6 +41,23 @@
     <string name="pressure">PRESSURE</string>
     <string name="whatsapp_sharemessages">Hi , I just invited you to use the Converter App.Using this app , you can convert any type of data for your knowledge and daily use . https://play.google.com/store/apps/details?id=</string>
 
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
+
+    <string name="onboarding_slide1_title">Create an account</string>
+    <string name="onboarding_slide1_subtitle">Connect with people around the world</string>
+    <string name="onboarding_slide1_desc">User will be able to give you live, chat and meet
+        with people nearby.</string>
+
+    <string name="onboarding_slide2_title">Login to your account</string>
+    <string name="onboarding_slide2_subtitle">Let\'s build connection with new people</string>
+    <string name="onboarding_slide2_desc">Connect helps you locate the people around you who
+        are closest from your home.</string>
+
+    <string name="onboarding_slide3_title">Login to your account</string>
+    <string name="onboarding_slide3_subtitle">Feel the happiness</string>
+    <string name="onboarding_slide3_desc">User will be able to give you live, chat and meet</string>
+    <string name="view_indicator">View Indicator</string>
 
     <string-array name="Languages">
         <item>Pound</item>

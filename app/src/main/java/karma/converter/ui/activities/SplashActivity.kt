@@ -4,7 +4,8 @@ import android.os.Bundle
 import karma.converter.base.FullScreenBaseActivity
 import karma.converter.custom.gotoActivity
 import karma.converter.utils.RemoteConfigManager
-import java.util.*
+import karma.converter.utils.UserStateManager
+import java.util.Timer
 import kotlin.concurrent.schedule
 
 class SplashActivity : FullScreenBaseActivity() {
@@ -18,7 +19,17 @@ class SplashActivity : FullScreenBaseActivity() {
         RemoteConfigManager.checkRemoteConfig()
 
         Timer("splash", false).schedule(1000) {
-            gotoActivity(MainActivity::class.java, needToFinish = true)
+
+            when {
+                UserStateManager.isOnBoardingComplete() -> {
+                    gotoActivity(MainActivity::class.java, needToFinish = true)
+                }
+
+                else -> {
+                    gotoActivity(IntroductionActivity::class.java, needToFinish = true)
+                }
+            }
+
             //gotoActivity(CategoryActivity::class.java, needToFinish = true)
             //gotoActivity(TestActivity::class.java, needToFinish = true)
             //gotoActivity(MainActivity2::class.java, needToFinish = true)

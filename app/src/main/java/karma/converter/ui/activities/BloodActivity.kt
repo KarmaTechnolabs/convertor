@@ -35,7 +35,7 @@ class BloodActivity : BaseActivity(), View.OnClickListener,
     var adRequest: AdRequest? = null
     var itemList = ArrayList<UnitItemModel>()
     private val viewModel by viewModels<WeightViewModel>()
-    var unitActivityList = java.util.ArrayList<UnitActivityModelResponse>()
+    var unitActivityList = ArrayList<UnitActivityModelResponse>()
     private val data = ArrayList<String>()
     private lateinit var rvHorizontalPicker: RecyclerView
     private lateinit var sliderAdapter: PickerAdapter
