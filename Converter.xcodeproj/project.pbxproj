@@ -55,6 +55,8 @@
 		485C6D212BA04C9900EE1CA2 /* Speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485C6D142BA04C9800EE1CA2 /* Speed.swift */; };
 		485C6D222BA04C9900EE1CA2 /* Bloodsugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485C6D152BA04C9900EE1CA2 /* Bloodsugar.swift */; };
 		485C6D232BA04C9900EE1CA2 /* Cooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485C6D162BA04C9900EE1CA2 /* Cooking.swift */; };
+		489D60152BA1D9BA0052FA30 /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489D60142BA1D9BA0052FA30 /* Area.swift */; };
+		489D60172BA1DA740052FA30 /* AreaConversionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489D60162BA1DA740052FA30 /* AreaConversionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +109,8 @@
 		485C6D142BA04C9800EE1CA2 /* Speed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Speed.swift; sourceTree = "<group>"; };
 		485C6D152BA04C9900EE1CA2 /* Bloodsugar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bloodsugar.swift; sourceTree = "<group>"; };
 		485C6D162BA04C9900EE1CA2 /* Cooking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cooking.swift; sourceTree = "<group>"; };
+		489D60142BA1D9BA0052FA30 /* Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
+		489D60162BA1DA740052FA30 /* AreaConversionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaConversionViewController.swift; sourceTree = "<group>"; };
 		4C40EBFFE0DF3147F48EBC25 /* Pods-Converter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Converter.debug.xcconfig"; path = "Target Support Files/Pods-Converter/Pods-Converter.debug.xcconfig"; sourceTree = "<group>"; };
 		4CD57EFB39F4C5FF27E6C8E7 /* Pods-Converter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Converter.release.xcconfig"; path = "Target Support Files/Pods-Converter/Pods-Converter.release.xcconfig"; sourceTree = "<group>"; };
 		FEA30FF25D4FF87647D9163D /* Pods_Converter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Converter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,6 +198,7 @@
 				485C6CD42BA047C300EE1CA2 /* EneryConvertionViewController.swift */,
 				485C6CD12BA047C300EE1CA2 /* FrequencyConversionViewController.swift */,
 				485C6CD52BA047C300EE1CA2 /* HistoryViewController.swift */,
+				489D60162BA1DA740052FA30 /* AreaConversionViewController.swift */,
 				485C6CDF2BA047C300EE1CA2 /* PowerConversionViewController.swift */,
 				485C6CD92BA047C300EE1CA2 /* SaveViewController.swift */,
 				485C6CD72BA047C300EE1CA2 /* SpaceConversionViewController.swift */,
@@ -240,6 +245,7 @@
 				485C6D142BA04C9800EE1CA2 /* Speed.swift */,
 				485C6D0E2BA04C9800EE1CA2 /* Temperature.swift */,
 				485C6D132BA04C9800EE1CA2 /* Time.swift */,
+				489D60142BA1D9BA0052FA30 /* Area.swift */,
 				485C6D0C2BA04C9800EE1CA2 /* Volume.swift */,
 				485C6D0F2BA04C9800EE1CA2 /* Weight.swift */,
 			);
@@ -394,6 +400,7 @@
 				485C6CED2BA047C300EE1CA2 /* TimeConversionViewController.swift in Sources */,
 				485C6D172BA04C9900EE1CA2 /* Power.swift in Sources */,
 				485C6CE72BA047C300EE1CA2 /* HistoryViewController.swift in Sources */,
+				489D60172BA1DA740052FA30 /* AreaConversionViewController.swift in Sources */,
 				485C6CE92BA047C300EE1CA2 /* SpaceConversionViewController.swift in Sources */,
 				485C6CFF2BA0484F00EE1CA2 /* Constant.swift in Sources */,
 				485C6CEE2BA047C300EE1CA2 /* ConvertionsViewController.swift in Sources */,
@@ -410,6 +417,7 @@
 				485C6D1D2BA04C9900EE1CA2 /* Data.swift in Sources */,
 				485C6D212BA04C9900EE1CA2 /* Speed.swift in Sources */,
 				485C6CE62BA047C300EE1CA2 /* EneryConvertionViewController.swift in Sources */,
+				489D60152BA1D9BA0052FA30 /* Area.swift in Sources */,
 				485C6CFC2BA0484F00EE1CA2 /* Conversion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

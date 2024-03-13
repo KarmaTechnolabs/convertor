@@ -78,11 +78,12 @@ class ConvertionsViewController: UIViewController, UICollectionViewDataSource, U
         let frequency = Conversion(name: "Frequency", icon: UIImage(named: "icon_frequency")!, segueID: "goToFrequencyConversion", cellColour: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.00))
         let bloodsugar = Conversion(name: "Bloodsugar", icon: UIImage(named: "icon_bloodsugar")!, segueID: "goToBloodsugarConversion", cellColour: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.00))
         let cooking = Conversion(name: "Cooking", icon: UIImage(named: "icon_cooking")!, segueID: "goToCookingConversion", cellColour: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.00))
-       // let space = Conversion(name: "Space", icon: UIImage(named: "ic_space")!, segueID: "goToSpaceConversion", cellColour: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.00))
+        let space = Conversion(name: "Space", icon: UIImage(named: "icon_space")!, segueID: "goToSpaceConversion", cellColour: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.00))
+        let area = Conversion(name: "Area", icon: UIImage(named: "icon_area")!, segueID: "goToAreaConversion", cellColour: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.00))
        
        
        
-        conversions += [weight, temperature, volume, distance, speed, time,energy,data,power,frequency,bloodsugar,cooking]//,space]
+        conversions += [weight, temperature, volume, distance, speed, time,energy,data,power,frequency,bloodsugar,cooking,space,area]
     }
     
     /// This function returns the conversions count to be used in the collection view.
