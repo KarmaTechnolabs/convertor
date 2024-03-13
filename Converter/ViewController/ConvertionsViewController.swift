@@ -10,10 +10,12 @@ import GoogleMobileAds
 
 class ConvertionsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,GADBannerViewDelegate {
     
+    @IBOutlet weak var collectionView: UICollectionView!
     var conversions = [Conversion]()
     var bannerView: GADBannerView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
         generateConversions()
         bannerView = GADBannerView(adSize: GADAdSizeBanner)
@@ -23,6 +25,12 @@ class ConvertionsViewController: UIViewController, UICollectionViewDataSource, U
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
         bannerView.delegate = self
+        
+        collectionView.layer.cornerRadius = 30.0
+           collectionView.layer.borderWidth = 1.0
+           collectionView.layer.borderColor = UIColor(red: 0.25, green: 0.25, blue: 0.25, alpha: 1.00).cgColor
+           collectionView.layer.masksToBounds = true
+
     }
     override func viewWillAppear(_ animated: Bool) {
            super.viewWillAppear(animated)
@@ -58,18 +66,18 @@ class ConvertionsViewController: UIViewController, UICollectionViewDataSource, U
        }
 
     func generateConversions() {
-        let weight = Conversion(name: "Weight", icon: UIImage(named: "ic_weight")!, segueID: "goToWeightConversion", cellColour: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.00))
-        let temperature = Conversion(name: "Tempertaure", icon: UIImage(named: "ic_temperature")!, segueID: "goToTemperatureConversion", cellColour: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.00))
-        let volume = Conversion(name: "Volume", icon: UIImage(named: "ic_volume")!, segueID: "goToVolumeConversion", cellColour: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.00))
-        let distance = Conversion(name: "Distance", icon: UIImage(named: "ic_distance")!, segueID: "goToDistanceConversion", cellColour: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.00))
-        let speed = Conversion(name: "Speed", icon: UIImage(named: "ic_speed")!, segueID: "goToSpeedConversion", cellColour: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.00))
-        let time = Conversion(name: "Time", icon: UIImage(named: "ic_time")!, segueID: "goToTimeConversion", cellColour: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.00))
-        let energy = Conversion(name: "Energy", icon: UIImage(named: "ic_energy")!, segueID: "goToEnergyConversion", cellColour: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.00))
-        let data = Conversion(name: "Data", icon: UIImage(named: "ic_data")!, segueID: "goToDataConversion", cellColour: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.00))
-        let power = Conversion(name: "Power", icon: UIImage(named: "ic_power")!, segueID: "goToPowerConversion", cellColour: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.00))
-        let frequency = Conversion(name: "Frequency", icon: UIImage(named: "ic_frequency")!, segueID: "goToFrequencyConversion", cellColour: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.00))
-        let bloodsugar = Conversion(name: "Bloodsugar", icon: UIImage(named: "ic_bloodsugar")!, segueID: "goToBloodsugarConversion", cellColour: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.00))
-        let cooking = Conversion(name: "Cooking", icon: UIImage(named: "ic_cooking")!, segueID: "goToCookingConversion", cellColour: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.00))
+        let weight = Conversion(name: "Weight", icon: UIImage(named: "icon_weight")!, segueID: "goToWeightConversion", cellColour: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.00))
+        let temperature = Conversion(name: "Tempertaure", icon: UIImage(named: "icon_temperature")!, segueID: "goToTemperatureConversion", cellColour: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.00))
+        let volume = Conversion(name: "Volume", icon: UIImage(named: "icon_volume")!, segueID: "goToVolumeConversion", cellColour: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.00))
+        let distance = Conversion(name: "Distance", icon: UIImage(named: "icon_distance")!, segueID: "goToDistanceConversion", cellColour: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.00))
+        let speed = Conversion(name: "Speed", icon: UIImage(named: "icon_speed")!, segueID: "goToSpeedConversion", cellColour: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.00))
+        let time = Conversion(name: "Time", icon: UIImage(named: "icon_time")!, segueID: "goToTimeConversion", cellColour: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.00))
+        let energy = Conversion(name: "Energy", icon: UIImage(named: "icon_energy")!, segueID: "goToEnergyConversion", cellColour: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.00))
+        let data = Conversion(name: "Data", icon: UIImage(named: "icon_data")!, segueID: "goToDataConversion", cellColour: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.00))
+        let power = Conversion(name: "Power", icon: UIImage(named: "icon_power")!, segueID: "goToPowerConversion", cellColour: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.00))
+        let frequency = Conversion(name: "Frequency", icon: UIImage(named: "icon_frequency")!, segueID: "goToFrequencyConversion", cellColour: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.00))
+        let bloodsugar = Conversion(name: "Bloodsugar", icon: UIImage(named: "icon_bloodsugar")!, segueID: "goToBloodsugarConversion", cellColour: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.00))
+        let cooking = Conversion(name: "Cooking", icon: UIImage(named: "icon_cooking")!, segueID: "goToCookingConversion", cellColour: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.00))
        // let space = Conversion(name: "Space", icon: UIImage(named: "ic_space")!, segueID: "goToSpaceConversion", cellColour: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.00))
        
        
@@ -90,7 +98,7 @@ class ConvertionsViewController: UIViewController, UICollectionViewDataSource, U
         
         //Card(cell) styles
         cell.contentView.backgroundColor = conversions[indexPath.row].getCellColour()
-        cell.contentView.layer.cornerRadius = 10.0
+       cell.contentView.layer.cornerRadius = 10.0
         cell.contentView.layer.borderWidth = 1.0
         cell.contentView.layer.borderColor = UIColor(red: 0.25, green: 0.25, blue: 0.25, alpha: 1.00).cgColor
         cell.contentView.layer.masksToBounds = false

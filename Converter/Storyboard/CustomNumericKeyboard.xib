@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -42,7 +43,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zaV-iV-Nbm">
                                             <rect key="frame" x="17" y="6" width="20" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" image="ic_arrow_down"/>
+                                            <state key="normal" image="arrow_down"/>
                                             <connections>
                                                 <action selector="handleRetractButtonPress:" destination="-1" eventType="touchUpInside" id="2zG-4x-neV"/>
                                             </connections>
@@ -50,13 +51,13 @@
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EbJ-ZJ-but">
                                             <rect key="frame" x="332" y="5" width="22" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" backgroundImage="ic_backspace"/>
+                                            <state key="normal" backgroundImage="backspace"/>
                                             <connections>
                                                 <action selector="handleBackspaceButtonPress:" destination="-1" eventType="touchUpInside" id="clE-Ua-Bju"/>
                                             </connections>
                                         </button>
                                     </subviews>
-                                    <color key="backgroundColor" red="1" green="0.56862745100000001" blue="0.043137254899999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="0.85371439429999996" green="0.51127081780000005" blue="0.24569641880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iDw-mQ-NzP" userLabel="Keys View">
                                     <rect key="frame" x="0.0" y="35" width="375" height="219"/>
@@ -222,7 +223,7 @@
                                             </constraints>
                                         </stackView>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.090196078431372548" green="0.090196078431372548" blue="0.090196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="0.015829278420951817" green="0.11863740533590317" blue="0.038776778859061369" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="HFB-oy-osz" firstAttribute="top" secondItem="iDw-mQ-NzP" secondAttribute="top" constant="11" id="Ctx-tF-c78"/>
                                         <constraint firstItem="HFB-oy-osz" firstAttribute="leading" secondItem="iDw-mQ-NzP" secondAttribute="leading" constant="42" id="Vsm-da-5RX"/>
@@ -261,8 +262,8 @@
         </view>
     </objects>
     <resources>
-        <image name="ic_arrow_down" width="25" height="25"/>
-        <image name="ic_backspace" width="512" height="512"/>
+        <image name="arrow_down" width="25" height="25"/>
+        <image name="backspace" width="512" height="512"/>
         <systemColor name="lightTextColor">
             <color white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

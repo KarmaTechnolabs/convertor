@@ -22,30 +22,30 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Is9-cH-gdO">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
-                                        <color key="backgroundColor" red="0.94699771847345138" green="0.79938382501830885" blue="0.75570204258746421" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Q5c-UK-aM2">
-                                            <size key="itemSize" width="100" height="100"/>
+                                        <rect key="frame" x="30" y="30" width="315" height="444"/>
+                                        <color key="backgroundColor" red="0.92250587665929207" green="0.58578263915552897" blue="0.47245416496435366" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="20" id="Q5c-UK-aM2">
+                                            <size key="itemSize" width="80" height="80"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="t9j-Mb-CMk" customClass="ConversionViewCell" customModule="Converter" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="20" width="100" height="100"/>
+                                                <rect key="frame" x="20" y="20" width="80" height="80"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tgf-7V-eoS">
-                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tsH-NI-UuU">
-                                                                    <rect key="frame" x="20" y="10" width="60" height="50"/>
+                                                                    <rect key="frame" x="20" y="10" width="40" height="40"/>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Conversion" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKS-X7-Msz">
-                                                                    <rect key="frame" x="7" y="68" width="84" height="17"/>
+                                                                    <rect key="frame" x="8" y="55" width="72" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="black" pointSize="14"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -54,7 +54,7 @@
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="bottom" secondItem="tsH-NI-UuU" secondAttribute="bottom" constant="40" id="A50-wp-ukU"/>
+                                                                <constraint firstAttribute="bottom" secondItem="tsH-NI-UuU" secondAttribute="bottom" constant="30" id="A50-wp-ukU"/>
                                                                 <constraint firstItem="tsH-NI-UuU" firstAttribute="top" secondItem="tgf-7V-eoS" secondAttribute="top" constant="10" id="FoR-Ie-Oym"/>
                                                                 <constraint firstItem="tsH-NI-UuU" firstAttribute="leading" secondItem="tgf-7V-eoS" secondAttribute="leading" constant="20" id="Gp0-Tb-JEd"/>
                                                                 <constraint firstAttribute="trailing" secondItem="tsH-NI-UuU" secondAttribute="trailing" constant="20" id="Xzw-NU-hS9"/>
@@ -81,11 +81,12 @@
                                         </connections>
                                     </collectionView>
                                 </subviews>
+                                <color key="backgroundColor" red="0.92129597614513281" green="0.78854584534020922" blue="0.74303722934274297" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Is9-cH-gdO" secondAttribute="trailing" id="0rw-0e-Djg"/>
-                                    <constraint firstItem="Is9-cH-gdO" firstAttribute="top" secondItem="lfw-hn-Cgx" secondAttribute="top" id="Nhl-NR-NLa"/>
-                                    <constraint firstAttribute="bottom" secondItem="Is9-cH-gdO" secondAttribute="bottom" id="hnS-8I-UD4"/>
-                                    <constraint firstItem="Is9-cH-gdO" firstAttribute="leading" secondItem="lfw-hn-Cgx" secondAttribute="leading" id="yGa-3s-28q"/>
+                                    <constraint firstAttribute="trailing" secondItem="Is9-cH-gdO" secondAttribute="trailing" constant="30" id="0rw-0e-Djg"/>
+                                    <constraint firstItem="Is9-cH-gdO" firstAttribute="top" secondItem="lfw-hn-Cgx" secondAttribute="top" constant="30" id="Nhl-NR-NLa"/>
+                                    <constraint firstAttribute="bottom" secondItem="Is9-cH-gdO" secondAttribute="bottom" constant="80" id="hnS-8I-UD4"/>
+                                    <constraint firstItem="Is9-cH-gdO" firstAttribute="leading" secondItem="lfw-hn-Cgx" secondAttribute="leading" constant="30" id="yGa-3s-28q"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -101,6 +102,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="wvf-91-Qew"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="collectionView" destination="Is9-cH-gdO" id="c3j-Qs-DeU"/>
                         <segue destination="4CW-L2-S2i" kind="show" identifier="goToWeightConversion" id="VlG-k2-2t4"/>
                         <segue destination="Ut6-oT-akK" kind="show" identifier="goToTemperatureConversion" id="uc3-j6-FmH"/>
                         <segue destination="66V-sH-fSN" kind="show" identifier="goToVolumeConversion" id="X9W-H2-wt0"/>
@@ -118,7 +120,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3065" y="-1264"/>
+            <point key="canvasLocation" x="3064.8000000000002" y="-1264.3178410794603"/>
         </scene>
         <!--Temperature-->
         <scene sceneID="MWA-Xo-Axw">
@@ -235,7 +237,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Temperature" id="hkb-5i-wqM">
-                        <barButtonItem key="rightBarButtonItem" title="Save Nav Button" image="ic_save_portarait" landscapeImage="ic_save_lanscape" id="WBK-cu-f3t">
+                        <barButtonItem key="rightBarButtonItem" title="Save Nav Button" image="save_portarait" landscapeImage="save_lanscape" id="WBK-cu-f3t">
                             <connections>
                                 <action selector="handleSaveButtonClick:" destination="Ut6-oT-akK" id="r66-f7-Pgz"/>
                             </connections>
@@ -414,7 +416,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Volume" id="HYD-vZ-XCa">
-                        <barButtonItem key="rightBarButtonItem" title="Save Nav Button" image="ic_save_portarait" landscapeImage="ic_save_lanscape" id="4Ah-Vy-dMc">
+                        <barButtonItem key="rightBarButtonItem" title="Save Nav Button" image="save_portarait" landscapeImage="save_lanscape" id="4Ah-Vy-dMc">
                             <connections>
                                 <action selector="handleSaveButtonClick:" destination="66V-sH-fSN" id="z5d-Nh-bwV"/>
                             </connections>
@@ -618,7 +620,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Distance" id="rWp-2n-cAU">
-                        <barButtonItem key="rightBarButtonItem" title="Save Nav Button" image="ic_save_portarait" landscapeImage="ic_save_lanscape" id="JWl-ey-hBp">
+                        <barButtonItem key="rightBarButtonItem" title="Save Nav Button" image="save_portarait" landscapeImage="save_lanscape" id="JWl-ey-hBp">
                             <connections>
                                 <action selector="handleSaveButtonClick:" destination="Xsv-8B-xPR" id="dLw-K4-G0h"/>
                             </connections>
@@ -782,7 +784,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Speed" id="7Yx-fP-UOs">
-                        <barButtonItem key="rightBarButtonItem" title="Save Nav Button" image="ic_save_portarait" landscapeImage="ic_save_lanscape" id="Pio-f9-q8w">
+                        <barButtonItem key="rightBarButtonItem" title="Save Nav Button" image="save_portarait" landscapeImage="save_lanscape" id="Pio-f9-q8w">
                             <connections>
                                 <action selector="handleSaveButtonClick:" destination="9ed-Ze-bVg" id="gBq-h1-uEI"/>
                             </connections>
@@ -859,7 +861,7 @@
                                 </connections>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VMn-hs-25b">
-                                <rect key="frame" x="16" y="16" width="343" height="29"/>
+                                <rect key="frame" x="16" y="15" width="343" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.85371439429999996" green="0.4299945838" blue="0.28471800200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <segments>
@@ -867,6 +869,8 @@
                                     <segment title="Temperature"/>
                                     <segment title="Volume"/>
                                     <segment title="Speed"/>
+                                    <segment title="Distance"/>
+                                    <segment title="Time"/>
                                 </segments>
                                 <connections>
                                     <action selector="handleSegmentControlIndexChange:" destination="ltg-Ro-xpP" eventType="valueChanged" id="SMj-Az-S27"/>
@@ -985,7 +989,7 @@
         <scene sceneID="dlX-Xo-4Fk">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fbi-PF-GiZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Convert" image="ic_convert_portarait" landscapeImage="ic_convert_landscape" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Convert" image="convert_portarait" landscapeImage="convert_landscape" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="gYL-uF-88S">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -1157,6 +1161,7 @@
                                         <constraints>
                                             <constraint firstItem="qA5-HF-m3r" firstAttribute="leading" secondItem="SUm-qS-Rxu" secondAttribute="leading" constant="15" id="5JS-cq-db2"/>
                                             <constraint firstAttribute="bottom" secondItem="qA5-HF-m3r" secondAttribute="bottom" id="HGs-up-fTw"/>
+                                            <constraint firstAttribute="bottom" secondItem="qA5-HF-m3r" secondAttribute="bottom" id="O4I-Yu-btX"/>
                                             <constraint firstAttribute="trailing" secondItem="qA5-HF-m3r" secondAttribute="trailing" constant="15" id="iDT-Xs-gS4"/>
                                             <constraint firstItem="qA5-HF-m3r" firstAttribute="top" secondItem="SUm-qS-Rxu" secondAttribute="top" constant="17" id="lUM-J3-G0V"/>
                                         </constraints>
@@ -1183,7 +1188,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Weight" id="LPc-fe-8p8">
-                        <barButtonItem key="rightBarButtonItem" title="Save Nav Button" image="ic_save_portarait" landscapeImage="ic_save_lanscape" id="jx6-d3-Omc">
+                        <barButtonItem key="rightBarButtonItem" title="Save Nav Button" image="save_portarait" landscapeImage="save_lanscape" id="jx6-d3-Omc">
                             <connections>
                                 <action selector="handleSaveButtonClick:" destination="4CW-L2-S2i" id="yar-Bh-SoP"/>
                             </connections>
@@ -1214,7 +1219,7 @@
         <scene sceneID="831-Re-Qsa">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YtU-DE-lso" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="History" image="ic_history_portrait" landscapeImage="ic_history_landscape" id="mgs-ed-6Zf"/>
+                    <tabBarItem key="tabBarItem" title="History" image="history_portrait" landscapeImage="history_landscape" id="mgs-ed-6Zf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="HLY-Cb-00d">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -1235,7 +1240,7 @@
         <scene sceneID="MxY-h2-gLS">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tKO-gQ-ZGR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Constants" image="ic_constants_portrait" landscapeImage="ic_constants_landscape" id="ZyG-a6-ntS"/>
+                    <tabBarItem key="tabBarItem" title="Constants" image="constants_portrait" landscapeImage="constants_landscape" id="ZyG-a6-ntS"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="bRS-mD-Yol">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -1409,7 +1414,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Time" id="ZFl-SB-zVi">
-                        <barButtonItem key="rightBarButtonItem" title="Save Nav Button" image="ic_save_portarait" landscapeImage="ic_save_lanscape" id="tjM-3g-3sz">
+                        <barButtonItem key="rightBarButtonItem" title="Save Nav Button" image="save_portarait" landscapeImage="save_lanscape" id="tjM-3g-3sz">
                             <connections>
                                 <action selector="handleSaveButtonClick:" destination="1PT-Oi-PbA" id="vBD-lK-Ebz"/>
                             </connections>
@@ -1613,7 +1618,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Energy" id="vh5-kz-dzn">
-                        <barButtonItem key="rightBarButtonItem" title="Save Nav Button" image="ic_save_portarait" landscapeImage="ic_save_lanscape" id="dwq-3K-BNQ">
+                        <barButtonItem key="rightBarButtonItem" title="Save Nav Button" image="save_portarait" landscapeImage="save_lanscape" id="dwq-3K-BNQ">
                             <connections>
                                 <action selector="handleSaveButtonClick:" destination="kdk-vk-kx6" id="Dr4-vB-63j"/>
                             </connections>
@@ -1819,7 +1824,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Data" id="VUH-hw-7Gh">
-                        <barButtonItem key="rightBarButtonItem" title="Save Nav Button" image="ic_save_portarait" landscapeImage="ic_save_lanscape" id="6bW-La-jkT">
+                        <barButtonItem key="rightBarButtonItem" title="Save Nav Button" image="save_portarait" landscapeImage="save_lanscape" id="6bW-La-jkT">
                             <connections>
                                 <action selector="handleSaveButtonClick:" destination="2xI-Gd-A0v" id="0bc-ko-cho"/>
                             </connections>
@@ -1962,7 +1967,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Power" id="JeY-gB-NFI">
-                        <barButtonItem key="rightBarButtonItem" title="Save Nav Button" image="ic_save_portarait" landscapeImage="ic_save_lanscape" id="KBj-W8-buw">
+                        <barButtonItem key="rightBarButtonItem" title="Save Nav Button" image="save_portarait" landscapeImage="save_lanscape" id="KBj-W8-buw">
                             <connections>
                                 <action selector="handleSaveButtonClick:" destination="q5a-vs-m9n" id="lzr-Un-knT"/>
                             </connections>
@@ -2183,7 +2188,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Frequncy" id="mYa-qO-rLK">
-                        <barButtonItem key="rightBarButtonItem" title="Save Nav Button" image="ic_save_portarait" landscapeImage="ic_save_lanscape" id="AI5-bf-p7F">
+                        <barButtonItem key="rightBarButtonItem" title="Save Nav Button" image="save_portarait" landscapeImage="save_lanscape" id="AI5-bf-p7F">
                             <connections>
                                 <action selector="handleSaveButtonClick:" destination="AHZ-OT-Kzz" id="UNs-Rn-B7a"/>
                             </connections>
@@ -2307,7 +2312,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="BloodSugar" id="gWR-pj-pWG">
-                        <barButtonItem key="rightBarButtonItem" title="Save Nav Button" image="ic_save_portarait" landscapeImage="ic_save_lanscape" id="sl7-C1-Z2q">
+                        <barButtonItem key="rightBarButtonItem" title="Save Nav Button" image="save_portarait" landscapeImage="save_lanscape" id="sl7-C1-Z2q">
                             <connections>
                                 <action selector="handleSaveButtonClick:" destination="X6V-zb-HFK" id="sno-wU-LTD"/>
                             </connections>
@@ -2484,7 +2489,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Cooking" id="dyZ-lf-CX7">
-                        <barButtonItem key="rightBarButtonItem" title="Save Nav Button" image="ic_save_portarait" landscapeImage="ic_save_lanscape" id="Gl0-nG-ndk">
+                        <barButtonItem key="rightBarButtonItem" title="Save Nav Button" image="save_portarait" landscapeImage="save_lanscape" id="Gl0-nG-ndk">
                             <connections>
                                 <action selector="handleSaveButtonClick:" destination="niC-QL-sH2" id="g37-5s-o21"/>
                             </connections>
@@ -2667,7 +2672,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Space" id="mvF-qj-L7b">
-                        <barButtonItem key="rightBarButtonItem" title="Save Nav Button" image="ic_save_portarait" landscapeImage="ic_save_lanscape" id="bZp-f5-odM">
+                        <barButtonItem key="rightBarButtonItem" title="Save Nav Button" image="save_portarait" landscapeImage="save_lanscape" id="bZp-f5-odM">
                             <connections>
                                 <action selector="handleSaveButtonClick:" destination="3AR-v7-RfS" id="zUZ-xT-Zrd"/>
                             </connections>
@@ -2696,14 +2701,14 @@
     </scenes>
     <color key="tintColor" red="1" green="0.56862745100000001" blue="0.043137254899999998" alpha="1" colorSpace="calibratedRGB"/>
     <resources>
-        <image name="ic_constants_landscape" width="18" height="18"/>
-        <image name="ic_constants_portrait" width="25" height="25"/>
-        <image name="ic_convert_landscape" width="18" height="18"/>
-        <image name="ic_convert_portarait" width="25" height="25"/>
-        <image name="ic_history_landscape" width="18" height="18"/>
-        <image name="ic_history_portrait" width="25" height="25"/>
-        <image name="ic_save_lanscape" width="18" height="18"/>
-        <image name="ic_save_portarait" width="25" height="25"/>
+        <image name="constants_landscape" width="18" height="18"/>
+        <image name="constants_portrait" width="25" height="25"/>
+        <image name="convert_landscape" width="18" height="18"/>
+        <image name="convert_portarait" width="25" height="25"/>
+        <image name="history_landscape" width="18" height="18"/>
+        <image name="history_portrait" width="25" height="25"/>
+        <image name="save_lanscape" width="18" height="18"/>
+        <image name="save_portarait" width="25" height="25"/>
         <systemColor name="lightTextColor">
             <color white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

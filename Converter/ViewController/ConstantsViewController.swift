@@ -44,7 +44,7 @@ class ConstantsViewController: UIViewController ,UITableViewDataSource,UITableVi
         emFormula.append(stringFormatter(text: "9.10938356 X "))
         emFormula.append(stringFormatter(text: "10-31", location: 2, length: 3, type: "sup"))
         emFormula.append(stringFormatter(text: " kg"))
-        let em = Constant(name: "Electron Mass", formula: emFormula, icon: UIImage(named: "ic_electron")!)
+        let em = Constant(name: "Electron Mass", formula: emFormula, icon: UIImage(named: "icon_electron")!)
         
         // building proton mass formula
         // formula: pm = 1.6726219 × 10-27 kg
@@ -53,7 +53,7 @@ class ConstantsViewController: UIViewController ,UITableViewDataSource,UITableVi
         pmFormula.append(stringFormatter(text: "1.6726219 X "))
         pmFormula.append(stringFormatter(text: "10-27 ", location: 2, length: 3, type: "sup"))
         pmFormula.append(stringFormatter(text: "kg"))
-        let pm = Constant(name: "Proton Mass", formula: pmFormula, icon: UIImage(named: "ic_proton")!)
+        let pm = Constant(name: "Proton Mass", formula: pmFormula, icon: UIImage(named: "icon_proton")!)
         
         // building neutron mass formula
         // formula: nm = 1.674929 x 10-27 kg
@@ -62,7 +62,7 @@ class ConstantsViewController: UIViewController ,UITableViewDataSource,UITableVi
         nmFormula.append(stringFormatter(text: "1.674929 X "))
         nmFormula.append(stringFormatter(text: "10-27 ", location: 2, length: 3, type: "sup"))
         nmFormula.append(stringFormatter(text: "kg"))
-        let nm = Constant(name: "Neutron Mass", formula: nmFormula, icon: UIImage(named: "ic_neutron")!)
+        let nm = Constant(name: "Neutron Mass", formula: nmFormula, icon: UIImage(named: "icon_neutron")!)
         
         // building electric permittivity
         // formula: ep = 8.854 × 10−12 C2/N m2
@@ -72,7 +72,7 @@ class ConstantsViewController: UIViewController ,UITableViewDataSource,UITableVi
         epFormula.append(stringFormatter(text: "10−12 ", location: 2, length: 3, type: "sup"))
         epFormula.append(stringFormatter(text: "C2/N ", location: 1, length: 1, type: "sup"))
         epFormula.append(stringFormatter(text: "m2", location: 1, length: 1, type: "sup"))
-        let ep = Constant(name: "Eletric Permittivity", formula: epFormula, icon: UIImage(named: "ic_electric")!)
+        let ep = Constant(name: "Eletric Permittivity", formula: epFormula, icon: UIImage(named: "icon_electric")!)
         
         // building magnetic permeability
         // formula: mp = 4π × 10−7 T m/A
@@ -81,7 +81,7 @@ class ConstantsViewController: UIViewController ,UITableViewDataSource,UITableVi
         mpFormula.append(stringFormatter(text: "4π X "))
         mpFormula.append(stringFormatter(text: "10−7 ", location: 2, length: 2, type: "sup"))
         mpFormula.append(stringFormatter(text: "T m/A"))
-        let mp = Constant(name: "Magnetic Permeability", formula: mpFormula, icon: UIImage(named: "ic_magnetic")!)
+        let mp = Constant(name: "Magnetic Permeability", formula: mpFormula, icon: UIImage(named: "icon_magnetic")!)
         
         constants += [em, pm, nm, ep, mp]
     }

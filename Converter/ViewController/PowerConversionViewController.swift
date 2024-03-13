@@ -42,7 +42,7 @@ class PowerConversionViewController: UIViewController,CustomNumericKeyboardDeleg
          // Set Text Field Styles
          wattTextField._lightPlaceholderColor(UIColor.lightText)
          wattTextField.setAsNumericKeyboard(delegate: self)
-
+         
          kilowattTextField._lightPlaceholderColor(UIColor.lightText)
          kilowattTextField.setAsNumericKeyboard(delegate: self)
 

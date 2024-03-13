@@ -14,7 +14,7 @@ class HistoryViewController: UIViewController ,UITableViewDataSource,UITableView
     
     var histories = [History]()
     var conversionType = WEIGHTS_USER_DEFAULTS_KEY
-    var icon: UIImage = UIImage(named: "ic_weight")!
+    var icon: UIImage = UIImage(named: "icon_weight")!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,16 +40,23 @@ class HistoryViewController: UIViewController ,UITableViewDataSource,UITableView
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             conversionType = WEIGHTS_USER_DEFAULTS_KEY
-            icon = UIImage(named: "ic_weight")!
+            icon = UIImage(named: "icon_weight")!
         case 1:
             conversionType = TEMP_USER_DEFAULTS_KEY
-            icon = UIImage(named: "ic_temperature")!
+            icon = UIImage(named: "icon_temperature")!
         case 2:
             conversionType = VOLUME_USER_DEFAULTS_KEY
-            icon = UIImage(named: "ic_volume")!
+            icon = UIImage(named: "icon_volume")!
         case 3:
             conversionType = SPEED_USER_DEFAULTS_KEY
-            icon = UIImage(named: "ic_speed")!
+            icon = UIImage(named: "icon_speed")!
+            
+        case 4:
+            conversionType = DISTANCE_USER_DEFAULTS_KEY
+            icon = UIImage(named: "icon_distance")!
+        case 5:
+            conversionType = TIME_USER_DEFAULTS_KEY
+            icon = UIImage(named: "icon_time")!
         default:
             break
         }
