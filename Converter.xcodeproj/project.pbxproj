@@ -55,6 +55,10 @@
 		485C6D212BA04C9900EE1CA2 /* Speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485C6D142BA04C9800EE1CA2 /* Speed.swift */; };
 		485C6D222BA04C9900EE1CA2 /* Bloodsugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485C6D152BA04C9900EE1CA2 /* Bloodsugar.swift */; };
 		485C6D232BA04C9900EE1CA2 /* Cooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485C6D162BA04C9900EE1CA2 /* Cooking.swift */; };
+		485EDE1F2BA85DAA005E461A /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485EDE1E2BA85DAA005E461A /* Sound.swift */; };
+		485EDE212BA85DCF005E461A /* SoundConvertionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485EDE202BA85DCF005E461A /* SoundConvertionViewController.swift */; };
+		485EDE232BA8794B005E461A /* Resistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485EDE222BA8794B005E461A /* Resistance.swift */; };
+		485EDE252BA8795E005E461A /* ResistanceConvertionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485EDE242BA8795E005E461A /* ResistanceConvertionViewController.swift */; };
 		489D60152BA1D9BA0052FA30 /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489D60142BA1D9BA0052FA30 /* Area.swift */; };
 		489D60172BA1DA740052FA30 /* AreaConversionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489D60162BA1DA740052FA30 /* AreaConversionViewController.swift */; };
 /* End PBXBuildFile section */
@@ -109,6 +113,10 @@
 		485C6D142BA04C9800EE1CA2 /* Speed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Speed.swift; sourceTree = "<group>"; };
 		485C6D152BA04C9900EE1CA2 /* Bloodsugar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bloodsugar.swift; sourceTree = "<group>"; };
 		485C6D162BA04C9900EE1CA2 /* Cooking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cooking.swift; sourceTree = "<group>"; };
+		485EDE1E2BA85DAA005E461A /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		485EDE202BA85DCF005E461A /* SoundConvertionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundConvertionViewController.swift; sourceTree = "<group>"; };
+		485EDE222BA8794B005E461A /* Resistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resistance.swift; sourceTree = "<group>"; };
+		485EDE242BA8795E005E461A /* ResistanceConvertionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResistanceConvertionViewController.swift; sourceTree = "<group>"; };
 		489D60142BA1D9BA0052FA30 /* Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
 		489D60162BA1DA740052FA30 /* AreaConversionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaConversionViewController.swift; sourceTree = "<group>"; };
 		4C40EBFFE0DF3147F48EBC25 /* Pods-Converter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Converter.debug.xcconfig"; path = "Target Support Files/Pods-Converter/Pods-Converter.debug.xcconfig"; sourceTree = "<group>"; };
@@ -194,6 +202,8 @@
 				485C6CDC2BA047C300EE1CA2 /* ConvertionsViewController.swift */,
 				485C6CD22BA047C300EE1CA2 /* CookingConversionViewController.swift */,
 				485C6CE02BA047C300EE1CA2 /* DataConversionViewController.swift */,
+				485EDE202BA85DCF005E461A /* SoundConvertionViewController.swift */,
+				485EDE242BA8795E005E461A /* ResistanceConvertionViewController.swift */,
 				485C6CD02BA047C300EE1CA2 /* DistanceConversionViewController.swift */,
 				485C6CD42BA047C300EE1CA2 /* EneryConvertionViewController.swift */,
 				485C6CD12BA047C300EE1CA2 /* FrequencyConversionViewController.swift */,
@@ -239,10 +249,12 @@
 				485C6D102BA04C9800EE1CA2 /* Data.swift */,
 				485C6D112BA04C9800EE1CA2 /* Distance.swift */,
 				485C6D0B2BA04C9800EE1CA2 /* Energy.swift */,
+				485EDE222BA8794B005E461A /* Resistance.swift */,
 				485C6D0D2BA04C9800EE1CA2 /* Frequency.swift */,
 				485C6D0A2BA04C9800EE1CA2 /* Power.swift */,
 				485C6D122BA04C9800EE1CA2 /* Space.swift */,
 				485C6D142BA04C9800EE1CA2 /* Speed.swift */,
+				485EDE1E2BA85DAA005E461A /* Sound.swift */,
 				485C6D0E2BA04C9800EE1CA2 /* Temperature.swift */,
 				485C6D132BA04C9800EE1CA2 /* Time.swift */,
 				489D60142BA1D9BA0052FA30 /* Area.swift */,
@@ -386,6 +398,7 @@
 				485C6C8F2BA0331300EE1CA2 /* AppDelegate.swift in Sources */,
 				485C6D1F2BA04C9900EE1CA2 /* Space.swift in Sources */,
 				485C6CF22BA047C300EE1CA2 /* DataConversionViewController.swift in Sources */,
+				485EDE212BA85DCF005E461A /* SoundConvertionViewController.swift in Sources */,
 				485C6CE82BA047C300EE1CA2 /* ConstantsViewController.swift in Sources */,
 				485C6CF32BA047C300EE1CA2 /* SpeedConversionViewController.swift in Sources */,
 				485C6CEA2BA047C300EE1CA2 /* TemperatureConversionViewController.swift in Sources */,
@@ -397,9 +410,12 @@
 				485C6D192BA04C9900EE1CA2 /* Volume.swift in Sources */,
 				485C6CCD2BA046E300EE1CA2 /* UITableView+EmptyTable.swift in Sources */,
 				485C6CE22BA047C300EE1CA2 /* DistanceConversionViewController.swift in Sources */,
+				485EDE1F2BA85DAA005E461A /* Sound.swift in Sources */,
 				485C6CED2BA047C300EE1CA2 /* TimeConversionViewController.swift in Sources */,
 				485C6D172BA04C9900EE1CA2 /* Power.swift in Sources */,
 				485C6CE72BA047C300EE1CA2 /* HistoryViewController.swift in Sources */,
+				485EDE252BA8795E005E461A /* ResistanceConvertionViewController.swift in Sources */,
+				485EDE232BA8794B005E461A /* Resistance.swift in Sources */,
 				489D60172BA1DA740052FA30 /* AreaConversionViewController.swift in Sources */,
 				485C6CE92BA047C300EE1CA2 /* SpaceConversionViewController.swift in Sources */,
 				485C6CFF2BA0484F00EE1CA2 /* Constant.swift in Sources */,
@@ -550,6 +566,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -559,7 +576,6 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Converter;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -570,6 +586,7 @@
 				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.valueconverter.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -582,6 +599,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FA5483J7Z7;
@@ -590,7 +608,6 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Converter;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -601,6 +618,7 @@
 				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.valueconverter.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
